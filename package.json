@@ -2,9 +2,9 @@
   "name": "octo",
     "main": "index.html",
     "window": {
-      "show":       false,
-      "toolbar":    false,
-      "frame":      false,
+      "show":       true,
+      "toolbar":    true,
+      "frame":      true,
       "position":   "center",
       "width":      300,
       "height":     400,
