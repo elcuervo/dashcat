@@ -3,6 +3,8 @@ html {
   padding: 0px;
   overflow: hidden;
   font-family: sans-serif;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 @font-face {

@@ -5,44 +5,82 @@ $(function() {
   appWindow.show();
   appWindow.focus();
 
-  var oauthToken = localStorage.getItem("oauth_token");
+  var DashCat = new Backbone.Marionette.Application();
 
-  var eventToIcon = {
-    "PushEvent": "push"
-  };
+  DashCat.addRegions({
+    menu: "#menu",
+    content: "#content"
+  });
 
-  var getEvents = function(oauthToken) {
-    console.log(oauthToken);
-    $.ajax({
-      url: "https://api.github.com/users/elcuervo/received_events",
-      headers: {"Authorization": "token " + oauthToken},
-      success: function(data) {
-        var ul = $("#items");
-        $.each(data, function(i, item) {
-          var message = item.actor.login + " " + item.type + " to " + item.repo.name;
+  DashCat.addInitializer(function() {
+    var oauthToken = localStorage.getItem("oauth_token");
 
-          ul.append(
-            $("<span>").addClass("icon " + eventToIcon[item.type])
-          );
+    if(oauthToken) {
+      $.ajaxSetup({
+        headers: { "Authorization": "token " + oauthToken },
+      });
+    }
 
-          ul.append( $("<li>").text(message));
-        })
-      }
+    var user = new User();
+    user.fetch();
+
+    console.log(user);
+
+    var menuView = new MenuView({
+      model: user
     });
-  }
 
-  if(!oauthToken) {
-    $.ajax({
-      url: "https://api.github.com/authorizations",
-      type: "POST",
-      headers: {"Authorization": "Basic " + btoa("elcuervo:*********")},
-      data: JSON.stringify({ scopes: "repo" }),
-      success: function(response) {
-        localStorage.setItem("oauth_token", response.token)
-        getEvents(response.token);
-      }
+    var eventsCollection = new EventsCollection();
+    var eventsView = new EventsView({
+      collection: eventsCollection
     });
-  } else {
-    getEvents(oauthToken);
-  }
+
+    eventsCollection.fetch();
+
+    DashCat.menu.show(menuView);
+    DashCat.content.show(eventsView);
+  });
+
+  DashCat.start();
+
+
+
+
+//var eventToIcon = {
+//  "PushEvent": "push"
+//};
+
+//var getEvents = function(oauthToken) {
+//  console.log(oauthToken);
+//  $.ajax({
+//    url: "https://api.github.com/users/elcuervo/received_events",
+//    success: function(data) {
+//      var ul = $("#items");
+//      $.each(data, function(i, item) {
+//        var message = item.actor.login + " " + item.type + " to " + item.repo.name;
+
+//        ul.append(
+//          $("<span>").addClass("icon " + eventToIcon[item.type])
+//        );
+
+//        ul.append( $("<li>").text(message));
+//      })
+//    }
+//  });
+//}
+
+//if(!oauthToken) {
+//  $.ajax({
+//    url: "https://api.github.com/authorizations",
+//    type: "POST",
+//    headers: {"Authorization": "Basic " + btoa("elcuervo:*********")},
+//    data: JSON.stringify({ scopes: "repo" }),
+//    success: function(response) {
+//      localStorage.setItem("oauth_token", response.token)
+//      getEvents(response.token);
+//    }
+//  });
+//} else {
+//  getEvents(oauthToken);
+//}
 });
