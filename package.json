@@ -1,0 +1,14 @@
+{
+  "name": "octo",
+    "main": "index.html",
+    "window": {
+      "show":       false,
+      "toolbar":    false,
+      "frame":      false,
+      "position":   "center",
+      "width":      300,
+      "height":     400,
+      "min_width":  300,
+      "min_height": 220
+    }
+}
