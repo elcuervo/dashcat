@@ -4,39 +4,3 @@ html {
   overflow: hidden;
   font-family: sans-serif;
 }
-
-#menu {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 32px;
-  background-color: #7a7c7c;
-  -webkit-user-select: none;
-  -webkit-app-region: drag;
-}
-
-#menu h1 {
-  width: 40px;
-  font-size: 1em;
-  float: left
-}
-
-#close {
-  position: absolute;
-  right: 11px;
-  width: 17px;
-  height: 17px;
-  margin-top: 6px;
-  margin-bottom: 6px;
-  -webkit-app-region: no-drag;
-}
-
-#close:hover {
-  background-color: white;
-}
-
-#items {
-  position: relative;
-  top: 50px
-}
