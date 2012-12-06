@@ -4,6 +4,10 @@ gui.Window.get().show();
 $(function() {
   var oauthToken = localStorage.getItem("oauth_token");
 
+  var eventToIcon = {
+    "PushEvent": "push"
+  };
+
   var getEvents = function(oauthToken) {
     console.log(oauthToken);
     $.ajax({
@@ -12,9 +16,13 @@ $(function() {
       success: function(data) {
         var ul = $("#items");
         $.each(data, function(i, item) {
-          var message = item.type + " from " + item.actor.login;
+          var message = item.actor.login + " " + item.type + " to " + item.repo.name;
 
-          ul.append($("<li>").text(message));
+          ul.append(
+            $("<span>").addClass("icon " + eventToIcon[item.type])
+          );
+
+          ul.append( $("<li>").text(message));
         })
       }
     });
