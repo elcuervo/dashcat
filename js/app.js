@@ -1,7 +1,10 @@
-var gui = require("nw.gui")
-gui.Window.get().show();
-
 $(function() {
+  var gui = require("nw.gui")
+  var appWindow = gui.Window.get();
+
+  appWindow.show();
+  appWindow.focus();
+
   var oauthToken = localStorage.getItem("oauth_token");
 
   var eventToIcon = {

@@ -10,6 +10,12 @@ html {
   src: url("../fonts/octicons-regular-webfont.ttf") format("truetype");
 }
 
+.container {
+  width: 400px;
+  height: 600px;
+  overflow: scroll;
+}
+
 .push:before {
   content: "\f005"
 }
