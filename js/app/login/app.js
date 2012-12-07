@@ -2,20 +2,24 @@ var Login = DashCat.module("Login", {
   startWithParent: false,
 
   define: function() {
-    this.addInitializer(function() {
-      var App = new Backbone.Marionette.Application();
+    var app = new Backbone.Marionette.Application();
 
-      App.addRegions({
+    this.addInitializer(function() {
+      app.addRegions({
         main: "#login"
       });
 
-      App.addInitializer(function() {
+      app.addInitializer(function() {
         var loginView = new LoginView();
 
-        App.main.show(loginView);
+        app.main.show(loginView);
       });
 
-      App.start();
+      app.start();
+    });
+
+    this.addFinalizer(function() {
+      app.main.close();
     });
   }
 });

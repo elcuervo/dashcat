@@ -16,6 +16,8 @@ var LoginView = Backbone.Marionette.ItemView.extend({
       data: JSON.stringify({ scopes: "repo" }),
       success: function(response) {
         DashCat.token = response.token;
+        DashCat.Login.stop();
+        DashCat.Main.start();
       }
     });
     return false;
