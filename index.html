@@ -9,6 +9,12 @@
     <script type="text/javascript" src="js/backbone.marionette.js"></script>
   </head>
   <body>
+    <script id="not-implemented-event-template" type="text/html">
+      <h1 style="color:red">
+       <%= type %> not implemented
+      </h1>
+    </script>
+
     <script id="login-template" type="text/html">
       <div class="logo"></div>
       <div class="form">
@@ -21,8 +27,31 @@
         </form>
       </div>
     </script>
+
     <script id="menu-template" type="text/html">
       <img class="avatar" src="<%= avatar_url %>" alt="" />
+    </script>
+
+    <script id="fork-event-template" type="text/html">
+      <div class="event fork-event box">
+        <a name="<%= id %>"></a>
+        <div class="user">
+          <span class="icon <%= eventClass %>"></span>
+        </div>
+        <div class="body">
+          <h2><%= actor.login %></h2>
+          <span class="info">
+            &#160;forked
+            <a href="<%= repo.url %>">
+              <span class="repo_name"><%= repo.name %></span>
+            </a>
+            to
+            <a href="<%= payload.forkee.url %>">
+              <span class="repo_name"><%= payload.forkee.full_name %></span>
+            </a>
+          </span>
+        </div>
+      </div>
     </script>
 
     <script id="gist-event-template" type="text/html">
@@ -34,10 +63,10 @@
         <div class="body">
           <h2><%= actor.login %></h2>
           <span class="info">
-          &#160;<%= action(payload.action) %> gist
-          <a href="<%= payload.gist.url %>">
-            <span class="repo_name"><%= payload.gist.id %></span>
-          </a>
+            &#160;<%= action(payload.action) %> gist
+            <a href="<%= payload.gist.url %>">
+              <span class="repo_name"><%= payload.gist.id %></span>
+            </a>
           </span>
         </div>
       </div>
@@ -61,6 +90,29 @@
       </div>
     </script>
 
+    <script id="issue-comment-event-template" type="text/html">
+      <% console.log(arguments) %>
+
+      <div class="event issue-comment-event box">
+        <a name="<%= id %>"></a>
+        <div class="user">
+          <img class="avatar" src="<%= actor.avatar_url %>" alt="" />
+          <span class="icon <%= eventClass %>"></span>
+        </div>
+        <div class="body">
+          <h2><%= actor.login %></h2>
+          <p class="info">
+            commented on
+            <a href="<%= cleanUrl(payload.issue.url) %>">
+              <span class="issue"><%= repo.name %>#<%= payload.issue.number %></span>
+            </a>
+            <blockquote>
+              <%= payload.comment.body %>
+            </blockquote>
+          </p>
+        </div>
+      </div>
+    </script>
 
     <script id="push-event-template" type="text/html">
       <div class="event push-event box">
@@ -80,8 +132,8 @@
               <% _.each(payload.commits, function(commit) { %>
                 <li class="commit">
                   <code>
-                    <a href="<%= commit.url.replace("api.", "\1") %>">
-                      <span class="sha"><%= commit.sha.substr(0,7) %></span>
+                    <a href="<%= cleanUrl(commit.url) %>">
+                      <span class="sha"><%= sha(commit) %></span>
                     </a>
                   </code>
                   <span class="message"> <%= commit.message %></span>

@@ -52,7 +52,7 @@ body {
   font-size: 1.5em;
 }
 
-.push-event .icon {
+.push-event .icon, .issue-comment-event .icon {
   background-color: white;
   position: relative;
   top: -15px;
@@ -66,7 +66,7 @@ body {
   border-radius: 5px;
 }
 
-.avatar, .push-event .user {
+.avatar, .push-event .user, .issue-comment-event .user {
   width: 50px;
   height: 50px;
 }

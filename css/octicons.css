@@ -9,3 +9,11 @@
 .gist:before {
   content: "\f00e"
 }
+
+.fork:before {
+  content: "\f020"
+}
+
+.issue-comment:before {
+  content: "\f029"
+}
