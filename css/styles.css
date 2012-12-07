@@ -1,19 +1,13 @@
 html {
-  overflow: hidden;
   font-family: sans-serif;
-  overflow: scroll;
   height: 100%;
-  -webkit-overflow-scrolling: touch;
 }
 
-ul {
+ol {
   list-style: none;
   margin: 0;
   padding: 0;
   font-size: 0.9em
-}
-
-#items li {
 }
 
 body {
@@ -25,6 +19,14 @@ body {
 @font-face {
   font-family: "Octicons Regular";
   src: url("../fonts/octicons-regular-webfont.ttf") format("truetype");
+}
+
+#items {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+#items li {
 }
 
 .box {
@@ -52,12 +54,15 @@ body {
   text-decoration: none
 }
 
-.avatar {
-  width: 50px
+.avatar, .user {
+  width: 50px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 #container {
-  overflow: scroll;
+  overflow: hidden;
 }
 
 #menu {
@@ -72,6 +77,10 @@ body {
   -moz-box-flex: 1;
   -webkit-box-flex: 1;
   box-flex: 1;
+}
+
+#menu .items {
+  position: fixed;
 }
 
 #menu .avatar {
@@ -93,10 +102,6 @@ body {
 .event {
   padding: 10px;
   border-bottom: 1px solid #ececec
-}
-
-.event .user {
-  width: 50px;
 }
 
 .event .body {
