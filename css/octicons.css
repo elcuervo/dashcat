@@ -1,7 +1,11 @@
-.pushevent:before {
+.push:before {
   content: "\f005"
 }
 
-.watchevent:before {
-  content: "\f01d"
+.watch:before {
+  content: "\f02a"
+}
+
+.gist:before {
+  content: "\f00e"
 }

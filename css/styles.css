@@ -47,22 +47,28 @@ body {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   text-decoration: none;
-  position: relative;
-  top: -15px;
-  right: -35px;
-  background-color: white;
   border-radius: 2px;
   padding: 1px;
   font-size: 1.5em;
+}
+
+.push-event .icon {
+  background-color: white;
+  position: relative;
+  top: -15px;
+  right: -35px;
   border: 1px solid grey
 }
 
 .avatar, .user {
-  width: 50px;
-  height: 50px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+}
+
+.avatar, .push-event .user {
+  width: 50px;
+  height: 50px;
 }
 
 #container {
@@ -145,4 +151,27 @@ ol.commits {
 }
 
 .commit .message {
+}
+
+.watch-event {
+  min-height: 10px
+}
+
+.watch-event h2{
+  float: left
+}
+
+.watch-event .icon {
+  top: 0;
+  left: 10px;
+  position: relative;
+  color: grey
+}
+
+.watch-event .user {
+  width: 50px;
+}
+
+.watch-event .body {
+  padding-top: 5px
 }
