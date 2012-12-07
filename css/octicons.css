@@ -33,3 +33,15 @@
 .commit-comment:before {
   content: "\f02b"
 }
+
+.pull-request:before {
+  content: "\f022"
+}
+
+.create:before {
+  content: "\f003"
+}
+
+.follow:before {
+  content: "\f01c"
+}

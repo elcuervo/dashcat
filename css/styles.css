@@ -10,6 +10,10 @@ ol {
   font-size: 0.9em
 }
 
+.pull-request-event code {
+  display: block
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -99,6 +103,7 @@ blockquote:after {
 }
 
 .push-event .icon,
+.pull-request-event .icon,
 .issue-comment-event .icon {
   background-color: white;
   position: relative;
@@ -113,7 +118,9 @@ blockquote:after {
   border-radius: 5px;
 }
 
-.avatar, .push-event .user,
+.avatar,
+.push-event .user,
+.pull-request-event .user,
 .issue-comment-event .user {
   width: 50px;
   height: 50px;
@@ -203,6 +210,8 @@ a {
 
 .watch-event,
 .gist-event,
+.create-event,
+.follow-event,
 .issues-event,
 .fork-event {
   min-height: 10px
@@ -211,6 +220,8 @@ a {
 .watch-event h2,
 .fork-event h2,
 .issues-event h2,
+.create-event h2,
+.follow-event h2,
 .gist-event h2 {
   float: left
 }
@@ -218,6 +229,8 @@ a {
 .watch-event .icon,
 .fork-event .icon,
 .issues-event .icon,
+.create-event .icon,
+.follow-event .icon,
 .gist-event .icon {
   top: 0;
   left: 10px;
@@ -228,6 +241,8 @@ a {
 .watch-event .user,
 .fork-event .user,
 .issues-event .user,
+.create-event .user,
+.follow-event .user,
 .gist-event .user {
   width: 50px;
 }
