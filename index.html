@@ -11,6 +11,7 @@
   <body>
     <script id="not-implemented-event-template" type="text/html">
       <h1 style="color:red">
+        <% console.log(arguments) %>
        <%= type %> not implemented
       </h1>
     </script>
@@ -90,9 +91,25 @@
       </div>
     </script>
 
-    <script id="issue-comment-event-template" type="text/html">
-      <% console.log(arguments) %>
+    <script id="issue-event-template" type="text/html">
+      <div class="event issue-event box">
+        <a name="<%= id %>"></a>
+        <div class="user">
+          <span class="icon <%= eventClass %>"></span>
+        </div>
+        <div class="body">
+          <h2><%= actor.login %></h2>
+          <span class="info">
+            &#160;<%= payload.action %>
+            <a href="<%= repo.url %>">
+              <span class="issue"><%= repo.name %></span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </script>
 
+    <script id="issue-comment-event-template" type="text/html">
       <div class="event issue-comment-event box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -107,7 +124,9 @@
               <span class="issue"><%= repo.name %>#<%= payload.issue.number %></span>
             </a>
             <blockquote>
-              <%= payload.comment.body %>
+              <span class="quote quote-left">&#8220;</span>
+              <p class="quote-body"> <%= payload.comment.body %> </p>
+              <span class="quote quote-right">&#8221;</span>
             </blockquote>
           </p>
         </div>

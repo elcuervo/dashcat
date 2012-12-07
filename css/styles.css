@@ -16,9 +16,55 @@ body {
   border: 0;
 }
 
+blockquote {
+  color: #999;
+  margin: 5px;
+  position: relative;
+}
+
+blockquote:before,
+blockquote:after {
+  content: '';
+  display: table;
+}
+
+blockquote:after {
+  clear: both;
+}
+
 @font-face {
   font-family: "Octicons Regular";
   src: url("../fonts/octicons-regular-webfont.ttf") format("truetype");
+}
+
+.quote {
+  font-size: 2.5em;
+  font-family: georgia, sans-serif;
+  line-height: 1em;
+  float: left;
+  width: 3%;
+}
+
+.quote-body {
+  font-size: .9em;
+  width: 94%;
+  float: left;
+  margin: 0;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+
+.quote-left {
+  position: relative;
+  left: -5px
+}
+
+.quote-right {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 #items {
@@ -52,11 +98,12 @@ body {
   font-size: 1.5em;
 }
 
-.push-event .icon, .issue-comment-event .icon {
+.push-event .icon,
+.issue-comment-event .icon {
   background-color: white;
   position: relative;
-  top: -15px;
-  right: -35px;
+  top: -20px;
+  right: -30px;
   border: 1px solid grey
 }
 
@@ -66,7 +113,9 @@ body {
   border-radius: 5px;
 }
 
-.avatar, .push-event .user, .issue-comment-event .user {
+.avatar, .push-event .user,
+.fork-event .user,
+.issue-comment-event .user {
   width: 50px;
   height: 50px;
 }
@@ -175,3 +224,7 @@ a {
 .watch-event .body {
   padding-top: 5px
 }
+
+.pull-left { float: left }
+.pull-right { float: right}
+

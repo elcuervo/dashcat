@@ -12,7 +12,6 @@ var EventView = Backbone.Marionette.ItemView.extend({
   templateHelpers: function() {
     var eventName = this.model.get("type").match(/[A-Z][a-z]+/g);
     var eventClass = eventName.slice(0, -1).join("-").toLowerCase();
-    console.log(eventClass);
 
     var helpers = {
       cleanUrl: function(url) {
