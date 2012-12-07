@@ -43,11 +43,11 @@
           <h2><%= actor.login %></h2>
           <span class="info">
             &#160;forked
-            <a href="<%= repo.url %>">
+            <a href="<%= cleanUrl(repo.url) %>">
               <span class="repo_name"><%= repo.name %></span>
             </a>
             to
-            <a href="<%= payload.forkee.url %>">
+            <a href="<%= cleanUrl(payload.forkee.url) %>">
               <span class="repo_name"><%= payload.forkee.full_name %></span>
             </a>
           </span>
@@ -65,7 +65,7 @@
           <h2><%= actor.login %></h2>
           <span class="info">
             &#160;<%= action(payload.action) %> gist
-            <a href="<%= payload.gist.url %>">
+            <a href="<%= cleanUrl(payload.gist.url) %>">
               <span class="repo_name"><%= payload.gist.id %></span>
             </a>
           </span>
@@ -83,7 +83,7 @@
           <h2><%= actor.login %></h2>
           <span class="info">
             &#160;starred
-            <a href="<%= repo.url %>">
+            <a href="<%= cleanUrl(repo.url) %>">
               <span class="repo_name"><%= repo.name %></span>
             </a>
           </span>
@@ -101,10 +101,80 @@
           <h2><%= actor.login %></h2>
           <span class="info">
             &#160;<%= payload.action %>
-            <a href="<%= repo.url %>">
+            <a href="<%= cleanUrl(repo.url) %>">
               <span class="issue"><%= repo.name %></span>
             </a>
           </span>
+        </div>
+      </div>
+    </script>
+
+    <script id="commit-comment-event-template" type="text/html">
+      <div class="event commit-comment-event box">
+        <a name="<%= id %>"></a>
+        <div class="user">
+          <img class="avatar" src="<%= actor.avatar_url %>" alt="" />
+          <span class="icon <%= eventClass %>"></span>
+        </div>
+        <div class="body">
+          <h2><%= actor.login %></h2>
+          <p class="info">
+            commented commit
+            <a href="<%= payload.comment.html_url %>">
+              <span class="commit"><%= sha(payload.comment.commit_id) %></span>
+            </a>
+            on
+            <%= repo.name %>
+            <blockquote>
+              <span class="quote quote-left">&#8220;</span>
+              <p class="quote-body"> <%= payload.comment.body %> </p>
+              <span class="quote quote-right">&#8221;</span>
+            </blockquote>
+          </p>
+        </div>
+      </div>
+    </script>
+
+    <script id="issues-event-template" type="text/html">
+      <div class="event issues-event box">
+        <a name="<%= id %>"></a>
+        <div class="user">
+          <span class="icon <%= eventClass %> issue-<%= payload.action %>"></span>
+        </div>
+        <div class="body">
+          <h2><%= actor.login %></h2>
+          <span class="info">
+            &#160;<%= payload.action %>
+            <a href="<%= cleanUrl(repo.url) %>">
+              <span class="issue"><%= repo.name %>#<%= payload.issue.number %></span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </script>
+
+    <script id="pull-request-event-template" type="text/html">
+      <% console.log("PR", arguments) %>
+      <div class="event pull-request-event box">
+        <a name="<%= id %>"></a>
+        <div class="user">
+          <img class="avatar" src="<%= actor.avatar_url %>" alt="" />
+          <span class="icon <%= eventClass %>"></span>
+        </div>
+        <div class="body">
+          <h2><%= actor.login %></h2>
+          <p class="info">
+            <%= payload.action %> pull request
+            <a href="<%= payload.pull_request.html_url %>">
+              <span class="issue"><%= repo.name %>#<%= payload.pull_request.number %></span>
+            </a>
+            <%= payload.pull_request.title %>
+            <code>
+              Commits: <%= payload.pull_request.commits %>
+              Additions: <%= payload.pull_request.additions %>
+              Deletions: <%= payload.pull_request.deletions %>
+            </code>
+          </p>
         </div>
       </div>
     </script>
@@ -146,13 +216,13 @@
             pushed to
             <span class="ref"><%= branch() %></span>
             at
-            <a href="<%= repo.url %>"><span class="repo_name"><%= repo.name %></span></a>
+            <a href="<%= cleanUrl(repo.url) %>"><span class="repo_name"><%= repo.name %></span></a>
             <ol class="commits">
               <% _.each(payload.commits, function(commit) { %>
                 <li class="commit">
                   <code>
                     <a href="<%= cleanUrl(commit.url) %>">
-                      <span class="sha"><%= sha(commit) %></span>
+                      <span class="sha"><%= sha(commit.sha) %></span>
                     </a>
                   </code>
                   <span class="message"> <%= commit.message %></span>

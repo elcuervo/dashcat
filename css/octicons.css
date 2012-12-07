@@ -17,3 +17,19 @@
 .issue-comment:before {
   content: "\f029"
 }
+
+.issue-opened:before {
+  content: "\f026"
+}
+
+.issue-closed:before {
+  content: "\f028"
+}
+
+.issue-reopened:before {
+  content: "\f027"
+}
+
+.commit-comment:before {
+  content: "\f02b"
+}

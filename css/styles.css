@@ -114,7 +114,6 @@ blockquote:after {
 }
 
 .avatar, .push-event .user,
-.fork-event .user,
 .issue-comment-event .user {
   width: 50px;
   height: 50px;
@@ -202,22 +201,34 @@ a {
 .commit .message {
 }
 
-.watch-event, .gist-event {
+.watch-event,
+.gist-event,
+.issues-event,
+.fork-event {
   min-height: 10px
 }
 
-.watch-event h2, .gist-event h2{
+.watch-event h2,
+.fork-event h2,
+.issues-event h2,
+.gist-event h2 {
   float: left
 }
 
-.watch-event .icon, .gist-event .icon {
+.watch-event .icon,
+.fork-event .icon,
+.issues-event .icon,
+.gist-event .icon {
   top: 0;
   left: 10px;
   position: relative;
   color: grey
 }
 
-.watch-event .user, .gist-event .user {
+.watch-event .user,
+.fork-event .user,
+.issues-event .user,
+.gist-event .user {
   width: 50px;
 }
 

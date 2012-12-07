@@ -14,9 +14,14 @@ var EventView = Backbone.Marionette.ItemView.extend({
     var eventClass = eventName.slice(0, -1).join("-").toLowerCase();
 
     var helpers = {
+      sha: function(sha) {
+        return sha.substr(0,7);
+      },
+
       cleanUrl: function(url) {
         return url.replace("api.", "\1")
       },
+
       eventClass: eventClass
     }
 
@@ -29,10 +34,6 @@ var EventView = Backbone.Marionette.ItemView.extend({
 
 var Helpers = {
   PushEvent: {
-    sha: function(commit) {
-      return commit.sha.substr(0,7);
-    },
-
     branch: function() {
       var parts = this.payload.ref.split("/");
       return parts.pop();
