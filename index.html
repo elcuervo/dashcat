@@ -27,7 +27,7 @@
               <% _.each(payload.commits, function(commit) { %>
                 <li class="commit">
                   <code>
-                    <a href="<%= commit.url %>">
+                    <a href="<%= commit.url.replace("api.", "\1") %>">
                       <span class="sha"><%= commit.sha.substr(0,7) %></span>
                     </a>
                   </code>
