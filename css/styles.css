@@ -91,6 +91,8 @@ body {
 }
 
 .event {
+  padding: 10px;
+  border-bottom: 1px solid #ececec
 }
 
 .event .user {
@@ -98,6 +100,7 @@ body {
 }
 
 .event .body {
+  padding-left: 10px;
   -moz-box-flex: 10;
   -webkit-box-flex: 10;
   box-flex: 10;
@@ -109,8 +112,27 @@ body {
   margin: 0
 }
 
-.event .body p {
+.event .body p, .event .body span {
   font-size: 0.9em;
   padding: 0;
   margin: 0
+}
+
+ol.commits {
+  list-style: none;
+  padding-left: 20px
+}
+
+.commit {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+
+.commit code a {
+  text-decoration: none
+}
+
+.commit .message {
 }

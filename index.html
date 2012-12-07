@@ -19,10 +19,25 @@
         </div>
         <div class="body">
           <h2><%= actor.login %></h2>
-          <p><%= repo.name %></p>
+          <p>
+            <span><%= type %></span>
+            <span><%= payload.ref %></span>
+            <span><%= repo.name %></span>
+            <ol class="commits">
+              <% _.each(payload.commits, function(commit) { %>
+                <li class="commit">
+                  <code>
+                    <a href="<%= commit.url %>">
+                      <span class="sha"><%= commit.sha.substr(0,7) %></span>
+                    </a>
+                  </code>
+                  <span class="message"> <%= commit.message %></span>
+                </li>
+              <% }); %>
+            </ol>
+          </p>
         </div>
       </div>
-      <span><%= type %></span>
     </script>
 
   <script id="events-template" type="text/html"> </script>
