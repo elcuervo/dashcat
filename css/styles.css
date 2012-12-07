@@ -38,10 +38,6 @@ body {
   box-orient: horizontal;
 }
 
-.push:before {
-  content: "\f005"
-}
-
 .icon {
   font-family: 'Octicons Regular';
   font-weight: normal;
@@ -50,12 +46,20 @@ body {
   text-decoration: inherit;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
-  line-height: 1;
-  text-decoration: none
+  text-decoration: none;
+  position: relative;
+  top: -15px;
+  right: -35px;
+  background-color: white;
+  border-radius: 2px;
+  padding: 1px;
+  font-size: 1.5em;
+  border: 1px solid grey
 }
 
 .avatar, .user {
   width: 50px;
+  height: 50px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -101,6 +105,7 @@ body {
 
 .event {
   padding: 10px;
+  min-height: 60px;
   border-bottom: 1px solid #ececec
 }
 
@@ -117,7 +122,7 @@ body {
   margin: 0
 }
 
-.event .body p, .event .body span {
+.info {
   font-size: 0.9em;
   padding: 0;
   margin: 0

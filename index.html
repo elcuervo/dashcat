@@ -2,6 +2,7 @@
   <head>
     <title>Dashcat</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/octicons.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/underscore.js"></script>
     <script type="text/javascript" src="js/backbone.js"></script>
@@ -14,15 +15,16 @@
 
     <script id="event-template" type="text/html">
       <div class="event box">
+        <a name="<%= id %>"></a>
         <div class="user">
           <img class="avatar" src="<%= actor.avatar_url %>" alt="" />
+          <span class="icon <%= type.toLowerCase() %>"></span>
         </div>
         <div class="body">
           <h2><%= actor.login %></h2>
-          <p>
-            <span><%= type %></span>
-            <span><%= payload.ref %></span>
-            <span><%= repo.name %></span>
+          <p class="info">
+            <span class="ref"><%= payload.ref %></span>
+            <span class="repo_name"><%= repo.name %></span>
             <ol class="commits">
               <% _.each(payload.commits, function(commit) { %>
                 <li class="commit">
