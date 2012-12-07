@@ -23,7 +23,9 @@
           <h2><%= actor.login %></h2>
           <span class="info">
           &#160;<%= action(payload.action) %> gist
-          <span class="repo_name"><%= payload.gist.id %></span>
+          <a href="<%= payload.gist.url %>">
+            <span class="repo_name"><%= payload.gist.id %></span>
+          </a>
           </span>
         </div>
       </div>
@@ -38,7 +40,10 @@
         <div class="body">
           <h2><%= actor.login %></h2>
           <span class="info">
-            &#160;starred <span class="repo_name"><%= repo.name %></span>
+            &#160;starred
+            <a href="<%= repo.url %>">
+              <span class="repo_name"><%= repo.name %></span>
+            </a>
           </span>
         </div>
       </div>
@@ -55,8 +60,10 @@
         <div class="body">
           <h2><%= actor.login %></h2>
           <p class="info">
-            <span class="ref"><%= payload.ref %></span>
-            <span class="repo_name"><%= repo.name %></span>
+            pushed to
+            <span class="ref"><%= branch() %></span>
+            at
+            <a href="<%= repo.url %>"><span class="repo_name"><%= repo.name %></span></a>
             <ol class="commits">
               <% _.each(payload.commits, function(commit) { %>
                 <li class="commit">

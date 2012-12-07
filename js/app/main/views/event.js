@@ -33,6 +33,13 @@ var EventView = Backbone.Marionette.ItemView.extend({
 });
 
 var Helpers = {
+  PushEvent: {
+    branch: function() {
+      var parts = this.payload.ref.split("/");
+      return parts.pop();
+    }
+  },
+
   GistEvent: {
     action: function(action) {
       return action + "d";

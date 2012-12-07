@@ -146,7 +146,7 @@ ol.commits {
   text-overflow: ellipsis
 }
 
-.commit code a {
+a {
   text-decoration: none
 }
 
