@@ -13,6 +13,22 @@
       <img class="avatar" src="<%= avatar_url %>" alt="" />
     </script>
 
+    <script id="gist-event-template" type="text/html">
+      <div class="event gist-event box">
+        <a name="<%= id %>"></a>
+        <div class="user">
+          <span class="icon <%= eventClass %>"></span>
+        </div>
+        <div class="body">
+          <h2><%= actor.login %></h2>
+          <span class="info">
+          &#160;<%= action(payload.action) %> gist
+          <span class="repo_name"><%= payload.gist.id %></span>
+          </span>
+        </div>
+      </div>
+    </script>
+
     <script id="watch-event-template" type="text/html">
       <div class="event watch-event box">
         <a name="<%= id %>"></a>

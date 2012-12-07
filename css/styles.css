@@ -153,22 +153,22 @@ ol.commits {
 .commit .message {
 }
 
-.watch-event {
+.watch-event, .gist-event {
   min-height: 10px
 }
 
-.watch-event h2{
+.watch-event h2, .gist-event h2{
   float: left
 }
 
-.watch-event .icon {
+.watch-event .icon, .gist-event .icon {
   top: 0;
   left: 10px;
   position: relative;
   color: grey
 }
 
-.watch-event .user {
+.watch-event .user, .gist-event .user {
   width: 50px;
 }
 
