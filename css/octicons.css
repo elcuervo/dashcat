@@ -1,3 +1,7 @@
 .pushevent:before {
   content: "\f005"
 }
+
+.watchevent:before {
+  content: "\f01d"
+}
