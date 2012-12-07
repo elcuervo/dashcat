@@ -9,6 +9,18 @@
     <script type="text/javascript" src="js/backbone.marionette.js"></script>
   </head>
   <body>
+    <script id="login-template" type="text/html">
+      <div class="logo"></div>
+      <div class="form">
+        <form action="">
+          <input type="text" id="username"/>
+          <input type="password" id="password"/>
+          <button type="submit">
+          Request a token
+          </button>
+        </form>
+      </div>
+    </script>
     <script id="menu-template" type="text/html">
       <img class="avatar" src="<%= avatar_url %>" alt="" />
     </script>
@@ -82,6 +94,7 @@
     </script>
 
   <script id="events-template" type="text/html"> </script>
+    <div id="login"></div>
 
     <div id="container" class="box">
       <div id="menu"></div>
@@ -91,8 +104,11 @@
 
   <script type="text/javascript" src="js/app/base.js"></script>
 
+  <!-- LOGIN -->
   <script type="text/javascript" src="js/app/login/app.js"></script>
+  <script type="text/javascript" src="js/app/login/views/login.js"></script>
 
+  <!-- MAIN -->
   <script type="text/javascript" src="js/app/main/models/user.js"></script>
   <script type="text/javascript" src="js/app/main/models/event.js"></script>
 
