@@ -1,50 +1,18 @@
-$(function() {
-  var gui = require("nw.gui")
-  var appWindow = gui.Window.get();
+var gui = require("nw.gui")
+var appWindow = gui.Window.get();
 
-  appWindow.show();
-  appWindow.focus();
+var DashCat = new Backbone.Marionette.Application({
+  token: localStorage.getItem("oauth_token"),
 
-  var DashCat = new Backbone.Marionette.Application();
+  isAuthorized: function() {
+    return !!this.token;
+  },
+});
 
-  DashCat.addRegions({
-    menu: "#menu",
-    content: "#content"
-  });
+DashCat.start();
 
-  DashCat.addInitializer(function() {
-    var oauthToken = localStorage.getItem("oauth_token");
-
-    if(oauthToken) {
-      $.ajaxSetup({
-        headers: { "Authorization": "token " + oauthToken },
-      });
-    }
-
-    var user = new User();
-    user.fetch();
-
-    console.log(user);
-
-    var menuView = new MenuView({
-      model: user
-    });
-
-    var eventsCollection = new EventsCollection();
-    var eventsView = new EventsView({
-      collection: eventsCollection
-    });
-
-    eventsCollection.fetch();
-
-    DashCat.menu.show(menuView);
-    DashCat.content.show(eventsView);
-  });
-
-  DashCat.start();
-
-
-
+appWindow.show();
+appWindow.focus();
 
 //var eventToIcon = {
 //  "PushEvent": "push"
@@ -83,4 +51,3 @@ $(function() {
 //} else {
 //  getEvents(oauthToken);
 //}
-});
