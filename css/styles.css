@@ -216,6 +216,7 @@ a {
 
 .watch-event,
 .gist-event,
+.member-event,
 .create-event,
 .follow-event,
 .issues-event,
@@ -227,6 +228,7 @@ a {
 .fork-event h2,
 .issues-event h2,
 .create-event h2,
+.member-event h2,
 .follow-event h2,
 .gist-event h2 {
   float: left
@@ -237,6 +239,7 @@ a {
 .issues-event .icon,
 .create-event .icon,
 .follow-event .icon,
+.member-event .icon,
 .gist-event .icon {
   top: 0;
   left: 10px;
@@ -249,6 +252,7 @@ a {
 .issues-event .user,
 .create-event .user,
 .follow-event .user,
+.member-event .user,
 .gist-event .user {
   width: 50px;
 }

@@ -31,7 +31,7 @@
 }
 
 .commit-comment:before {
-  content: "\f02b"
+  content: "\f04f"
 }
 
 .pull-request:before {
@@ -60,4 +60,12 @@
 
 .delete:before {
   content: "\f004"
+}
+
+.member-added:before {
+  content: "\f01a"
+}
+
+.member-removed:before {
+  content: "\f01b"
 }

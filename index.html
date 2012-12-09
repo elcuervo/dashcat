@@ -30,7 +30,9 @@
     </script>
 
     <script id="menu-template" type="text/html">
-      <img class="avatar" src="<%= avatar_url %>" alt="" />
+      <div id="menu_avatar">
+        <img class="avatar" src="<%= avatar_url %>" alt="" />
+      </div>
     </script>
 
     <script id="fork-event-template" type="text/html">
@@ -42,13 +44,32 @@
         <div class="body">
           <h2><%= actor.login %></h2>
           <span class="info">
-            &#160;forked
+            &#160;
             <a href="<%= cleanUrl(repo.url) %>">
               <span class="repo_name"><%= repo.name %></span>
             </a>
             to
             <a href="<%= cleanUrl(payload.forkee.url) %>">
               <span class="repo_name"><%= payload.forkee.full_name %></span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </script>
+
+    <script id="member-event-template" type="text/html">
+      <% console.log("Member", arguments) %>
+      <div class="event member-event box">
+        <a name="<%= id %>"></a>
+        <div class="user">
+          <span class="icon <%= eventClass %> member-<%= payload.action %>"></span>
+        </div>
+        <div class="body">
+          <h2><%= actor.login %></h2>
+          <span class="info">
+            &#160;<%= payload.action %> <%= payload.member.login %> to
+            <a href="<%= cleanUrl(repo.url) %>">
+              <span class="repo_name"><%= repo.name %></span>
             </a>
           </span>
         </div>
