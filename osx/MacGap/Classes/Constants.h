@@ -4,4 +4,4 @@
 
 #define kStartFolder @"."
 
-#define kWebScriptNamespace @"dashcat"
+#define kWebScriptNamespace @"macgap"

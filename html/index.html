@@ -41,6 +41,7 @@
     </script>
 
     <script id="fork-event-template" type="text/html">
+      <% console.log("fork", arguments) %>
       <div class="event fork-event box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -50,11 +51,11 @@
           <h2><%= actor.login %></h2>
           <span class="info">
             &#160;forked
-            <a href="<%= cleanUrl(repo.url) %>">
+            <a href="https://github.com/<%= repo.name %>">
               <span class="repo_name"><%= repo.name %></span>
             </a>
             to
-            <a href="<%= cleanUrl(payload.forkee.url) %>">
+            <a href="<%= payload.forkee.html_url %>">
               <span class="repo_name"><%= payload.forkee.full_name %></span>
             </a>
           </span>
@@ -179,7 +180,7 @@
           <h2><%= actor.login %></h2>
           <span class="info">
             &#160;starred
-            <a href="<%= cleanUrl(repo.url) %>">
+            <a href="https://github.com/<%= repo.name %>">
               <span class="repo_name"><%= repo.name %></span>
             </a>
           </span>

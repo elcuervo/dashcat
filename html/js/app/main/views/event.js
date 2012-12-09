@@ -1,12 +1,22 @@
 var EventView = Backbone.Marionette.ItemView.extend({
   tagName: "li",
 
+  events: {
+    "click a": "openBrowser"
+  },
+
   initialize: function() {
     var type = this.model.get("type");
     var templateName = type.match(/[A-Z][a-z]+/g).join("-").toLowerCase();
 
     this.template = "#" + templateName + "-template";
     if(!$(this.template).length) this.template = "#not-implemented-event-template";
+  },
+
+  openBrowser: function(event) {
+    event.preventDefault();
+    console.log(event.currentTarget.href);
+    macgap.app.open(event.currentTarget.href);
   },
 
   templateHelpers: function() {
@@ -19,7 +29,7 @@ var EventView = Backbone.Marionette.ItemView.extend({
       },
 
       cleanUrl: function(url) {
-        return url.replace("api.", "\1")
+        return url.replace("api.", "").replace("/repos", "");
       },
 
       eventClass: eventClass
