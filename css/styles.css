@@ -103,6 +103,7 @@ blockquote:after {
 }
 
 .push-event .icon,
+.download-event .icon,
 .pull-request-event .icon,
 .gollum-event .icon,
 .delete-event .icon,
@@ -123,6 +124,7 @@ blockquote:after {
 
 .avatar,
 .push-event .user,
+.download-event .user,
 .gollum-event .user,
 .delete-event .user,
 .pull-request-event .user,
