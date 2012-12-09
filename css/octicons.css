@@ -38,10 +38,26 @@
   content: "\f022"
 }
 
-.create:before {
+.create-repository:before {
   content: "\f003"
+}
+
+.create-branch:before {
+  content: "\f056"
+}
+
+.create-tag:before {
+  content: "\f054"
 }
 
 .follow:before {
   content: "\f01c"
+}
+
+.gollum:before {
+  content: "\f007"
+}
+
+.delete:before {
+  content: "\f004"
 }
