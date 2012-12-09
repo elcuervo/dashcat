@@ -232,6 +232,7 @@ a {
 .create-event h2,
 .member-event h2,
 .follow-event h2,
+.public-event h2,
 .gist-event h2 {
   float: left
 }
@@ -242,6 +243,7 @@ a {
 .create-event .icon,
 .follow-event .icon,
 .member-event .icon,
+.public-event .icon,
 .gist-event .icon {
   top: 0;
   left: 10px;
@@ -255,6 +257,7 @@ a {
 .create-event .user,
 .follow-event .user,
 .member-event .user,
+.public-event .user,
 .gist-event .user {
   width: 50px;
 }

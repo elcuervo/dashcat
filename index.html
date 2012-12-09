@@ -118,6 +118,25 @@
       </div>
     </script>
 
+    <script id="public-event-template" type="text/html">
+      <% console.log("public", arguments) %>
+      <div class="event public-event box">
+        <a name="<%= id %>"></a>
+        <div class="user">
+          <span class="icon <%= eventClass %>"></span>
+        </div>
+        <div class="body">
+          <h2><%= actor.login %></h2>
+          <span class="info">
+            &#160;open sourced
+            <a href="<%= cleanUrl(repo.url) %>">
+              <span class="repo_name"><%= repo.url %></span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </script>
+
     <script id="watch-event-template" type="text/html">
       <div class="event watch-event box">
         <a name="<%= id %>"></a>
