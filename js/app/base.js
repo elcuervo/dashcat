@@ -1,6 +1,3 @@
-var gui = require("nw.gui")
-var appWindow = gui.Window.get();
-
 var DashCat = new Backbone.Marionette.Application({
   isAuthorized: function() {
     return !!this.token;
@@ -20,6 +17,3 @@ DashCat.__defineSetter__("token", function(token) {
 });
 
 DashCat.start();
-
-appWindow.show();
-appWindow.focus();
