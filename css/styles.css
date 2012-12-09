@@ -275,3 +275,17 @@ a {
 #menu_icons {
   position: fixed
 }
+
+.menu-icon {
+  font-family: 'Octicons Regular';
+  color: white;
+  font-size: 2em
+}
+
+.watching:before {
+  content: "\f24e"
+}
+
+.public:before {
+  content: "\f201"
+}

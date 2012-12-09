@@ -31,7 +31,11 @@
 
     <script id="menu-template" type="text/html">
       <div id="menu_icons">
-        <img class="avatar" src="<%= avatar_url %>" alt="" />
+        <ol>
+          <li> <img class="avatar" src="<%= avatar_url %>" alt="" /> </li>
+          <li id="privateEvents"><span class="menu-icon watching"></span></li>
+          <li id="publicEvents"><span class="menu-icon public"></span></li>
+        </ol>
       </div>
     </script>
 
@@ -457,6 +461,7 @@
   <script type="text/javascript" src="js/app/main/models/event.js"></script>
 
   <script type="text/javascript" src="js/app/main/collections/events.js"></script>
+  <script type="text/javascript" src="js/app/main/collections/public_events.js"></script>
 
   <script type="text/javascript" src="js/app/main/views/menu.js"></script>
   <script type="text/javascript" src="js/app/main/views/event.js"></script>

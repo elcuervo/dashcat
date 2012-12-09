@@ -1,45 +1,47 @@
 var Main = DashCat.module("Main", {
   startWithParent: false,
 
-  define: function() {
+  define: function(Main) {
     this.addInitializer(function() {
-      var App = new Backbone.Marionette.Application();
+      Main.app = new Backbone.Marionette.Application();
 
-      App.addRegions({
+      Main.app.addRegions({
         menu: "#menu",
         content: "#content"
       });
 
-      App.addInitializer(function() {
+      Main.app.addInitializer(function() {
         if(DashCat.token) {
           $.ajaxSetup({
             headers: { "Authorization": "token " + DashCat.token }
           });
         }
 
-        var user = new User();
-        var menuView = new MenuView({ model: user });
+        DashCat.user = new User();
+        var menuView = new MenuView({ model: DashCat.user });
 
-        var eventsCollection = new EventsCollection();
-        var eventsView = new EventsView({
-          collection: eventsCollection
-        });
-
-        eventsCollection.fetch({
+        DashCat.user.fetch({
           success: function() {
-            App.content.show(eventsView);
-          }
-        });
+            var eventsCollection = new EventsCollection(
+              DashCat.user.get("login")
+            );
+            var eventsView = new EventsView({
+              collection: eventsCollection
+            });
 
-        user.fetch({
-          success: function() {
-            App.menu.show(menuView);
+            eventsCollection.fetch({
+              success: function() {
+                Main.app.content.show(eventsView);
+              }
+            });
+
+            Main.app.menu.show(menuView);
           }
         });
 
       });
 
-      App.start();
+      Main.app.start();
     });
   }
 });
