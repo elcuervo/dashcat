@@ -69,3 +69,15 @@
 .member-removed:before {
   content: "\f01b"
 }
+
+.public:before {
+  content: "\f001"
+}
+
+.download:before {
+  content: "\f010"
+}
+
+.team-add:before {
+  content: "\f019"
+}

@@ -218,6 +218,7 @@ a {
 
 .watch-event,
 .gist-event,
+.team-add-event,
 .member-event,
 .create-event,
 .follow-event,
@@ -233,6 +234,7 @@ a {
 .member-event h2,
 .follow-event h2,
 .public-event h2,
+.team-add-event h2,
 .gist-event h2 {
   float: left
 }
@@ -244,6 +246,7 @@ a {
 .follow-event .icon,
 .member-event .icon,
 .public-event .icon,
+.team-add-event .icon,
 .gist-event .icon {
   top: 0;
   left: 10px;
@@ -269,3 +272,6 @@ a {
 .pull-left { float: left }
 .pull-right { float: right}
 
+#menu_icons {
+  position: fixed
+}
