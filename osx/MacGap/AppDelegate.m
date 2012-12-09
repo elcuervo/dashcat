@@ -27,7 +27,7 @@
 }
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification { 
-    NSRect frame = NSMakeRect(0, 0, 800, 600);
+    NSRect frame = NSMakeRect(0, 0, 400, 600);
     self.windowController = [[WindowController alloc] initWithURL: kStartPage
                                                          andFrame:frame];
     [self.windowController showWindow: [NSApplication sharedApplication].delegate];

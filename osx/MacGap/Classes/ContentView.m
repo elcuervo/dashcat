@@ -35,7 +35,7 @@
                                           sharedHTTPCookieStorage]; 
     [cookieStorage setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
     
-    [self.webView setApplicationNameForUserAgent: @"MacGap"];
+    [self.webView setApplicationNameForUserAgent: @"Dashcat"];
     
 	self.delegate = [[WebViewDelegate alloc] init];
 	[self.webView setFrameLoadDelegate:self.delegate];
@@ -46,7 +46,7 @@
     [self.webView setDrawsBackground:NO];
     [self.webView setShouldCloseWithWindow:NO];
     
-    [self.webView setGroupName:@"MacGap"];
+    [self.webView setGroupName:@"Dashcat"];
 
 }
 
