@@ -289,3 +289,7 @@ a {
 .public:before {
   content: "\f201"
 }
+
+.exit:before {
+  content: "\f250"
+}

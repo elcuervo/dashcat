@@ -3,7 +3,8 @@ var MenuView = Backbone.Marionette.ItemView.extend({
   template: "#menu-template",
   events: {
     "click #privateEvents": "privateEvents",
-    "click #publicEvents": "publicEvents"
+    "click #publicEvents": "publicEvents",
+    "click #quit": "exit"
   },
 
   privateEvents: function() {
@@ -30,5 +31,11 @@ var MenuView = Backbone.Marionette.ItemView.extend({
         DashCat.Main.app.content.show(eventsView);
       }
     });
+  },
+
+  exit: function() {
+    DashCat.Main.stop();
+    DashCat.logout();
+    DashCat.Login.start();
   }
 });

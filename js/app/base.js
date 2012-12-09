@@ -5,6 +5,10 @@ var DashCat = new Backbone.Marionette.Application({
   isAuthorized: function() {
     return !!this.token;
   },
+
+  logout: function() {
+    return localStorage.removeItem("oauth_token");
+  }
 });
 
 DashCat.__defineGetter__("token", function() {

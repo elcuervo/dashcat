@@ -25,6 +25,7 @@ var Main = DashCat.module("Main", {
             var eventsCollection = new EventsCollection(
               DashCat.user.get("login")
             );
+
             var eventsView = new EventsView({
               collection: eventsCollection
             });
@@ -42,6 +43,11 @@ var Main = DashCat.module("Main", {
       });
 
       Main.app.start();
+    });
+
+    this.addFinalizer(function() {
+      Main.app.menu.close();
+      Main.app.content.close();
     });
   }
 });
