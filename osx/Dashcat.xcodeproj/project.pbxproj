@@ -150,7 +150,7 @@
 		FAE451AF14BA79C600190544 = {
 			isa = PBXGroup;
 			children = (
-				FAE451C414BA79C600190544 /* MacGap */,
+				FAE451C414BA79C600190544 /* Dashcat */,
 				FAE451BD14BA79C600190544 /* Frameworks */,
 				FAE451BB14BA79C600190544 /* Products */,
 				30B026B3167542C100C79B2D /* html */,
@@ -187,7 +187,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		FAE451C414BA79C600190544 /* MacGap */ = {
+		FAE451C414BA79C600190544 /* Dashcat */ = {
 			isa = PBXGroup;
 			children = (
 				FA3250E014BA87B800BF0781 /* Classes */,
@@ -197,6 +197,7 @@
 				88C0646414BDEC5800E4BCE2 /* Window.xib */,
 				FAE451C514BA79C600190544 /* Supporting Files */,
 			);
+			name = Dashcat;
 			path = MacGap;
 			sourceTree = "<group>";
 		};
