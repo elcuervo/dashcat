@@ -1,4 +1,3 @@
-
 var DashCat = new Backbone.Marionette.Application({
   isAuthorized: function() {
     return !!this.token;

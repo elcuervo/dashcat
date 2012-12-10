@@ -26,7 +26,6 @@ var Main = DashCat.module("Main", {
             Main.app.menu.show(menuView);
           }
         });
-
       });
 
       Main.app.start();

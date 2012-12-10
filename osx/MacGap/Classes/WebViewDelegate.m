@@ -18,6 +18,16 @@
 @synthesize window;
 @synthesize requestedWindow;
 
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
+    NSScrollView *mainScrollView = sender.mainFrame.frameView.documentView.enclosingScrollView;
+    
+    [mainScrollView setBorderType:NSNoBorder];
+    [mainScrollView setHasVerticalScroller:FALSE];
+    [mainScrollView setHasHorizontalScroller:FALSE];
+    [mainScrollView setVerticalScrollElasticity:NSScrollElasticityNone];
+    [mainScrollView setHorizontalScrollElasticity:NSScrollElasticityNone];
+}
+
 - (void) webView:(WebView*)webView didClearWindowObject:(WebScriptObject*)windowScriptObject forFrame:(WebFrame *)frame
 {
 	if (self.sound == nil) { self.sound = [Sound new]; }

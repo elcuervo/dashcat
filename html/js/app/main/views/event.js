@@ -14,9 +14,10 @@ var EventView = Backbone.Marionette.ItemView.extend({
   },
 
   openBrowser: function(event) {
-    event.preventDefault();
-    console.log(event.currentTarget.href);
-    macgap.app.open(event.currentTarget.href);
+    if(macgap) {
+      event.preventDefault();
+      macgap.app.open(event.currentTarget.href);
+    }
   },
 
   templateHelpers: function() {
