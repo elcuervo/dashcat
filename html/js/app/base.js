@@ -8,6 +8,9 @@ var DashCat = new Backbone.Marionette.Application({
   }
 });
 
+DashCat.clientId = "*********";
+DashCat.secret   = "********************";
+
 DashCat.__defineGetter__("token", function() {
   return localStorage.getItem("oauth_token");
 });
