@@ -1,6 +1,8 @@
 var MenuView = Backbone.Marionette.ItemView.extend({
   className: "avatar",
+
   template: "#menu-template",
+
   events: {
     "click #privateEvents": "privateEvents",
     "click #publicEvents":  "publicEvents",

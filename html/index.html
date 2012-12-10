@@ -3,6 +3,7 @@
     <title>Dashcat</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/octicons.css" />
+    <script type="text/javascript" src="js/moment.min.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/underscore.js"></script>
     <script type="text/javascript" src="js/backbone.js"></script>
@@ -184,6 +185,7 @@
             <a href="https://github.com/<%= repo.name %>">
               <span class="repo_name"><%= repo.name %></span>
             </a>
+            <%= created_at %>
           </span>
         </div>
       </div>
@@ -439,6 +441,7 @@
                 </li>
               <% }); %>
             </ol>
+            <%= moment(created_at).fromNow() %>
           </p>
         </div>
       </div>
