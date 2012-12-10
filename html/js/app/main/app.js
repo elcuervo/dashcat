@@ -22,20 +22,7 @@ var Main = DashCat.module("Main", {
 
         DashCat.user.fetch({
           success: function() {
-            var eventsCollection = new EventsCollection(
-              DashCat.user.get("login")
-            );
-
-            var eventsView = new EventsView({
-              collection: eventsCollection
-            });
-
-            eventsCollection.fetch({
-              success: function() {
-                Main.app.content.show(eventsView);
-              }
-            });
-
+            menuView.privateEvents();
             Main.app.menu.show(menuView);
           }
         });

@@ -103,10 +103,8 @@ blockquote:after {
 }
 
 .push-event .icon,
-.download-event .icon,
 .pull-request-event .icon,
 .gollum-event .icon,
-.delete-event .icon,
 .commit-comment-event .icon,
 .issue-comment-event .icon {
   background-color: white;
@@ -124,9 +122,7 @@ blockquote:after {
 
 .avatar,
 .push-event .user,
-.download-event .user,
 .gollum-event .user,
-.delete-event .user,
 .pull-request-event .user,
 .commit-comment-event .user,
 .issue-comment-event .user {
@@ -218,6 +214,8 @@ a {
 
 .watch-event,
 .gist-event,
+.download-event,
+.delete-event,
 .team-add-event,
 .member-event,
 .create-event,
@@ -234,7 +232,9 @@ a {
 .member-event h2,
 .follow-event h2,
 .public-event h2,
+.delete-event h2,
 .team-add-event h2,
+.download-event h2,
 .gist-event h2 {
   float: left
 }
@@ -243,10 +243,12 @@ a {
 .fork-event .icon,
 .issues-event .icon,
 .create-event .icon,
+.delete-event .icon,
 .follow-event .icon,
 .member-event .icon,
 .public-event .icon,
 .team-add-event .icon,
+.download-event .icon,
 .gist-event .icon {
   top: 0;
   left: 10px;
@@ -258,9 +260,11 @@ a {
 .fork-event .user,
 .issues-event .user,
 .create-event .user,
+.delete-event .user,
 .follow-event .user,
 .member-event .user,
 .public-event .user,
+.download-event .user,
 .gist-event .user {
   width: 50px;
 }

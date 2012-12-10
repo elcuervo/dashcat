@@ -3,7 +3,7 @@ var MenuView = Backbone.Marionette.ItemView.extend({
   template: "#menu-template",
   events: {
     "click #privateEvents": "privateEvents",
-    "click #publicEvents": "publicEvents",
+    "click #publicEvents":  "publicEvents",
     "click #quit": "exit"
   },
 
