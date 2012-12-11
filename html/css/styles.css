@@ -11,6 +11,10 @@ ol {
   font-size: 0.9em
 }
 
+a, a:visited {
+  color: #4e89c6
+}
+
 .pull-request-event code {
   display: block
 }
