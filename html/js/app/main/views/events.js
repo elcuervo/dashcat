@@ -15,7 +15,7 @@ var EventsView = Backbone.Marionette.CollectionView.extend({
           prepend: true,
         }
       });
-    }, 1000, this.collection);
+    }, 5000, this.collection);
   },
 
   appendHtml: function(collectionView, itemView, index){

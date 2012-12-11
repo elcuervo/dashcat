@@ -41,6 +41,11 @@ blockquote:after {
   src: url("../fonts/octicons-regular-webfont.ttf") format("truetype");
 }
 
+.selected {
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+}
+
 .quote {
   font-size: 2.5em;
   font-family: georgia, sans-serif;
@@ -268,13 +273,15 @@ a {
 .pull-right { float: right}
 
 #menu_icons {
-  position: fixed
+  position: fixed;
+  color: grey;
 }
 
 .menu-icon {
   font-family: 'Octicons Regular';
-  color: white;
-  font-size: 2em
+  font-size: 2em;
+  position: relative;
+  left: 10px
 }
 
 .watching:before {
