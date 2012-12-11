@@ -19,13 +19,21 @@
     </script>
 
     <script id="login-template" type="text/html">
-      <div class="logo"></div>
+      <div class="logo">
+        <span class="icon github"></span>
+      </div>
       <div class="form">
         <form action="">
-          <input type="text" id="username"/>
-          <input type="password" id="password"/>
+          <label>
+            <span>username</span>
+            <input type="text" id="username"/>
+          </label>
+          <label>
+            <span>password</span>
+            <input type="password" id="password"/>
+          </label>
           <button type="submit">
-          Request a token
+          get token
           </button>
         </form>
       </div>

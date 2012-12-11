@@ -1,6 +1,8 @@
 var LoginView = Backbone.Marionette.ItemView.extend({
   template: "#login-template",
 
+  id: "login_menu",
+
   events: {
     "submit form": "getAuthorizations"
   },

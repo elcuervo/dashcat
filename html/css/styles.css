@@ -1,6 +1,7 @@
 html {
   font-family: sans-serif;
   height: 100%;
+  background: #212121;
 }
 
 ol {
@@ -300,4 +301,40 @@ a {
   font-weight: normal;
   font-size: 0.9em;
   color: grey
+}
+
+.form {
+  color: white;
+}
+
+.form label {
+  display: block;
+}
+
+.form input {
+  font-size: 1.2em
+}
+
+.form label span {
+  display: inline-block;
+  width: 100px
+}
+
+.form button {
+  margin: 0 auto;
+  font-size: 1.2em;
+  display: block
+}
+
+.logo {
+  margin: 0 auto;
+  padding: 40px;
+  width: 200px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+}
+
+#login_menu {
+  padding: 30px;
+  width: 400px;
+  margin: 0 auto
 }

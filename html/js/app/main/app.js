@@ -4,6 +4,7 @@ var Main = DashCat.module("Main", {
   define: function(Main) {
     this.addInitializer(function() {
       Main.app = new Backbone.Marionette.Application();
+      $("#container").show();
 
       Main.app.addRegions({
         menu: "#menu",

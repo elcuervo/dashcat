@@ -3,6 +3,7 @@ var Login = DashCat.module("Login", {
 
   define: function() {
     var app = new Backbone.Marionette.Application();
+    $("#container").hide();
 
     this.addInitializer(function() {
       app.addRegions({

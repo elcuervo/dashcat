@@ -81,3 +81,9 @@
 .team-add:before {
   content: "\f019"
 }
+
+.github:before {
+  font-size: 5em;
+  color: white;
+  content: "\f209"
+}
