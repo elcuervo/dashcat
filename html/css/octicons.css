@@ -94,3 +94,7 @@
 .github:before {
   content: "\f209"
 }
+
+.settings:before {
+  content: "\f031"
+}

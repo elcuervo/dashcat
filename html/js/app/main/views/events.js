@@ -8,12 +8,14 @@ var EventsView = Backbone.Marionette.CollectionView.extend({
   template: "#events-template",
 
   initialize: function() {
-    setInterval(function(collection) {
-      collection.fetch({
-        add: true,
-        metadata: { prepend: true, }
-      });
-    }, 5000, this.collection);
+    setInterval(_.bind(this.refreshAndAppendCollection, this), 5000);
+  },
+
+  refreshAndAppendCollection: function() {
+    this.collection.fetch({
+      add: true,
+      metadata: { prepend: true, }
+    });
   },
 
   appendHtml: function(collectionView, itemView, index){
