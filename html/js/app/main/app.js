@@ -33,6 +33,7 @@ var Main = DashCat.module("Main", {
     });
 
     this.addFinalizer(function() {
+      $("#container").hide();
       Main.app.menu.close();
       Main.app.content.close();
     });

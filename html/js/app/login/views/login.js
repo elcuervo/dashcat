@@ -7,6 +7,10 @@ var LoginView = Backbone.Marionette.ItemView.extend({
     "submit form": "getAuthorizations"
   },
 
+  onRender: function() {
+    $("#username").focus();
+  },
+
   loadMainView: function(token) {
     DashCat.token = token;
     DashCat.Login.stop();
@@ -18,9 +22,13 @@ var LoginView = Backbone.Marionette.ItemView.extend({
     var password = this.$("#password").val();
     var view = this;
 
+    if(!username || !password) return this.badAuth();
+
     $.ajax({
       url: "https://api.github.com/authorizations",
+
       headers: {"Authorization": "Basic " + btoa(username + ":" + password)},
+
       success: function(response) {
         var auth = _.filter(response, function(authorization) {
           return authorization.app.name == "Dashcat";
@@ -31,9 +39,21 @@ var LoginView = Backbone.Marionette.ItemView.extend({
         } else {
           view.loadMainView(_.first(auth).token);
         }
+      },
+
+      error: function(xhr) {
+        if(xhr.status == 401) {
+          view.badAuth();
+        } else {
+        }
       }
     });
 
+    return false;
+  },
+
+  badAuth: function() {
+    this.$el.find(".fail-message").text("Bad username/password");
     return false;
   },
 
@@ -42,7 +62,9 @@ var LoginView = Backbone.Marionette.ItemView.extend({
 
     $.ajax({
       url: "https://api.github.com/authorizations",
+
       type: "POST",
+
       headers: {"Authorization": "Basic " + btoa(username + ":" + password)},
 
       data: JSON.stringify({

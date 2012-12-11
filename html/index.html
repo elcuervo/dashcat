@@ -22,19 +22,12 @@
       <div class="logo">
         <span class="icon github"></span>
       </div>
+      <div class="fail-message"></div>
       <div class="form">
         <form action="">
-          <label>
-            <span>username</span>
-            <input type="text" id="username"/>
-          </label>
-          <label>
-            <span>password</span>
-            <input type="password" id="password"/>
-          </label>
-          <button type="submit">
-          get token
-          </button>
+          <input type="text" id="username" placeholder="username"/>
+          <input type="password" id="password" placeholder="password" />
+          <button type="submit"> get token </button>
         </form>
       </div>
     </script>
@@ -42,10 +35,10 @@
     <script id="menu-template" type="text/html">
       <div id="menu_icons">
         <ol>
-          <li class="menu"> <img class="avatar" src="<%= avatar_url %>" alt="" /> </li>
+          <li class="menu avatar"> <img src="<%= avatar_url %>" alt="" /> </li>
           <li class="menu" id="privateEvents"><span class="menu-icon watching"></span></li>
           <li class="menu" id="publicEvents"><span class="menu-icon public"></span></li>
-          <li class="menu" id="quit"><span class="menu-icon exit"></span></li>
+          <li class="menu full-bottom" id="quit"><span class="menu-icon exit"></span></li>
         </ol>
       </div>
     </script>

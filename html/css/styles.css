@@ -121,7 +121,6 @@ blockquote:after {
   border-radius: 5px;
 }
 
-.avatar,
 .push-event .user,
 .gollum-event .user,
 .pull-request-event .user,
@@ -152,6 +151,10 @@ blockquote:after {
 #menu .avatar {
   margin: 0 auto;
   background: white
+}
+
+#menu img, .user img {
+  width: 50px
 }
 
 #content {
@@ -276,6 +279,8 @@ a {
 #menu_icons {
   position: fixed;
   color: grey;
+  left: 9px;
+  top: 15px
 }
 
 .menu-icon {
@@ -305,6 +310,8 @@ a {
 
 .form {
   color: white;
+  width: 210px;
+  margin: 0 auto;
 }
 
 .form label {
@@ -328,8 +335,8 @@ a {
 
 .logo {
   margin: 0 auto;
-  padding: 40px;
-  width: 200px;
+  padding: 40px 40px 0;
+  width: 120px;
   text-shadow: 0 0 10px rgba(255, 255, 255, 1);
 }
 
@@ -337,4 +344,22 @@ a {
   padding: 30px;
   width: 400px;
   margin: 0 auto
+}
+
+.fail-message {
+  color: red;
+  height: 20px;
+  padding: 10px;
+  width: 190;
+  margin: 0 auto
+}
+
+.menu {
+  cursor: pointer
+}
+
+.full-bottom {
+  position: fixed;
+  bottom: 0;
+  color: #d00000;
 }
