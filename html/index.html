@@ -39,11 +39,11 @@
     <script id="menu-template" type="text/html">
       <div id="menu_icons">
         <ol>
-          <li class="menu avatar"> <img src="<%= avatar_url %>" alt="" /> </li>
+          <li class="menu avatar"> <img width=50 height=50 src="<%= avatar_url %>" alt="" /> </li>
           <li class="menu" id="privateEvents"><span class="menu-icon watching"></span></li>
+          <li class="menu" id="publicEvents"><span class="menu-icon public"></span></li>
           <!-- <li class="menu" id="pullRequests"><span class="menu-icon pull-request"></span></li> -->
           <li class="menu" id="notifications"><span class="menu-icon notifications"></span></li>
-          <li class="menu" id="publicEvents"><span class="menu-icon public"></span></li>
           <li class="menu full-bottom" id="quit"><span class="menu-icon exit"></span></li>
         </ol>
       </div>
@@ -68,7 +68,7 @@
               <span class="repo_name"><%= payload.forkee.full_name %></span>
             </a>
           </span>
-          <span class="createdAt"> <%= time(created_at) %> </span>
+          <span class="created_at"> <%= time(created_at) %> </span>
         </div>
       </div>
     </script>
@@ -157,7 +157,7 @@
               <span class="repo_name"><%= payload.gist.id %></span>
             </a>
           </span>
-          <span class="createdAt"> <%= time(created_at) %> </span>
+          <span class="created_at"> <%= time(created_at) %> </span>
         </div>
       </div>
     </script>
@@ -194,7 +194,7 @@
             <a href="https://github.com/<%= repo.name %>">
               <span class="repo_name"><%= repo.name %></span>
             </a>
-            <span class="createdAt"> <%= time(created_at) %> </span>
+            <span class="created_at"> <%= time(created_at) %> </span>
           </span>
         </div>
       </div>
@@ -214,7 +214,7 @@
               <span class="issue"><%= repo.name %></span>
             </a>
           </span>
-          <span class="createdAt"> <%= time(created_at) %> </span>
+          <span class="created_at"> <%= time(created_at) %> </span>
         </div>
       </div>
     </script>
@@ -242,13 +242,13 @@
       <div class="event commit-comment-event box">
         <a name="<%= id %>"></a>
         <div class="user">
-          <img class="avatar" src="<%= actor.avatar_url %>" alt="" />
+          <img width=50 height=50 class="avatar" src="<%= actor.avatar_url %>" alt="" />
           <span class="icon <%= eventClass %>"></span>
         </div>
         <div class="body">
           <h2>
             <%= actor.login %>
-            <span class="createdAt"> <%= time(created_at) %> </span>
+            <span class="created_at"> <%= time(created_at) %> </span>
           </h2>
           <p class="info">
             commented commit
@@ -290,13 +290,13 @@
       <div class="event pull-request-review-comment-event box">
         <a name="<%= id %>"></a>
         <div class="user">
-          <img class="avatar" src="<%= actor.avatar_url %>" alt="" />
+          <img width=50 height=50 class="avatar" src="<%= actor.avatar_url %>" alt="" />
           <span class="icon <%= eventClass %>"></span>
         </div>
         <div class="body">
           <h2>
             <%= actor.login %>
-            <span class="createdAt"> <%= time(created_at) %> </span>
+            <span class="created_at"> <%= time(created_at) %> </span>
           </h2>
           <p class="info">
             commented on pull request
@@ -318,7 +318,7 @@
       <div class="event gollum-event box">
         <a name="<%= id %>"></a>
         <div class="user">
-          <img class="avatar" src="<%= actor.avatar_url %>" alt="" />
+          <img width=50 height=50 class="avatar" src="<%= actor.avatar_url %>" alt="" />
           <span class="icon <%= eventClass %>"></span>
         </div>
         <div class="body">
@@ -375,7 +375,7 @@
               <span class="repo_name"><%= payload.target.login %></span>
             </a>
           </span>
-          <span class="createdAt"> <%= time(created_at) %> </span>
+          <span class="created_at"> <%= time(created_at) %> </span>
         </div>
       </div>
     </script>
@@ -385,13 +385,13 @@
       <div class="event pull-request-event box">
         <a name="<%= id %>"></a>
         <div class="user">
-          <img class="avatar" src="<%= actor.avatar_url %>" alt="" />
+          <img width=50 height=50 class="avatar" src="<%= actor.avatar_url %>" alt="" />
           <span class="icon <%= eventClass %>"></span>
         </div>
         <div class="body">
           <h2>
             <%= actor.login %>
-            <span class="createdAt"> <%= time(created_at) %> </span>
+            <span class="created_at"> <%= time(created_at) %> </span>
           </h2>
           <p class="info">
             <%= payload.action %> pull request
@@ -415,13 +415,13 @@
       <div class="event issue-comment-event box">
         <a name="<%= id %>"></a>
         <div class="user">
-          <img class="avatar" src="<%= actor.avatar_url %>" alt="" />
+          <img width=50 height=50 class="avatar" src="<%= actor.avatar_url %>" alt="" />
           <span class="icon <%= eventClass %>"></span>
         </div>
         <div class="body">
           <h2>
             <%= actor.login %>
-            <span class="createdAt"> <%= time(created_at) %> </span>
+            <span class="created_at"> <%= time(created_at) %> </span>
           </h2>
           <p class="info">
             commented on
@@ -442,13 +442,13 @@
       <div class="event push-event box">
         <a name="<%= id %>"></a>
         <div class="user">
-          <img class="avatar" src="<%= actor.avatar_url %>" alt="" />
+          <img width=50 height=50 class="avatar" src="<%= actor.avatar_url %>" alt="" />
           <span class="icon <%= eventClass %>"></span>
         </div>
         <div class="body">
           <h2>
             <%= actor.login %>
-            <span class="createdAt"> <%= time(created_at) %> </span>
+            <span class="created_at"> <%= time(created_at) %> </span>
           </h2>
           <p class="info">
             pushed to

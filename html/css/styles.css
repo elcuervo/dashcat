@@ -302,7 +302,7 @@ a {
   content: "\f250"
 }
 
-.createdAt {
+.created_at {
   font-weight: normal;
   font-size: 0.9em;
   color: grey
@@ -361,5 +361,8 @@ a {
 .full-bottom {
   position: fixed;
   bottom: 0;
-  color: #d00000;
+}
+
+#quit {
+  color: #686868;
 }
