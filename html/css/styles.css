@@ -108,6 +108,7 @@ blockquote:after {
 }
 
 .push-event .icon,
+.pull-request-box .icon,
 .pull-request-event .icon,
 .gollum-event .icon,
 .commit-comment-event .icon,
@@ -126,6 +127,7 @@ blockquote:after {
 }
 
 .push-event .user,
+.pull-request-box .user,
 .gollum-event .user,
 .pull-request-event .user,
 .commit-comment-event .user,

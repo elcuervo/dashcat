@@ -98,3 +98,23 @@
 .settings:before {
   content: "\f031"
 }
+
+.no-mergeable:before {
+  content: "\f081"
+}
+
+.mergeable:before {
+  content: "\f03a";
+}
+
+.icon.no-mergeable {
+  background: red;
+  border: 1px solid #9e0b0f;
+  color: white;
+}
+
+.icon.mergeable {
+  background: green;
+  border: 1px solid #005826;
+  color: white;
+}

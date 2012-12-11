@@ -19,4 +19,10 @@ DashCat.__defineSetter__("token", function(token) {
   return localStorage.setItem("oauth_token", token);
 });
 
+marked.setOptions({
+  gfm: true,
+  pedantic: false,
+  sanitize: true
+});
+
 DashCat.start();

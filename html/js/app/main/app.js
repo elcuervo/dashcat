@@ -13,8 +13,10 @@ var Main = DashCat.module("Main", {
 
       Main.app.addInitializer(function() {
         if(DashCat.token) {
-          $(document).ajaxError(function() {
-            menuView.exit();
+          $(document).ajaxError(function(xhr) {
+            if(xhr.status == 411) {
+              menuView.exit();
+            }
           });
 
           $(document).ajaxStart(function() { $("#loader").show() });
