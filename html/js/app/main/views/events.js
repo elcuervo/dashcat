@@ -11,9 +11,12 @@ var EventsView = Backbone.Marionette.CollectionView.extend({
     setInterval(_.bind(this.refreshAndAppendCollection, this), 5000);
   },
 
-  refreshAndAppendCollection: function() {
+  refreshAndAppendCollection: function(fn) {
+    var fn = fn || function() {};
+
     this.collection.fetch({
       add: true,
+      success: fn,
       metadata: { prepend: true, }
     });
   },
@@ -30,6 +33,50 @@ var EventsView = Backbone.Marionette.CollectionView.extend({
     } else {
       container.append(itemView.el);
     }
+  },
+
+  onShow: function() {
+    var view = this;
+
+    new iScroll("content", {
+      useTransition: true,
+
+      onScrollMove: function() {
+        if(this.y > 20) {
+          $("#pull").fadeIn();
+
+          if(this.y > 50) this.refresh = true;
+        } else {
+          $("#pull").fadeOut();
+        }
+
+      },
+
+      refresh: function() {},
+
+      onScrollEnd: function() {
+        if(this.refresh) {
+          view.refreshAndAppendCollection(function() {
+            $("#placeholder").fadeOut(function() {
+              $("#placeholder").remove();
+            });
+
+          });
+          view.refreshPlaceholder();
+          this.refresh = false;
+        }
+
+        $("#pull").fadeOut();
+      }
+    });
+
+    document.addEventListener('touchmove', function (e) {
+      e.preventDefault();
+    }, false);
+  },
+
+  refreshPlaceholder: function() {
+    this.$el.prepend($("#loader-template").html());
   },
 
   onRender: function() {

@@ -3,14 +3,26 @@
     <title>Dashcat</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/octicons.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <script type="text/javascript" src="js/moment.min.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/iscroll.js"></script>
     <script type="text/javascript" src="js/underscore.js"></script>
     <script type="text/javascript" src="js/backbone.js"></script>
     <script type="text/javascript" src="js/backbone.marionette.js"></script>
     <script type="text/javascript" src="js/backbone.infiniscroll.js"></script>
   </head>
   <body>
+    <script id="loader-template" type="text/html">
+      <li id="placeholder">
+        <div class="box">
+          <div class="user">
+            <img class="menu-icon" src="img/refreshing.gif" alt="" />
+          </div>
+        </div>
+      </li>
+    </script>
+
     <script id="not-implemented-event-template" type="text/html">
       <h1 style="color:red">
         <% console.log(arguments) %>
@@ -480,7 +492,9 @@
 
     <div id="container" class="box">
       <div id="menu"></div>
-      <div id="content"></div>
+      <div id="pull"><span class="arrow"></span>Release to refresh...</div>
+      <div id="content">
+      </div>
     </div>
   </body>
 
@@ -508,7 +522,6 @@
   <script type="text/javascript" src="js/app/main/views/events.js"></script>
 
   <script type="text/javascript" src="js/app/main/app.js"></script>
-
 
   <script type="text/javascript" src="js/app/init.js"></script>
 </html>

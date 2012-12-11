@@ -409,7 +409,25 @@ a {
   -webkit-animation-iteration-count: infinite;
 }
 
+#pull {
+  position: absolute;
+  display: none;
+  min-width: 300px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+#pull .arrow:before {
+  font-family: 'Octicons Regular';
+  content: "\f03f"
+}
+
+#placeholder div {
+  padding: 10px;
+  margin: 0 auto;
+}
+
 #loader {
   width: 30px;
-  height: 30px;
+  height: 30px
 }
