@@ -1,7 +1,7 @@
 var PullRequestsCollection = Backbone.Collection.extend({
   model: PullRequest,
 
-  url: "https://api.github.com/orgs/newcontext/issues?filter=all",
+  url: "https://api.github.com/issues?filter=all",
 
   add: function(models, options) {
     var pullRequests = _.select(models, function(model) {

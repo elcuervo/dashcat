@@ -47,9 +47,18 @@
           <span class="icon <%= mergeState %>"></span>
         </div>
         <div class="body">
-          <h2> <%= user.login %> </h2>
-          <h3> <%= pull_info.title %> </h3>
-          <%= marked(body) %>
+          <h2>
+            <%= user.login %>
+            <span class="created_at"> <%= time %> </span>
+          </h2>
+          <span class="info">
+            Send a pull request to
+            <a href="<%= pull_info.html_url %>">
+              <%= repository.full_name %>#<%= number %>
+            </a>
+            <h3> <%= pull_info.title %> </h3>
+            <%= marked(body) %>
+          </span>
         </div>
       </div>
     </script>
@@ -75,7 +84,7 @@
           <li class="menu" id="privateEvents"><span class="menu-icon watching"></span></li>
           <li class="menu" id="publicEvents"><span class="menu-icon public"></span></li>
           <li class="menu" id="pullRequests"><span class="menu-icon pull-request"></span></li>
-          <li class="menu" id="settings"><span class="menu-icon settings"></span></li>
+          <!-- <li class="menu" id="settings"><span class="menu-icon settings"></span></li> -->
           <li class="menu full-bottom bottom-two">
             <img id="loader" class="menu-icon" src="img/loading.gif" alt="" />
           </li>

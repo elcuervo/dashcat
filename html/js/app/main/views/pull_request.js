@@ -5,9 +5,22 @@ var PullRequestView = Backbone.Marionette.ItemView.extend({
 
   emptyView: NothingToSeeView,
 
+  events: {
+    "click a": "openBrowser"
+  },
+
+  openBrowser: function(event) {
+    if(macgap) {
+      event.preventDefault();
+      macgap.app.open(event.currentTarget.href);
+    }
+  },
+
   templateHelpers: function() {
     return {
-      mergeState: this.model.get("pull_info").mergeable ? "mergeable" : "not-mergeable"
+      time: moment(this.model.get("updated_at")).fromNow(),
+
+      mergeState: "state-" + this.model.get("pull_info").mergeable_state
     }
   },
 

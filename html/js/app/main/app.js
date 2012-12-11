@@ -12,6 +12,9 @@ var Main = DashCat.module("Main", {
       });
 
       Main.app.addInitializer(function() {
+        DashCat.user = new User();
+        var menuView = new MenuView({ model: DashCat.user });
+
         if(DashCat.token) {
           $(document).ajaxError(function(xhr) {
             if(xhr.status == 411) {
@@ -27,8 +30,6 @@ var Main = DashCat.module("Main", {
           });
         }
 
-        DashCat.user = new User();
-        var menuView = new MenuView({ model: DashCat.user });
 
         DashCat.user.fetch({
           success: function() {

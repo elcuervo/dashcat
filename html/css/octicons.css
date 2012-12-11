@@ -99,22 +99,32 @@
   content: "\f031"
 }
 
-.no-mergeable:before {
+.not-mergeable:before {
   content: "\f081"
 }
 
-.mergeable:before {
+.state-clean:before {
   content: "\f03a";
 }
 
-.icon.no-mergeable {
+.state-unknown:before {
+  content: "\f22c";
+}
+
+.icon.not-mergeable {
   background: red;
   border: 1px solid #9e0b0f;
   color: white;
 }
 
-.icon.mergeable {
+.icon.state-clean {
   background: green;
   border: 1px solid #005826;
+  color: white;
+}
+
+.icon.state-unknown {
+  background: grey;
+  border: 1px solid black;
   color: white;
 }
