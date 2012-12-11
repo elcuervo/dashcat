@@ -367,9 +367,18 @@ a {
   cursor: pointer
 }
 
-.full-bottom {
-  position: fixed;
+.bottom-one {
   bottom: 0;
+}
+
+.bottom-two {
+  bottom: 40px;
+}
+
+.full-bottom {
+  color: #686868;
+  position: fixed;
+  display: block;
 }
 
 #quit {
@@ -378,4 +387,28 @@ a {
 
 .event.private-action {
   background-color: #fffef1;
+}
+
+@-webkit-keyframes glow {
+  from { text-shadow: inherit; }
+  50%  { text-shadow: 0 0 20px #fff; }
+  to   { text-shadow: inherit; }
+}
+
+@-webkit-keyframes big_glow {
+  from { text-shadow: inherit; }
+  50%  { text-shadow: 0 0 30px #fff; }
+  to   { text-shadow: inherit; }
+}
+
+.glowing {
+  -webkit-animation-name: glow;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.big_glowing {
+  -webkit-animation-name: big_glow;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
 }

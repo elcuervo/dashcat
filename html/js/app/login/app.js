@@ -3,6 +3,10 @@ var Login = DashCat.module("Login", {
 
   define: function() {
     var app = new Backbone.Marionette.Application();
+
+    $(document).ajaxStart(function() { $("#octocat").addClass("big_glowing") });
+    $(document).ajaxStop(function() { $("#octocat").removeClass("big_glowing") });
+
     $("#container").hide();
 
     this.addInitializer(function() {

@@ -13,6 +13,13 @@ var Main = DashCat.module("Main", {
 
       Main.app.addInitializer(function() {
         if(DashCat.token) {
+          $(document).ajaxError(function() {
+            menuView.exit();
+          });
+
+          $(document).ajaxStart(function() { $("#octocat").addClass("glowing") });
+          $(document).ajaxStop(function() { $("#octocat").removeClass("glowing") });
+
           $.ajaxSetup({
             headers: { "Authorization": "token " + DashCat.token }
           });
@@ -25,10 +32,6 @@ var Main = DashCat.module("Main", {
           success: function() {
             menuView.privateEvents();
             Main.app.menu.show(menuView);
-          },
-
-          error: function() {
-            menuView.exit();
           }
         });
       });

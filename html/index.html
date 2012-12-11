@@ -23,8 +23,8 @@
     </script>
 
     <script id="login-template" type="text/html">
-      <div class="logo">
-        <span class="icon github"></span>
+      <div class="logo big">
+        <span id="octocat" class="icon github"></span>
       </div>
       <div class="fail-message"></div>
       <div class="form">
@@ -43,7 +43,10 @@
           <li class="menu" id="privateEvents"><span class="menu-icon watching"></span></li>
           <li class="menu" id="publicEvents"><span class="menu-icon public"></span></li>
           <!-- <li class="menu" id="pullRequests"><span class="menu-icon pull-request"></span></li> -->
-          <li class="menu full-bottom" id="quit"><span class="menu-icon exit"></span></li>
+          <li class="menu full-bottom bottom-two">
+            <span id="octocat" class="menu-icon github"></span>
+          </li>
+          <li class="menu full-bottom bottom-one" id="quit"><span class="menu-icon exit"></span></li>
         </ol>
       </div>
     </script>
@@ -488,11 +491,9 @@
 
   <!-- MAIN -->
   <script type="text/javascript" src="js/app/main/models/user.js"></script>
-  <script type="text/javascript" src="js/app/main/models/notification.js"></script>
   <script type="text/javascript" src="js/app/main/models/pull_request.js"></script>
   <script type="text/javascript" src="js/app/main/models/event.js"></script>
 
-  <script type="text/javascript" src="js/app/main/collections/notifications.js"></script>
   <script type="text/javascript" src="js/app/main/collections/pull_requests.js"></script>
 
   <script type="text/javascript" src="js/app/main/collections/basic_events.js"></script>
@@ -500,9 +501,6 @@
   <script type="text/javascript" src="js/app/main/collections/public_events.js"></script>
 
   <script type="text/javascript" src="js/app/main/views/nothing_to_see.js"></script>
-
-  <script type="text/javascript" src="js/app/main/views/notification.js"></script>
-  <script type="text/javascript" src="js/app/main/views/notifications.js"></script>
 
   <script type="text/javascript" src="js/app/main/views/menu.js"></script>
   <script type="text/javascript" src="js/app/main/views/event.js"></script>

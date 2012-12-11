@@ -86,8 +86,11 @@
   content: "\f030"
 }
 
-.github:before {
+.big {
   font-size: 5em;
   color: white;
+}
+
+.github:before {
   content: "\f209"
 }
