@@ -61,6 +61,7 @@
               <span class="repo_name"><%= payload.forkee.full_name %></span>
             </a>
           </span>
+          <span class="createdAt"> <%= time(created_at) %> </span>
         </div>
       </div>
     </script>
@@ -149,6 +150,7 @@
               <span class="repo_name"><%= payload.gist.id %></span>
             </a>
           </span>
+          <span class="createdAt"> <%= time(created_at) %> </span>
         </div>
       </div>
     </script>
@@ -185,7 +187,7 @@
             <a href="https://github.com/<%= repo.name %>">
               <span class="repo_name"><%= repo.name %></span>
             </a>
-            <%= created_at %>
+            <span class="createdAt"> <%= time(created_at) %> </span>
           </span>
         </div>
       </div>
@@ -205,6 +207,7 @@
               <span class="issue"><%= repo.name %></span>
             </a>
           </span>
+          <span class="createdAt"> <%= time(created_at) %> </span>
         </div>
       </div>
     </script>
@@ -236,7 +239,10 @@
           <span class="icon <%= eventClass %>"></span>
         </div>
         <div class="body">
-          <h2><%= actor.login %></h2>
+          <h2>
+            <%= actor.login %>
+            <span class="createdAt"> <%= time(created_at) %> </span>
+          </h2>
           <p class="info">
             commented commit
             <a href="<%= payload.comment.html_url %>">
@@ -281,7 +287,10 @@
           <span class="icon <%= eventClass %>"></span>
         </div>
         <div class="body">
-          <h2><%= actor.login %></h2>
+          <h2>
+            <%= actor.login %>
+            <span class="createdAt"> <%= time(created_at) %> </span>
+          </h2>
           <p class="info">
             commented on pull request
             <a href="<%= payload.comment._links.html.href %>">
@@ -359,6 +368,7 @@
               <span class="repo_name"><%= payload.target.login %></span>
             </a>
           </span>
+          <span class="createdAt"> <%= time(created_at) %> </span>
         </div>
       </div>
     </script>
@@ -372,7 +382,10 @@
           <span class="icon <%= eventClass %>"></span>
         </div>
         <div class="body">
-          <h2><%= actor.login %></h2>
+          <h2>
+            <%= actor.login %>
+            <span class="createdAt"> <%= time(created_at) %> </span>
+          </h2>
           <p class="info">
             <%= payload.action %> pull request
             <a href="<%= payload.pull_request.html_url %>">
@@ -399,7 +412,10 @@
           <span class="icon <%= eventClass %>"></span>
         </div>
         <div class="body">
-          <h2><%= actor.login %></h2>
+          <h2>
+            <%= actor.login %>
+            <span class="createdAt"> <%= time(created_at) %> </span>
+          </h2>
           <p class="info">
             commented on
             <a href="<%= cleanUrl(payload.issue.url) %>">
@@ -423,7 +439,10 @@
           <span class="icon <%= eventClass %>"></span>
         </div>
         <div class="body">
-          <h2><%= actor.login %></h2>
+          <h2>
+            <%= actor.login %>
+            <span class="createdAt"> <%= time(created_at) %> </span>
+          </h2>
           <p class="info">
             pushed to
             <span class="ref"><%= branch() %></span>
@@ -441,7 +460,6 @@
                 </li>
               <% }); %>
             </ol>
-            <%= moment(created_at).fromNow() %>
           </p>
         </div>
       </div>

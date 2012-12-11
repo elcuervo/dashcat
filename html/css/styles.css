@@ -295,3 +295,9 @@ a {
 .exit:before {
   content: "\f250"
 }
+
+.createdAt {
+  font-weight: normal;
+  font-size: 0.9em;
+  color: grey
+}

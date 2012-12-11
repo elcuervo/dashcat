@@ -25,6 +25,10 @@ var EventView = Backbone.Marionette.ItemView.extend({
     var eventClass = eventName.slice(0, -1).join("-").toLowerCase();
 
     var helpers = {
+      time: function(createdAt) {
+        return moment(createdAt).fromNow();
+      },
+
       sha: function(sha) {
         return sha.substr(0,7);
       },
