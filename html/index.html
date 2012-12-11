@@ -41,7 +41,7 @@
         <ol>
           <li class="menu avatar"> <img src="<%= avatar_url %>" alt="" /> </li>
           <li class="menu" id="privateEvents"><span class="menu-icon watching"></span></li>
-          <li class="menu" id="pullRequests"><span class="menu-icon pull-request"></span></li>
+          <!-- <li class="menu" id="pullRequests"><span class="menu-icon pull-request"></span></li> -->
           <li class="menu" id="notifications"><span class="menu-icon notifications"></span></li>
           <li class="menu" id="publicEvents"><span class="menu-icon public"></span></li>
           <li class="menu full-bottom" id="quit"><span class="menu-icon exit"></span></li>
@@ -489,9 +489,11 @@
 
   <!-- MAIN -->
   <script type="text/javascript" src="js/app/main/models/user.js"></script>
+  <script type="text/javascript" src="js/app/main/models/pull_request.js"></script>
   <script type="text/javascript" src="js/app/main/models/event.js"></script>
 
   <script type="text/javascript" src="js/app/main/collections/notifications.js"></script>
+  <script type="text/javascript" src="js/app/main/collections/pull_requests.js"></script>
 
   <script type="text/javascript" src="js/app/main/collections/basic_events.js"></script>
   <script type="text/javascript" src="js/app/main/collections/events.js"></script>

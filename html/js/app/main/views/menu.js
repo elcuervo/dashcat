@@ -24,7 +24,20 @@ var MenuView = Backbone.Marionette.ItemView.extend({
     });
   },
 
-  pullRequests: function() {},
+  pullRequests: function() {
+    var pullRequestsCollection = new PullRequestsCollection();
+    var view = this;
+    var pullRequestsView = new PullRequestsView({
+      collection: pullRequestsCollection
+    });
+
+    pullRequestsCollection.fetch({
+      success: function() {
+        DashCat.Main.app.content.show(pullRequestsView);
+        view.select("#pullRequests");
+      }
+    });
+  },
 
   notifications: function() {
     var notificationsCollection = new NotificationsCollection();
