@@ -1,3 +1,5 @@
 var NotificationView = Backbone.Marionette.ItemView.extend({
-  tagName: "li"
+  tagName: "li",
+
+  template: "#notification-template"
 });

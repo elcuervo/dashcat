@@ -42,7 +42,7 @@ var MenuView = Backbone.Marionette.ItemView.extend({
   notifications: function() {
     var notificationsCollection = new NotificationsCollection();
     var view = this;
-    var notificationsView = new NotificationsView({
+    var notificationsView = new EventsView({
       collection: notificationsCollection
     });
 

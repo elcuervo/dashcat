@@ -6,8 +6,27 @@ var EventView = Backbone.Marionette.ItemView.extend({
   },
 
   initialize: function() {
-    var type = this.model.get("type");
-    var templateName = type.match(/[A-Z][a-z]+/g).join("-").toLowerCase();
+    switch(true) {
+      case !!this.model.get("type"):
+        this.type = this.model.get("type");
+        this.eventName = this.type.match(/[A-Z][a-z]+/g);
+        var templateName = this.eventName.join("-").toLowerCase();
+        break;
+
+      case !!this.model.get("reason"):
+        var templateName = this.model.get("reason");
+        this.eventName = this.type = templateName;
+
+        $.ajax({
+          url: this.model.get("subject").latest_comment_url,
+          async: false,
+          success: _.bind(function(response) {
+            this.model.set("comment", response);
+          }, this)
+        });
+
+        break;
+    }
 
     this.template = "#" + templateName + "-template";
     if(!$(this.template).length) this.template = "#not-implemented-event-template";
@@ -21,8 +40,11 @@ var EventView = Backbone.Marionette.ItemView.extend({
   },
 
   templateHelpers: function() {
-    var eventName = this.model.get("type").match(/[A-Z][a-z]+/g);
-    var eventClass = eventName.slice(0, -1).join("-").toLowerCase();
+     if(_.isArray(this.eventName)) {
+       var eventClass =  this.eventName.slice(0, -1).join("-").toLowerCase();
+     } else {
+       var eventClass = this.eventName;
+     }
 
     var helpers = {
       time: function(createdAt) {
@@ -44,8 +66,8 @@ var EventView = Backbone.Marionette.ItemView.extend({
       eventClass: eventClass
     }
 
-    if(Helpers[this.model.get("type")]) {
-      _.extend(helpers, Helpers[this.model.get("type")])
+    if(Helpers[this.type]) {
+      _.extend(helpers, Helpers[this.type])
     }
     return helpers
   }
