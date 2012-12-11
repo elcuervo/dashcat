@@ -162,10 +162,6 @@ blockquote:after {
   background: white
 }
 
-#menu img, .user img {
-  width: 50px
-}
-
 #content {
   border-right: 1px solid rgba(255, 255, 255, .3);
   min-width: 300px;
@@ -372,7 +368,7 @@ a {
 }
 
 .bottom-two {
-  bottom: 40px;
+  bottom: 50px;
 }
 
 .full-bottom {
@@ -411,4 +407,9 @@ a {
   -webkit-animation-name: big_glow;
   -webkit-animation-duration: 3s;
   -webkit-animation-iteration-count: infinite;
+}
+
+#loader {
+  width: 30px;
+  height: 30px;
 }

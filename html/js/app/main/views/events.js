@@ -22,6 +22,9 @@ var EventsView = Backbone.Marionette.CollectionView.extend({
 
     if(model.metadata && model.metadata.prepend) {
       container.prepend(itemView.el);
+
+      //var title = itemView.$el.find("h2").text();
+      //var content = itemView.$el.find(".info").text();
     } else {
       container.append(itemView.el);
     }

@@ -17,8 +17,8 @@ var Main = DashCat.module("Main", {
             menuView.exit();
           });
 
-          $(document).ajaxStart(function() { $("#octocat").addClass("glowing") });
-          $(document).ajaxStop(function() { $("#octocat").removeClass("glowing") });
+          $(document).ajaxStart(function() { $("#loader").show() });
+          $(document).ajaxStop(function()  { $("#loader").hide() });
 
           $.ajaxSetup({
             headers: { "Authorization": "token " + DashCat.token }
