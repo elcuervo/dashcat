@@ -25,6 +25,10 @@ var Main = DashCat.module("Main", {
           success: function() {
             menuView.privateEvents();
             Main.app.menu.show(menuView);
+          },
+
+          error: function() {
+            menuView.exit();
           }
         });
       });

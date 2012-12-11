@@ -82,6 +82,10 @@
   content: "\f019"
 }
 
+.notifications:before {
+  content: "\f030"
+}
+
 .github:before {
   font-size: 5em;
   color: white;

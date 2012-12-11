@@ -18,6 +18,10 @@
       </h1>
     </script>
 
+    <script id="nothing-to-see-template" type="text/html">
+      Nothing to see, sorry!.
+    </script>
+
     <script id="login-template" type="text/html">
       <div class="logo">
         <span class="icon github"></span>
@@ -37,6 +41,8 @@
         <ol>
           <li class="menu avatar"> <img src="<%= avatar_url %>" alt="" /> </li>
           <li class="menu" id="privateEvents"><span class="menu-icon watching"></span></li>
+          <li class="menu" id="pullRequests"><span class="menu-icon pull-request"></span></li>
+          <li class="menu" id="notifications"><span class="menu-icon notifications"></span></li>
           <li class="menu" id="publicEvents"><span class="menu-icon public"></span></li>
           <li class="menu full-bottom" id="quit"><span class="menu-icon exit"></span></li>
         </ol>
@@ -485,9 +491,16 @@
   <script type="text/javascript" src="js/app/main/models/user.js"></script>
   <script type="text/javascript" src="js/app/main/models/event.js"></script>
 
+  <script type="text/javascript" src="js/app/main/collections/notifications.js"></script>
+
   <script type="text/javascript" src="js/app/main/collections/basic_events.js"></script>
   <script type="text/javascript" src="js/app/main/collections/events.js"></script>
   <script type="text/javascript" src="js/app/main/collections/public_events.js"></script>
+
+  <script type="text/javascript" src="js/app/main/views/nothing_to_see.js"></script>
+
+  <script type="text/javascript" src="js/app/main/views/notification.js"></script>
+  <script type="text/javascript" src="js/app/main/views/notifications.js"></script>
 
   <script type="text/javascript" src="js/app/main/views/menu.js"></script>
   <script type="text/javascript" src="js/app/main/views/event.js"></script>

@@ -4,6 +4,8 @@ var MenuView = Backbone.Marionette.ItemView.extend({
   events: {
     "click #privateEvents": "privateEvents",
     "click #publicEvents":  "publicEvents",
+    "click #pullRequests":  "pullRequests",
+    "click #notifications": "notifications",
     "click #quit": "exit"
   },
 
@@ -22,13 +24,29 @@ var MenuView = Backbone.Marionette.ItemView.extend({
     });
   },
 
+  pullRequests: function() {},
+
+  notifications: function() {
+    var notificationsCollection = new NotificationsCollection();
+    var view = this;
+    var notificationsView = new NotificationsView({
+      collection: notificationsCollection
+    });
+
+    notificationsCollection.fetch({
+      success: function() {
+        DashCat.Main.app.content.show(notificationsView);
+        view.select("#notifications");
+      }
+    });
+  },
+
   publicEvents: function() {
     var publicEventsCollection = new PublicEventsCollection();
     var view = this;
     var eventsView = new EventsView({
       collection: publicEventsCollection
     });
-
 
     publicEventsCollection.fetch({
       success: function() {
