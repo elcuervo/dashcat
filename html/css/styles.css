@@ -130,6 +130,11 @@ blockquote:after {
   height: 50px;
 }
 
+.private-action .icon {
+  background: #f9f398;
+  border: 1px solid #f2e62d
+}
+
 #menu {
   width: 70px;
   max-width: 70px;
@@ -365,4 +370,8 @@ a {
 
 #quit {
   color: #686868;
+}
+
+.event.private-action {
+  background-color: #fffef1;
 }
