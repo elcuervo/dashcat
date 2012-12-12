@@ -37,9 +37,7 @@ var EventView = Backbone.Marionette.ItemView.extend({
         return url.replace("api.", "").replace("/repos", "");
       },
 
-      visibilityClass: function() {
-        return this.public ? "public-action" : "private-action";
-      },
+      visibilityClass: this.model.get("public") ? "public-action" : "private-action",
 
       eventClass: eventClass
     }

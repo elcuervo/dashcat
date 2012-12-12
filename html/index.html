@@ -95,7 +95,7 @@
 
     <script id="fork-event-template" type="text/html">
       <% console.log("fork", arguments) %>
-      <div class="event fork-event box">
+      <div class="event fork-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <span class="icon <%= eventClass %>"></span>
@@ -119,7 +119,7 @@
 
     <script id="download-event-template" type="text/html">
       <% console.log("Download", arguments) %>
-      <div class="event download-event box">
+      <div class="event download-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <span class="icon <%= eventClass %>"></span>
@@ -142,7 +142,7 @@
 
     <script id="member-event-template" type="text/html">
       <% console.log("Member", arguments) %>
-      <div class="event member-event box">
+      <div class="event member-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <span class="icon <%= eventClass %> member-<%= payload.action %>"></span>
@@ -162,7 +162,7 @@
 
     <script id="team-add-event-template" type="text/html">
       <% console.log("Team add", arguments) %>
-      <div class="event team-add-event box">
+      <div class="event team-add-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <span class="icon <%= eventClass %>"></span>
@@ -190,7 +190,7 @@
 
     <script id="gist-event-template" type="text/html">
       <% console.log("gist", arguments) %>
-      <div class="event gist-event box">
+      <div class="event gist-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <span class="icon <%= eventClass %>"></span>
@@ -210,7 +210,7 @@
 
     <script id="public-event-template" type="text/html">
       <% console.log("public", arguments) %>
-      <div class="event public-event box">
+      <div class="event public-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <span class="icon <%= eventClass %>"></span>
@@ -229,7 +229,7 @@
     </script>
 
     <script id="watch-event-template" type="text/html">
-      <div class="event watch-event box">
+      <div class="event watch-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <span class="icon <%= eventClass %>"></span>
@@ -248,7 +248,7 @@
     </script>
 
     <script id="issue-event-template" type="text/html">
-      <div class="event issue-event box">
+      <div class="event issue-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <span class="icon <%= eventClass %>"></span>
@@ -268,7 +268,7 @@
 
     <script id="delete-event-template" type="text/html">
       <% console.log("Delete", arguments) %>
-      <div class="event delete-event box">
+      <div class="event delete-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <span class="icon <%= eventClass %>"></span>
@@ -287,7 +287,7 @@
     </script>
 
     <script id="commit-comment-event-template" type="text/html">
-      <div class="event commit-comment-event box">
+      <div class="event commit-comment-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <img width=50 height=50 class="avatar" src="<%= actor.avatar_url %>" alt="" />
@@ -316,7 +316,7 @@
     </script>
 
     <script id="issues-event-template" type="text/html">
-      <div class="event issues-event box">
+      <div class="event issues-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <span class="icon <%= eventClass %> issue-<%= payload.action %>"></span>
@@ -336,7 +336,7 @@
 
     <script id="pull-request-review-comment-event-template" type="text/html">
       <% console.log("PR comment", arguments) %>
-      <div class="event pull-request-review-comment-event box">
+      <div class="event pull-request-review-comment-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <img width=50 height=50 class="avatar" src="<%= actor.avatar_url %>" alt="" />
@@ -364,7 +364,7 @@
 
     <script id="gollum-event-template" type="text/html">
       <% console.log("Gollu", arguments) %>
-      <div class="event gollum-event box">
+      <div class="event gollum-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <img width=50 height=50 class="avatar" src="<%= actor.avatar_url %>" alt="" />
@@ -396,7 +396,7 @@
 
     <script id="create-event-template" type="text/html">
       <% console.log("Create", arguments) %>
-      <div class="event create-event box">
+      <div class="event create-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <span class="icon <%= eventClass %>-<%= payload.ref_type %>"></span>
@@ -415,7 +415,7 @@
     </script>
 
     <script id="follow-event-template" type="text/html">
-      <div class="event follow-event box">
+      <div class="event follow-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <span class="icon <%= eventClass %>"></span>
@@ -435,7 +435,7 @@
 
     <script id="pull-request-event-template" type="text/html">
       <% console.log("PR", arguments) %>
-      <div class="event pull-request-event box">
+      <div class="event pull-request-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <img width=50 height=50 class="avatar" src="<%= actor.avatar_url %>" alt="" />
@@ -465,7 +465,7 @@
     </script>
 
     <script id="issue-comment-event-template" type="text/html">
-      <div class="event issue-comment-event box">
+      <div class="event issue-comment-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <img width=50 height=50 class="avatar" src="<%= actor.avatar_url %>" alt="" />
@@ -492,7 +492,7 @@
     </script>
 
     <script id="push-event-template" type="text/html">
-      <div class="event push-event box <%= visibilityClass() %>">
+      <div class="event push-event box <%= visibilityClass %>">
         <a name="<%= id %>"></a>
         <div class="user">
           <img width=50 height=50 class="avatar" src="<%= actor.avatar_url %>" alt="" />

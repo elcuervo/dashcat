@@ -45,7 +45,7 @@ var LoginView = Backbone.Marionette.ItemView.extend({
         if(xhr.status == 401) {
           view.badAuth();
         } else {
-          console.log(xhr)
+          console.error(arguments)
         }
       }
     });
