@@ -1,9 +1,5 @@
-var EventView = Backbone.Marionette.ItemView.extend({
+var EventView = BaseItemView.extend({
   tagName: "li",
-
-  events: {
-    "click a": "openBrowser"
-  },
 
   initialize: function() {
     var type = this.model.get("type");
@@ -13,30 +9,11 @@ var EventView = Backbone.Marionette.ItemView.extend({
     if(!$(this.template).length) this.template = "#not-implemented-event-template";
   },
 
-  openBrowser: function(event) {
-    if(macgap) {
-      event.preventDefault();
-      macgap.app.open(event.currentTarget.href);
-    }
-  },
-
-  templateHelpers: function() {
+  helpers : function() {
     var eventName = this.model.get("type").match(/[A-Z][a-z]+/g);
     var eventClass = eventName.slice(0, -1).join("-").toLowerCase();
 
     var helpers = {
-      time: function(createdAt) {
-        return moment(createdAt).fromNow();
-      },
-
-      sha: function(sha) {
-        return sha.substr(0,7);
-      },
-
-      cleanUrl: function(url) {
-        return url.replace("api.", "").replace("/repos", "");
-      },
-
       visibilityClass: this.model.get("public") ? "public-action" : "private-action",
 
       eventClass: eventClass
