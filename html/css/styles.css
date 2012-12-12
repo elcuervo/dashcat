@@ -432,3 +432,15 @@ a {
   width: 30px;
   height: 30px
 }
+
+#loading {
+  margin: 0 auto;
+}
+
+#loading div {
+  padding: 50px;
+  height: 100%;
+  width: 200px;
+  text-align: center;
+  margin: 0 auto;
+}
