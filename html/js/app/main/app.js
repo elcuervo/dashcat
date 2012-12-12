@@ -32,10 +32,8 @@ var Main = DashCat.module("Main", {
           });
         }
 
-
         DashCat.user.fetch({
           success: function() {
-            menuView.privateEvents();
             Main.app.menu.show(menuView);
           }
         });
