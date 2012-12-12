@@ -45,9 +45,11 @@ var HeadTailAutoRefresh = Backbone.Marionette.CollectionView.extend({
   onShow: function() {
     var view = this;
 
-    new iScroll("content", {
-      useTransition: true,
+    if(navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+      $("#content").css({ height: "100%" });
+    }
 
+    new iScroll("content", {
       onScrollMove: function() {
         if(this.y > 20) {
           $("#pull").fadeIn();
@@ -56,7 +58,6 @@ var HeadTailAutoRefresh = Backbone.Marionette.CollectionView.extend({
         } else {
           $("#pull").fadeOut();
         }
-
       },
 
       refresh: function() {},
