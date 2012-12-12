@@ -30,6 +30,10 @@ var BaseItemView = Backbone.Marionette.ItemView.extend({
         return moment(createdAt).fromNow();
       },
 
+      creationTag: function(value) {
+        return '<span class="created_at" data-time="' + value + '">' + this.time(value) + '</span>'
+      },
+
       sha: function(sha) {
         return sha.substr(0,7);
       },

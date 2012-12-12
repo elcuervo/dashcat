@@ -5,12 +5,27 @@ var HeadTailAutoRefresh = Backbone.Marionette.CollectionView.extend({
     setInterval(_.bind(this.refreshAndAppendCollection, this), 5000);
   },
 
+  updateTime: function() {
+    var elements = this.$el.find("[data-time]");
+
+    _.each(elements, function(element) {
+      var item = $(element);
+      var time = item.data("time");
+
+      item.html(moment(time).fromNow());
+    });
+  },
+
   refreshAndAppendCollection: function(fn) {
     var fn = fn || function() {};
+    var view = this;
 
     this.collection.fetch({
       add: true,
-      success: fn,
+      success: function() {
+        view.updateTime();
+        fn.call(this);
+      },
       metadata: { prepend: true, }
     });
   },

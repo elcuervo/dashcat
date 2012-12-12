@@ -49,7 +49,7 @@
         <div class="body">
           <h2>
             <%= user.login %>
-            <span class="created_at"> <%= time %> </span>
+            <%= creationTag(updated_at) %>
           </h2>
           <span class="info">
             Send a pull request to
@@ -112,7 +112,7 @@
               <span class="repo_name"><%= payload.forkee.full_name %></span>
             </a>
           </span>
-          <span class="created_at"> <%= time(created_at) %> </span>
+          <%= creationTag(created_at) %>
         </div>
       </div>
     </script>
@@ -155,7 +155,7 @@
               <span class="repo_name"><%= repo.name %></span>
             </a>
           </span>
-          <span class="created_at"> <%= time(created_at) %> </span>
+          <%= creationTag(created_at) %>
         </div>
       </div>
     </script>
@@ -183,7 +183,7 @@
               <span class="repo_name"><%= payload.team.name %></span>
             </a>
           </span>
-          <span class="created_at"> <%= time(created_at) %> </span>
+          <%= creationTag(created_at) %>
         </div>
       </div>
     </script>
@@ -203,7 +203,7 @@
               <span class="repo_name"><%= payload.gist.id %></span>
             </a>
           </span>
-          <span class="created_at"> <%= time(created_at) %> </span>
+          <%= creationTag(created_at) %>
         </div>
       </div>
     </script>
@@ -223,7 +223,7 @@
               <span class="repo_name"><%= repo.name %></span>
             </a>
           </span>
-          <span class="created_at"> <%= time(created_at) %> </span>
+          <%= creationTag(created_at) %>
         </div>
       </div>
     </script>
@@ -241,7 +241,7 @@
             <a href="https://github.com/<%= repo.name %>">
               <span class="repo_name"><%= repo.name %></span>
             </a>
-            <span class="created_at"> <%= time(created_at) %> </span>
+            <%= creationTag(created_at) %>
           </span>
         </div>
       </div>
@@ -261,7 +261,7 @@
               <span class="issue"><%= repo.name %></span>
             </a>
           </span>
-          <span class="created_at"> <%= time(created_at) %> </span>
+          <%= creationTag(created_at) %>
         </div>
       </div>
     </script>
@@ -281,7 +281,7 @@
               <span class="issue"><%= repo.name %></span>
             </a>
           </span>
-          <span class="created_at"> <%= time(created_at) %> </span>
+          <%= creationTag(created_at) %>
         </div>
       </div>
     </script>
@@ -296,7 +296,7 @@
         <div class="body">
           <h2>
             <%= actor.login %>
-            <span class="created_at"> <%= time(created_at) %> </span>
+            <%= creationTag(created_at) %>
           </h2>
           <p class="info">
             commented commit
@@ -329,7 +329,7 @@
               <span class="issue"><%= repo.name %>#<%= payload.issue.number %></span>
             </a>
           </span>
-          <span class="created_at"> <%= time(created_at) %> </span>
+          <%= creationTag(created_at) %>
         </div>
       </div>
     </script>
@@ -345,7 +345,7 @@
         <div class="body">
           <h2>
             <%= actor.login %>
-            <span class="created_at"> <%= time(created_at) %> </span>
+            <%= creationTag(created_at) %>
           </h2>
           <p class="info">
             commented on pull request
@@ -373,7 +373,7 @@
         <div class="body">
           <h2>
             <%= actor.login %>
-            <span class="created_at"> <%= time(created_at) %> </span>
+            <%= creationTag(created_at) %>
           </h2>
           <p class="info">
             Edited wiki
@@ -409,7 +409,7 @@
               <span class="repo_name"><%= repo.name %></span>
             </a>
           </span>
-          <span class="created_at"> <%= time(created_at) %> </span>
+          <%= creationTag(created_at) %>
         </div>
       </div>
     </script>
@@ -428,7 +428,7 @@
               <span class="repo_name"><%= payload.target.login %></span>
             </a>
           </span>
-          <span class="created_at"> <%= time(created_at) %> </span>
+          <%= creationTag(created_at) %>
         </div>
       </div>
     </script>
@@ -444,7 +444,7 @@
         <div class="body">
           <h2>
             <%= actor.login %>
-            <span class="created_at"> <%= time(created_at) %> </span>
+            <%= creationTag(created_at) %>
           </h2>
           <p class="info">
             <%= payload.action %> pull request
@@ -474,7 +474,7 @@
         <div class="body">
           <h2>
             <%= actor.login %>
-            <span class="created_at"> <%= time(created_at) %> </span>
+            <%= creationTag(created_at) %>
           </h2>
           <p class="info">
             commented on
@@ -501,7 +501,7 @@
         <div class="body">
           <h2>
             <%= actor.login %>
-            <span class="created_at"> <%= time(created_at) %> </span>
+            <%= creationTag(created_at) %>
           </h2>
           <p class="info">
             pushed to

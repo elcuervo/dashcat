@@ -5,7 +5,6 @@ var PullRequestView = BaseItemView.extend({
 
   helpers: function() {
     return {
-      time: moment(this.model.get("updated_at")).fromNow(),
       mergeState: "state-" + this.model.get("pull_info").mergeable_state
     }
   },
