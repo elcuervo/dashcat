@@ -17,7 +17,11 @@ var Main = DashCat.module("Main", {
 
         if(DashCat.token) {
           $(document).ajaxError(function(xhr) {
-            menuView.exit();
+            if(xhr.status == 401) {
+              menuView.exit();
+            } else {
+              console.error(arguments)
+            }
           });
 
           $(document).ajaxStart(function() { $("#loader").show() });
