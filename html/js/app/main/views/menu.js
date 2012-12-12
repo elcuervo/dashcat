@@ -9,7 +9,10 @@ var MenuView = Backbone.Marionette.ItemView.extend({
   },
 
   privateEvents: function() {
-    if(this.isSelected("#privateEvents")) return;
+    if(this.isSelected("#privateEvents")) {
+      $(window).scrollTop(0);
+      return;
+    }
 
     this.select("#privateEvents");
 
@@ -27,7 +30,10 @@ var MenuView = Backbone.Marionette.ItemView.extend({
   },
 
   pullRequests: function() {
-    if(this.isSelected("#pullRequests")) return;
+    if(this.isSelected("#pullRequests")) {
+      $(window).scrollTop(0);
+      return;
+    }
 
     this.select("#pullRequests");
 
@@ -44,7 +50,10 @@ var MenuView = Backbone.Marionette.ItemView.extend({
   },
 
   publicEvents: function() {
-    if(this.isSelected("#publicEvents")) return;
+    if(this.isSelected("#publicEvents")) {
+      $(window).scrollTop(0);
+      return;
+    }
 
     this.select("#publicEvents");
 
