@@ -23,7 +23,8 @@ var EventView = BaseItemView.extend({
       _.extend(helpers, Helpers[this.model.get("type")])
     }
     return helpers
-  }
+  },
+
 });
 
 var Helpers = {

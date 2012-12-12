@@ -22,10 +22,23 @@ var HeadTailAutoRefresh = Backbone.Marionette.CollectionView.extend({
     if(model.metadata && model.metadata.prepend) {
       container.prepend(itemView.el);
 
-      //var title = itemView.$el.find("h2").text();
-      //var content = itemView.$el.find(".info").text();
+      if(itemView.notificationContent) {
+        var message = itemView.notificationContent();
+        this.notify(message);
+      }
     } else {
       container.append(itemView.el);
+    }
+  },
+
+  notify: function(message) {
+    if(typeof macgap != 'undefined') {
+      macgap.growl.notify({
+        title:   message.title,
+        content: message.content
+      });
+    } else {
+      console.log(message);
     }
   },
 
