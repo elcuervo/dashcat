@@ -20,6 +20,8 @@ var PullRequestView = Backbone.Marionette.ItemView.extend({
     return {
       time: moment(this.model.get("updated_at")).fromNow(),
 
+      visibilityClass: this.model.get("repository").private ? "private-action" : "public-action",
+
       mergeState: "state-" + this.model.get("pull_info").mergeable_state
     }
   },

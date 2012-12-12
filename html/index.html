@@ -40,7 +40,7 @@
 
     <script id="pull-request-template" type="text/html">
       <% console.log(arguments) %>
-      <div class="event pull-request-box box">
+      <div class="event pull-request-box <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
           <img width=50 height=50 class="avatar" src="<%= user.avatar_url %>" alt="" />
