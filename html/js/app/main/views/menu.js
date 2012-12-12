@@ -54,10 +54,8 @@ var MenuView = Backbone.Marionette.ItemView.extend({
       DashCat.Main.app.content.show(this.loadingScreen);
     }
 
-    pullRequestsCollection.fetch({
-      success: function() {
-        DashCat.Main.app.content.show(pullRequestsView);
-      }
+    pullRequestsCollection.loading.done(function() {
+      DashCat.Main.app.content.show(pullRequestsView);
     });
   },
 
