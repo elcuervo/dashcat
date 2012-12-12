@@ -1,7 +1,5 @@
-var PullRequestsView = Backbone.Marionette.CollectionView.extend({
+var PullRequestsView = HeadTailAutoRefresh.extend({
   id: "pull-requests",
-
-  tagName: "ol",
 
   itemView: PullRequestView,
 
