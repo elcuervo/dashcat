@@ -155,6 +155,7 @@
               <span class="repo_name"><%= repo.name %></span>
             </a>
           </span>
+          <span class="created_at"> <%= time(created_at) %> </span>
         </div>
       </div>
     </script>
@@ -182,6 +183,7 @@
               <span class="repo_name"><%= payload.team.name %></span>
             </a>
           </span>
+          <span class="created_at"> <%= time(created_at) %> </span>
         </div>
       </div>
     </script>
@@ -221,6 +223,7 @@
               <span class="repo_name"><%= repo.name %></span>
             </a>
           </span>
+          <span class="created_at"> <%= time(created_at) %> </span>
         </div>
       </div>
     </script>
@@ -278,6 +281,7 @@
               <span class="issue"><%= repo.name %></span>
             </a>
           </span>
+          <span class="created_at"> <%= time(created_at) %> </span>
         </div>
       </div>
     </script>
@@ -325,6 +329,7 @@
               <span class="issue"><%= repo.name %>#<%= payload.issue.number %></span>
             </a>
           </span>
+          <span class="created_at"> <%= time(created_at) %> </span>
         </div>
       </div>
     </script>
@@ -366,7 +371,10 @@
           <span class="icon <%= eventClass %>"></span>
         </div>
         <div class="body">
-          <h2><%= actor.login %></h2>
+          <h2>
+            <%= actor.login %>
+            <span class="created_at"> <%= time(created_at) %> </span>
+          </h2>
           <p class="info">
             Edited wiki
             <a href="<%= cleanUrl(repo.url) %>"><span class="repo_name"><%= repo.name %></span></a>
@@ -401,6 +409,7 @@
               <span class="repo_name"><%= repo.name %></span>
             </a>
           </span>
+          <span class="created_at"> <%= time(created_at) %> </span>
         </div>
       </div>
     </script>

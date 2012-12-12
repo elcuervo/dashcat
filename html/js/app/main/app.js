@@ -17,9 +17,7 @@ var Main = DashCat.module("Main", {
 
         if(DashCat.token) {
           $(document).ajaxError(function(xhr) {
-            if(xhr.status == 411) {
-              menuView.exit();
-            }
+            menuView.exit();
           });
 
           $(document).ajaxStart(function() { $("#loader").show() });

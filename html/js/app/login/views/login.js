@@ -27,7 +27,7 @@ var LoginView = Backbone.Marionette.ItemView.extend({
     $.ajax({
       url: "https://api.github.com/authorizations",
 
-      headers: {"Authorization": "Basic " + btoa(username + ":" + password)},
+      headers: { "Authorization": "Basic " + btoa(username + ":" + password) },
 
       success: function(response) {
         var auth = _.filter(response, function(authorization) {
@@ -45,6 +45,7 @@ var LoginView = Backbone.Marionette.ItemView.extend({
         if(xhr.status == 401) {
           view.badAuth();
         } else {
+          console.log(xhr)
         }
       }
     });
