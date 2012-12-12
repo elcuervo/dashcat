@@ -99,7 +99,7 @@
   content: "\f031"
 }
 
-.not-mergeable:before {
+.state-dirty:before {
   content: "\f081"
 }
 
@@ -111,7 +111,7 @@
   content: "\f22c";
 }
 
-.icon.not-mergeable {
+.icon.state-dirty {
   background: red;
   border: 1px solid #9e0b0f;
   color: white;

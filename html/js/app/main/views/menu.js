@@ -17,8 +17,8 @@ var MenuView = Backbone.Marionette.ItemView.extend({
 
     eventsCollection.fetch({
       success: function() {
-        DashCat.Main.app.content.show(eventsView);
         view.select("#privateEvents");
+        DashCat.Main.app.content.show(eventsView);
       }
     });
   },
@@ -32,8 +32,8 @@ var MenuView = Backbone.Marionette.ItemView.extend({
 
     pullRequestsCollection.fetch({
       success: function() {
-        DashCat.Main.app.content.show(pullRequestsView);
         view.select("#pullRequests");
+        DashCat.Main.app.content.show(pullRequestsView);
       }
     });
   },
@@ -47,8 +47,8 @@ var MenuView = Backbone.Marionette.ItemView.extend({
 
     publicEventsCollection.fetch({
       success: function() {
-        DashCat.Main.app.content.show(eventsView);
         view.select("#publicEvents");
+        DashCat.Main.app.content.show(eventsView);
       }
     });
   },
