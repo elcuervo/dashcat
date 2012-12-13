@@ -78,6 +78,10 @@
   content: "\1F4E3"
 }
 
+.general:before {
+  content: "\1F30E"
+}
+
 .download:before {
   content: "\1F4E5"
 }
