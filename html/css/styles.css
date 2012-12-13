@@ -42,8 +42,13 @@ blockquote:after {
 }
 
 @font-face {
-  font-family: "Octicons Regular";
-  src: url("../fonts/octicons-regular-webfont.ttf") format("truetype");
+  font-family: "Entypo";
+  src: url("../fonts/entypo.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Entypo social";
+  src: url("../fonts/entypo-social.ttf") format("truetype");
 }
 
 .selected {
@@ -94,21 +99,23 @@ blockquote:after {
 }
 
 .icon {
-  font-family: 'Octicons Regular';
+  font-family: 'Entypo';
   font-weight: normal;
   font-style: normal;
   display: inline-block;
   text-decoration: inherit;
-  line-height: 1;
+  line-height: .65em;
   -webkit-font-smoothing: antialiased;
   text-decoration: none;
+  min-width: 18px;
   border-radius: 2px;
-  padding: 1px;
-  font-size: 1.5em;
+  font-size: 2.5em;
+  text-align: center;
 }
 
 .push-event .icon,
 .pull-request-box .icon,
+.pull-request-review-comment-event .icon,
 .pull-request-event .icon,
 .gollum-event .icon,
 .commit-comment-event .icon,
@@ -116,7 +123,7 @@ blockquote:after {
   background-color: white;
   position: relative;
   top: -20px;
-  right: -30px;
+  right: -35px;
   border: 1px solid grey
 }
 
@@ -128,6 +135,7 @@ blockquote:after {
 
 .push-event .user,
 .pull-request-box .user,
+.pull-request-review-comment-event .user,
 .gollum-event .user,
 .pull-request-event .user,
 .commit-comment-event .user,
@@ -257,7 +265,7 @@ a {
 .download-event .icon,
 .gist-event .icon {
   top: 0;
-  left: 10px;
+  left: 15px;
   position: relative;
   color: grey
 }
@@ -275,7 +283,8 @@ a {
   width: 50px;
 }
 
-.watch-event .body {
+.watch-event .body,
+.issues-event .body {
   padding-top: 5px
 }
 
@@ -290,22 +299,18 @@ a {
 }
 
 .menu-icon {
-  font-family: 'Octicons Regular';
-  font-size: 2em;
+  font-family: 'Entypo';
+  font-size: 4em;
   position: relative;
   left: 10px
 }
 
 .watching:before {
-  content: "\f24e"
-}
-
-.public:before {
-  content: "\f201"
+  content: "\2302"
 }
 
 .exit:before {
-  content: "\f250"
+  content: "\E741"
 }
 
 .created_at {
@@ -419,7 +424,7 @@ a {
 }
 
 #pull .arrow:before {
-  font-family: 'Octicons Regular';
+  font-family: 'Entypo';
   content: "\f03f"
 }
 

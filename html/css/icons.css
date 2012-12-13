@@ -1,85 +1,89 @@
 .push:before {
-  content: "\f21f"
+  content: "\1F56B"
 }
 
 .watch:before {
-  content: "\f02a"
+  content: "\2605"
 }
 
 .gist:before {
-  content: "\f00e"
+  content: "\E714"
 }
 
 .fork:before {
-  content: "\f020"
+  content: "\1F500"
 }
 
 .issue-comment:before {
-  content: "\f029"
+  content: "\E718"
+}
+
+.pull-request-review-comment:before {
+  content: "\E003"
 }
 
 .issue-opened:before {
-  content: "\f026"
+  content: "\229E"
 }
 
 .issue-closed:before {
-  content: "\f028"
+  content: "\274E"
 }
 
 .issue-reopened:before {
-  content: "\f027"
+  content: "\1F501"
 }
 
 .commit-comment:before {
-  content: "\f04f"
+  content: "\E720"
 }
 
 .pull-request:before {
-  content: "\f022"
+  content: "\E73C"
 }
 
 .create-repository:before {
-  content: "\f003"
+  content: "\1F4D5"
 }
 
 .create-branch:before {
-  content: "\f056"
+  content: "\1F568"
 }
 
 .create-tag:before {
-  content: "\f054"
+  content: "\E70C"
 }
 
 .follow:before {
-  content: "\f01c"
+  content: "\1F464"
 }
 
 .gollum:before {
-  content: "\f007"
+  content: "\1F4C4"
 }
 
 .delete:before {
-  content: "\f004"
+  content: "\26A1"
 }
 
 .member-added:before {
-  content: "\f01a"
+  content: "\E700"
 }
 
 .member-removed:before {
-  content: "\f01b"
+  content: "\1F464"
 }
 
 .public:before {
-  content: "\f001"
+  content: "\1F4E3"
 }
 
 .download:before {
-  content: "\f010"
+  content: "\1F4E5"
 }
 
 .team-add:before {
-  content: "\f019"
+  content: "\1F465"
 }
 
 .notifications:before {
@@ -91,39 +95,46 @@
   color: white;
 }
 
+.github {
+  font-family: "Entypo social"
+}
+
 .github:before {
-  content: "\f209"
+  content: "\F300"
 }
 
 .settings:before {
-  content: "\f031"
+  content: "\2699"
 }
 
 .state-dirty:before {
-  content: "\f081"
+  content: "\274C"
 }
 
 .state-clean:before {
-  content: "\f03a";
+  content: "\2713";
 }
 
 .state-unknown:before {
-  content: "\f22c";
+  content: "\2753";
 }
 
 .icon.state-dirty {
+  font-weight: bold;
   background: red;
   border: 1px solid #9e0b0f;
   color: white;
 }
 
 .icon.state-clean {
+  font-weight: bold;
   background: green;
   border: 1px solid #005826;
   color: white;
 }
 
 .icon.state-unknown {
+  font-weight: bold;
   background: grey;
   border: 1px solid black;
   color: white;
