@@ -90,10 +90,6 @@
   content: "\1F465"
 }
 
-.notifications:before {
-  content: "\f030"
-}
-
 .big {
   font-size: 5em;
   color: white;

@@ -309,6 +309,10 @@ a {
   content: "\2302"
 }
 
+.notifications:before {
+  content: "\1F3AF"
+}
+
 .exit:before {
   content: "\E741"
 }
