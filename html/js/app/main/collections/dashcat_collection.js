@@ -8,7 +8,7 @@ var DashCatCollection = Backbone.Collection.extend({
     this.fetcher = this.fetch();
   },
 
-  all: function(promises) {
+  whenAll: function(promises) {
     return jQuery.when.apply(jQuery, promises).pipe(function() {
       return Array.prototype.slice.call(arguments);
     });

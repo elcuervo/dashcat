@@ -22,7 +22,7 @@ var PullRequestsCollection = DashCatCollection.extend({
       promises.push(promise);
     });
 
-    this.all(promises).then(_.bind(function() {
+    this.whenAll(promises).then(_.bind(function() {
       Backbone.Collection.prototype.add.call(this, pullRequests, options);
       this.loading.resolve();
     }, this));
