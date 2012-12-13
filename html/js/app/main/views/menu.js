@@ -2,14 +2,38 @@ var MenuView = Backbone.Marionette.ItemView.extend({
   template: "#menu-template",
 
   events: {
-    "click #privateEvents": "privateEvents",
-    "click #publicEvents":  "publicEvents",
-    "click #pullRequests":  "pullRequests",
-    "click #quit": "exit"
+    "click #privateEvents":       "privateEvents",
+    "click #publicEvents":        "publicEvents",
+    "click #notificationsEvents": "notificationsEvents",
+    "click #pullRequests":        "pullRequests",
+    "click #quit":                "exit"
   },
 
   initialize: function() {
     this.loadingScreen = new LoadingScreen;
+  },
+
+  notificationsEvents: function() {
+    if(this.isSelected("#notificationsEvents")) {
+      $(window).scrollTop(0);
+      return;
+    }
+
+    this.select("#notificationsEvents");
+
+    var notificationsCollection = new NotificationsCollection();
+
+    var notificationsView = new NotificationsView({
+      collection: notificationsCollection
+    });
+
+    if(notificationsCollection.isEmpty()) {
+      DashCat.Main.app.content.show(this.loadingScreen);
+    }
+
+    notificationsCollection.fetcher.done(function() {
+      DashCat.Main.app.content.show(notificationsView);
+    });
   },
 
   privateEvents: function() {

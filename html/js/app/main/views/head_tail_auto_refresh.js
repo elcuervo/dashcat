@@ -1,6 +1,8 @@
 var HeadTailAutoRefresh = Backbone.Marionette.CollectionView.extend({
   tagName: "ol",
 
+  emptyView: NothingToSeeView,
+
   initialize: function() {
     setInterval(_.bind(this.refreshAndAppendCollection, this), 5000);
   },
