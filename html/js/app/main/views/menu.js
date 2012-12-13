@@ -20,8 +20,10 @@ var MenuView = Backbone.Marionette.ItemView.extend({
 
     this.select("#privateEvents");
 
-    var eventsCollection = new EventsCollection(DashCat.user.get("login"));
-    var view = this;
+    var eventsCollection = new EventsCollection({
+      user: DashCat.user.get("login")
+    });
+
     var eventsView = new EventsView({
       collection: eventsCollection
     });
@@ -30,10 +32,8 @@ var MenuView = Backbone.Marionette.ItemView.extend({
       DashCat.Main.app.content.show(this.loadingScreen);
     }
 
-    eventsCollection.fetch({
-      success: function() {
-        DashCat.Main.app.content.show(eventsView);
-      }
+    eventsCollection.fetcher.done(function() {
+      DashCat.Main.app.content.show(eventsView);
     });
   },
 
@@ -76,10 +76,8 @@ var MenuView = Backbone.Marionette.ItemView.extend({
       DashCat.Main.app.content.show(this.loadingScreen);
     }
 
-    publicEventsCollection.fetch({
-      success: function() {
-        DashCat.Main.app.content.show(eventsView);
-      }
+    publicEventsCollection.fetcher.done(function() {
+      DashCat.Main.app.content.show(eventsView);
     });
   },
 

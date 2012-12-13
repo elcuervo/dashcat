@@ -1,18 +1,7 @@
-var PullRequestsCollection = Backbone.Collection.extend({
+var PullRequestsCollection = DashCatCollection.extend({
   model: PullRequest,
 
   url: "https://api.github.com/issues?filter=all",
-
-  initialize: function() {
-    this.loading = $.Deferred();
-    this.fetch();
-  },
-
-  all: function(promises) {
-    return jQuery.when.apply(jQuery, promises).pipe(function() {
-      return Array.prototype.slice.call(arguments);
-    });
-  },
 
   add: function(models, options) {
     var pullRequests = _.select(models, function(model) {
