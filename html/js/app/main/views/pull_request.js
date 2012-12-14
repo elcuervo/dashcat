@@ -29,6 +29,7 @@ var PullRequestView = BaseItemView.extend({
       headers: { "Accept": "application/vnd.github.diff" },
     });
 
+    DashCat.Main.app.showLoadingScreen();
     getDiff.done(function(response) {
       console.log(response);
     });

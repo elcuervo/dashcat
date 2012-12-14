@@ -9,10 +9,6 @@ var MenuView = Backbone.Marionette.ItemView.extend({
     "click #quit":                "exit"
   },
 
-  initialize: function() {
-    this.loadingScreen = new LoadingScreen;
-  },
-
   notificationsEvents: function() {
     if(this.isSelected("#notificationsEvents")) {
       $(window).scrollTop(0);
@@ -28,7 +24,7 @@ var MenuView = Backbone.Marionette.ItemView.extend({
     });
 
     if(notificationsCollection.isEmpty()) {
-      DashCat.Main.app.content.show(this.loadingScreen);
+      DashCat.Main.app.showLoadingScreen()
     }
 
     notificationsCollection.fetcher.done(function() {
@@ -53,7 +49,7 @@ var MenuView = Backbone.Marionette.ItemView.extend({
     });
 
     if(eventsCollection.isEmpty()) {
-      DashCat.Main.app.content.show(this.loadingScreen);
+      DashCat.Main.app.showLoadingScreen()
     }
 
     eventsCollection.fetcher.done(function() {
@@ -75,7 +71,7 @@ var MenuView = Backbone.Marionette.ItemView.extend({
     });
 
     if(pullRequestsCollection.isEmpty()) {
-      DashCat.Main.app.content.show(this.loadingScreen);
+      DashCat.Main.app.showLoadingScreen()
     }
 
     pullRequestsCollection.loading.done(function() {
@@ -97,7 +93,7 @@ var MenuView = Backbone.Marionette.ItemView.extend({
     });
 
     if(publicEventsCollection.isEmpty()) {
-      DashCat.Main.app.content.show(this.loadingScreen);
+      DashCat.Main.app.showLoadingScreen()
     }
 
     publicEventsCollection.fetcher.done(function() {

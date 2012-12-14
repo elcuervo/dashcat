@@ -15,6 +15,11 @@ var Main = DashCat.module("Main", {
         DashCat.user = new User();
         var menuView = new MenuView({ model: DashCat.user });
 
+        this.loadingScreen = new LoadingScreen;
+        this.showLoadingScreen = function() {
+          this.content.show(this.loadingScreen);
+        }
+
         if(DashCat.token) {
           $(document).ajaxError(function(xhr) {
             if(xhr.status == 401) {
