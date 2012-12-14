@@ -467,6 +467,10 @@ a {
   border-radius: 5px
 }
 
+.diff_it {
+  background: #2fa4e7;
+}
+
 .merge_it {
   background: green;
 }
