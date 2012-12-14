@@ -66,12 +66,25 @@
             <%= creationTag(updated_at) %>
           </h2>
           <span class="info">
-            Send a pull request to
+            Sent a pull request to
             <a href="<%= pull_info.html_url %>">
               <%= repository.full_name %>#<%= number %>
             </a>
             <h3> <%= pull_info.title %> </h3>
             <%= marked(body) %>
+
+            <% if(pull_info.mergeable) { %>
+              <div class="mergeable">
+                <button class="diff">
+                  <span class="diff action"></span>
+                  Diff
+                </button>
+                <button class="merge_it">
+                  <span class="merge action"> </span>
+                    Merge pull request
+                </button>
+              </div>
+            <% } %>
           </span>
         </div>
       </div>

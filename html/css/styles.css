@@ -453,3 +453,24 @@ a {
   text-align: center;
   margin: 0 auto;
 }
+
+.mergeable {
+  border-radius: 5px;
+  background: lightgreen;
+  padding: 10px;
+}
+
+.mergeable button {
+  font-weight: bold;
+  padding: 5px;
+  color: white;
+  border-radius: 5px
+}
+
+.merge_it {
+  background: green;
+}
+
+.merge_text {
+  padding-left: 5px
+}

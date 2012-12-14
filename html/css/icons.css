@@ -139,3 +139,19 @@
   border: 1px solid black;
   color: white;
 }
+
+.action {
+  font-size: 3em;
+  line-height: .2;
+  position: relative;
+  top: 4px;
+  left: 2px
+}
+
+.diff.action:before {
+  content: "\1F56C";
+}
+
+.merge.action:before {
+  content: "\1F569";
+}
