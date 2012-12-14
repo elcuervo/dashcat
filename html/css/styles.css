@@ -478,3 +478,16 @@ a {
 .merge_text {
   padding-left: 5px
 }
+
+.commit_merge {
+  display: none
+}
+
+.commit_merge textarea {
+  display: block;
+  width: 100%
+}
+
+.commit_merge button {
+  padding: 5px
+}
