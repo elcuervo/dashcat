@@ -31,7 +31,10 @@ var PullRequestView = BaseItemView.extend({
 
     DashCat.Main.app.showLoadingScreen();
     getDiff.done(function(response) {
-      console.log(response);
+      var diffViewer = new DiffViewer({
+        diffContent: response
+      })
+      DashCat.Main.app.content.show(diffViewer);
     });
   },
 
