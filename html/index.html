@@ -3,10 +3,12 @@
     <title>Dashcat</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/icons.css" />
+    <link rel="stylesheet" href="css/diffy.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <script type="text/javascript" src="js/moment.min.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/marked.js"></script>
+    <script type="text/javascript" src="js/diffy.js"></script>
     <script type="text/javascript" src="js/iscroll.js"></script>
     <script type="text/javascript" src="js/underscore.js"></script>
     <script type="text/javascript" src="js/backbone.js"></script>
@@ -25,7 +27,19 @@
     </script>
 
     <script id="diff-viewer-template" type="text/html">
-      <pre><%= content %></pre>
+      <button class="back">Back</button>
+      <% _.each(diffy, function(file) { %>
+        <div class="diff">
+          <h2> <%= file[0] %> </h2>
+          <table>
+            <% _.each(file[1], function(line) { %>
+              <tr>
+                <td><%= line %></td>
+              </tr>
+            <% }) %>
+          </table>
+        </div>
+      <% }); %>
     </script>
 
     <script id="not-implemented-event-template" type="text/html">

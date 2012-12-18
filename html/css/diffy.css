@@ -1,0 +1,19 @@
+.diff span {
+  display: block;
+}
+
+.diff .unchanged {
+}
+
+.diff .added {
+  background-color: #ddffdd;
+}
+
+.diff .deleted {
+  background-color: #ffdddd;
+}
+
+.diff .metadata {
+  background-color: rgba(65,131,196,0.4);
+  color: grey;
+}
