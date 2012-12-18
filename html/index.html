@@ -66,6 +66,12 @@
     </script>
 
     <script id="notification-template" type="text/html">
+      <% console.log(arguments) %>
+      <li>
+        <h2> <%= subject.title %> </h2>
+        <%= subject.type %>
+        <%= repository.full_name %>
+      </li>
     </script>
 
     <script id="pull-requests-template" type="text/html">
