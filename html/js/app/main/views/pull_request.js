@@ -26,7 +26,8 @@ var PullRequestView = BaseItemView.extend({
     var diffUrl = this.model.get("pull_info").url;
     var getDiff = $.ajax({
       url: diffUrl,
-      headers: { "Accept": "application/vnd.github.diff" },
+      cache: false,
+      headers: { "Accept": "application/vnd.github.diff" }
     });
 
     DashCat.Main.app.showLoadingScreen();

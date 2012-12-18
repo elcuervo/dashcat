@@ -6,6 +6,7 @@ var Diffy = function Diffy(diffString) {
   var added = /^\+(\w|\s|$)/;
   var deleted = /^\-(\w|\s|$)/;
 
+  console.log(diffString);
   var data = diffString.split("\n");
   var files = {};
   var fileNumber = 0;
@@ -44,9 +45,3 @@ var Diffy = function Diffy(diffString) {
   console.info(files);
   return files;
 };
-
-Diffy.File = function DiffyFile() {};
-
-Diffy.prototype = {
-  each: function(fn) {},
-}

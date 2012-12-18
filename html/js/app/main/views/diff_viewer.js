@@ -10,6 +10,10 @@ var DiffViewer = Backbone.Marionette.ItemView.extend({
   },
 
   back: function() {
+    DashCat.Main.app.content.show(
+      DashCat.Main.app.pullRequestsView
+    );
+    return false;
   },
 
   templateHelpers: function() {

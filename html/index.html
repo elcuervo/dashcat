@@ -27,19 +27,21 @@
     </script>
 
     <script id="diff-viewer-template" type="text/html">
-      <button class="back">Back</button>
-      <% _.each(diffy, function(file) { %>
-        <div class="diff">
-          <h2> <%= file[0] %> </h2>
-          <table>
-            <% _.each(file[1], function(line) { %>
-              <tr>
-                <td><%= line %></td>
-              </tr>
-            <% }) %>
-          </table>
-        </div>
-      <% }); %>
+      <div class="event">
+        <button class="back">Back</button>
+        <% _.each(diffy, function(file) { %>
+          <div class="diff">
+            <h2> <%= file[0] %> </h2>
+            <table>
+              <% _.each(file[1], function(line) { %>
+                <tr>
+                  <td><%= line %></td>
+                </tr>
+              <% }) %>
+            </table>
+          </div>
+        <% }); %>
+      </div>
     </script>
 
     <script id="not-implemented-event-template" type="text/html">
