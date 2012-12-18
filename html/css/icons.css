@@ -38,7 +38,7 @@
   content: "\E720"
 }
 
-.pull-request:before {
+.pull-request:before, .pull:before {
   content: "\E73C"
 }
 

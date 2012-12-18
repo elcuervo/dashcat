@@ -27,7 +27,7 @@ var MenuView = Backbone.Marionette.ItemView.extend({
       DashCat.Main.app.showLoadingScreen()
     }
 
-    notificationsCollection.fetcher.done(function() {
+    notificationsCollection.loading.done(function() {
       DashCat.Main.app.content.show(notificationsView);
       DashCat.Main.app.notificationsView = notificationsView;
     });

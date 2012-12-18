@@ -16,6 +16,61 @@
     <script type="text/javascript" src="js/backbone.infiniscroll.js"></script>
   </head>
   <body>
+    <script id="pullrequest-notification-template" type="text/html">
+      <div class="event pull-request-box <%= visibilityClass %> box">
+        <a name="<%= id %>"></a>
+        <div class="user">
+          <img width=50 height=50 class="avatar" src="<%= payload.user.avatar_url %>" alt="" />
+          <span class="icon <%= eventClass %>"></span>
+        </div>
+        <div class="body">
+          <h2>
+            <%= payload.user.login %>
+            <%= creationTag(payload.updated_at) %>
+          </h2>
+          <span class="info">
+            Sent a pull request to
+            <a href="<%= payload._links.html.href %>">
+              <%= repository.full_name %>#<%= payload.number %>
+            </a>
+            <h3> <%= subject.title %> </h3>
+            <%= marked(payload.body) %>
+          </span>
+        </div>
+      </div>
+      <% console.log(arguments) %>
+    </script>
+
+    <script id="issue-notification-template" type="text/html">
+      <% console.log(arguments) %>
+      <div class="event pull-request-box <%= visibilityClass %> box">
+        <a name="<%= id %>"></a>
+        <div class="user">
+          <img width=50 height=50 class="avatar" src="<%= payload.user.avatar_url %>" alt="" />
+          <span class="icon <%= eventClass %>"></span>
+        </div>
+        <div class="body">
+          <h2>
+            <%= payload.user.login %>
+            <%= creationTag(payload.updated_at) %>
+          </h2>
+          <span class="info">
+            Sent a pull request to
+            <a href="<%= payload.html_url %>">
+              <%= repository.full_name %>#<%= payload.number %>
+            </a>
+            <h3> <%= subject.title %> </h3>
+            <%= marked(payload.body) %>
+          </span>
+        </div>
+      </div>
+    </script>
+
+    <script id="commit-notification-template" type="text/html">
+      <% console.log(arguments) %>
+      <h2> <%= subject.title %> </h2>
+    </script>
+
     <script id="loader-template" type="text/html">
       <li id="placeholder">
         <div class="box">
@@ -66,7 +121,6 @@
     </script>
 
     <script id="notification-template" type="text/html">
-      <% console.log(arguments) %>
       <li>
         <h2> <%= subject.title %> </h2>
         <%= subject.type %>
@@ -78,7 +132,6 @@
     </script>
 
     <script id="pull-request-template" type="text/html">
-      <% console.log(arguments) %>
       <div class="event pull-request-box <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -610,6 +663,7 @@
   <!-- MAIN -->
   <script type="text/javascript" src="js/app/main/collections/dashcat_collection.js"></script>
 
+  <script type="text/javascript" src="js/app/main/models/notification.js"></script>
   <script type="text/javascript" src="js/app/main/models/user.js"></script>
   <script type="text/javascript" src="js/app/main/models/pull_request.js"></script>
   <script type="text/javascript" src="js/app/main/models/event.js"></script>
