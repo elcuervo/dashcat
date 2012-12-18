@@ -20,6 +20,8 @@ var Main = DashCat.module("Main", {
           this.content.show(this.loadingScreen);
         }
 
+        this.showLoadingScreen();
+
         if(DashCat.token) {
           $(document).ajaxError(function(xhr) {
             if(xhr.status == 401) {
