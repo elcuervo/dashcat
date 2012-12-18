@@ -66,7 +66,6 @@
     </script>
 
     <script id="notification-template" type="text/html">
-      1
     </script>
 
     <script id="pull-requests-template" type="text/html">
@@ -93,16 +92,17 @@
             <h3> <%= pull_info.title %> </h3>
             <%= marked(body) %>
 
-            <% if(pull_info.mergeable) { %>
               <div class="mergeable">
                 <button class="diff_it">
                   <span class="diff action"></span>
-                  Diff
+                  Diff files
                 </button>
-                <button class="merge_it">
-                  <span class="merge action"> </span>
-                    Merge pull request
-                </button>
+                <% if(pull_info.mergeable) { %>
+                  <button class="merge_it">
+                    <span class="merge action"> </span>
+                      Merge pull request
+                  </button>
+                <% } %>
               </div>
 
               <div class="commit_merge">
@@ -112,7 +112,6 @@
                   <button type="submit">Confirm Merge</button>
                 </form>
               </div>
-            <% } %>
           </span>
         </div>
       </div>
