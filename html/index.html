@@ -92,26 +92,26 @@
             <h3> <%= pull_info.title %> </h3>
             <%= marked(body) %>
 
-              <div class="mergeable">
-                <button class="diff_it">
-                  <span class="diff action"></span>
-                  Diff files
+            <div class="mergeable">
+              <button class="diff_it">
+                <span class="diff action"></span>
+                Diff files
+              </button>
+              <% if(pull_info.mergeable) { %>
+                <button class="merge_it">
+                  <span class="merge action"> </span>
+                    Merge pull request
                 </button>
-                <% if(pull_info.mergeable) { %>
-                  <button class="merge_it">
-                    <span class="merge action"> </span>
-                      Merge pull request
-                  </button>
-                <% } %>
-              </div>
+              <% } %>
+            </div>
 
-              <div class="commit_merge">
-                <form>
-                  <textarea class="commit_message" rows="10"></textarea>
-                  <button class="cancel_merge">Cancel</button>
-                  <button type="submit">Confirm Merge</button>
-                </form>
-              </div>
+            <div class="commit_merge">
+              <form id="merge_commit">
+                <textarea class="commit_message" rows="10"></textarea>
+                <button class="cancel_merge">Cancel</button>
+                <button type="submit">Confirm Merge</button>
+              </form>
+            </div>
           </span>
         </div>
       </div>

@@ -9,6 +9,8 @@ var PullRequestsCollection = DashCatCollection.extend({
     });
 
     var promises = [];
+    var mergedPullRequests = [];
+
     _.each(pullRequests, function(pullRequest) {
       var pullRequestUrl = pullRequest.repository.url + "/pulls/" + pullRequest.number;
 
@@ -16,6 +18,10 @@ var PullRequestsCollection = DashCatCollection.extend({
         url: pullRequestUrl,
         success: function(response) {
           pullRequest.pull_info = response;
+
+          if(response.merged) {
+            mergedPullRequests.push(pullRequest);
+          }
         }
       });
 
@@ -23,7 +29,9 @@ var PullRequestsCollection = DashCatCollection.extend({
     });
 
     this.whenAll(promises).then(_.bind(function() {
-      Backbone.Collection.prototype.add.call(this, pullRequests, options);
+      var openPullRequests = _.without(pullRequests, mergedPullRequests)
+
+      Backbone.Collection.prototype.add.call(this, openPullRequests, options);
       this.loading.resolve();
     }, this));
   }

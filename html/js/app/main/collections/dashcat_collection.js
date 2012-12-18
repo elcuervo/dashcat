@@ -5,7 +5,7 @@ var DashCatCollection = Backbone.Collection.extend({
 
     if(!!this.afterInitialize) this.afterInitialize.call(this);
 
-    this.fetcher = this.fetch();
+    this.fetcher = this.fetch({ cache: false });
   },
 
   whenAll: function(promises) {
