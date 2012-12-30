@@ -1,35 +1,49 @@
-jsdir = js/app
+appdir = js/app
 
-modules = ${jsdir}/base.js \
-	  ${jsdir}/login/app.js \
-	  ${jsdir}/login/views/login.js \
-	  ${jsdir}/main/collections/dashcat_collection.js \
-	  ${jsdir}/main/models/notification.js \
-	  ${jsdir}/main/models/user.js \
-	  ${jsdir}/main/models/pull_request.js \
-	  ${jsdir}/main/models/event.js \
-	  ${jsdir}/main/views/nothing_to_see.js \
-	  ${jsdir}/main/collections/pull_requests.js \
-	  ${jsdir}/main/collections/dashcat_events_collection.js \
-	  ${jsdir}/main/collections/events.js \
-	  ${jsdir}/main/collections/notifications.js \
-	  ${jsdir}/main/collections/public_events.js \
-	  ${jsdir}/main/views/loading_screen.js \
-	  ${jsdir}/main/views/base_item_view.js \
-	  ${jsdir}/main/views/head_tail_auto_refresh.js \
-	  ${jsdir}/main/views/notification.js \
-	  ${jsdir}/main/views/notifications.js \
-	  ${jsdir}/main/views/diff_viewer.js \
-	  ${jsdir}/main/views/pull_request.js \
-	  ${jsdir}/main/views/pull_requests.js \
-	  ${jsdir}/main/views/menu.js \
-	  ${jsdir}/main/views/event.js \
-	  ${jsdir}/main/views/events.js \
-	  ${jsdir}/main/app.js \
-	  ${jsdir}/init.js
+libs = js/libs/moment.min.js \
+       js/libs/jquery.js \
+       js/libs/marked.js \
+       js/libs/diffy.js \
+       js/libs/iscroll.js \
+       js/libs/underscore.js \
+       js/libs/backbone.js \
+       js/libs/backbone.marionette.js \
+       js/libs/backbone.infiniscroll.js
 
-app.js: ${modules}
+app = ${appdir}/base.js \
+      ${appdir}/login/app.js \
+      ${appdir}/login/views/login.js \
+      ${appdir}/main/collections/dashcat_collection.js \
+      ${appdir}/main/models/notification.js \
+      ${appdir}/main/models/user.js \
+      ${appdir}/main/models/pull_request.js \
+      ${appdir}/main/models/event.js \
+      ${appdir}/main/views/nothing_to_see.js \
+      ${appdir}/main/collections/pull_requests.js \
+      ${appdir}/main/collections/dashcat_events_collection.js \
+      ${appdir}/main/collections/events.js \
+      ${appdir}/main/collections/notifications.js \
+      ${appdir}/main/collections/public_events.js \
+      ${appdir}/main/views/loading_screen.js \
+      ${appdir}/main/views/base_item_view.js \
+      ${appdir}/main/views/head_tail_auto_refresh.js \
+      ${appdir}/main/views/notification.js \
+      ${appdir}/main/views/notifications.js \
+      ${appdir}/main/views/diff_viewer.js \
+      ${appdir}/main/views/pull_request.js \
+      ${appdir}/main/views/pull_requests.js \
+      ${appdir}/main/views/menu.js \
+      ${appdir}/main/views/event.js \
+      ${appdir}/main/views/events.js \
+      ${appdir}/main/app.js \
+      ${appdir}/init.js
+
+libs.js: ${libs}
+	cat $^ | yuicompressor --type js -o js/$@
+
+app.js: ${app}
 	cat $^ | yuicompressor --type js -o js/$@
 
 clean:
 	rm js/app.js
+	rm js/libs.js
