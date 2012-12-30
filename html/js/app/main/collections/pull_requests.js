@@ -29,7 +29,7 @@ var PullRequestsCollection = DashCatCollection.extend({
     });
 
     this.whenAll(promises).then(_.bind(function() {
-      var openPullRequests = _.without(pullRequests, mergedPullRequests)
+      var openPullRequests = _.without(pullRequests, mergedPullRequests);
 
       Backbone.Collection.prototype.add.call(this, openPullRequests, options);
       this.loading.resolve();

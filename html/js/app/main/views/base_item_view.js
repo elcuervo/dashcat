@@ -16,7 +16,7 @@ var BaseItemView = Backbone.Marionette.ItemView.extend({
     var model = this.model;
 
     var defineVisibility = function() {
-      var privateRepo = model.get("repository") && model.get("repository").private;
+      var privateRepo = model.get("repository") && model.get("repository")["private"];
 
       if(!!model.get("public") || !privateRepo) {
         return "public-action";
