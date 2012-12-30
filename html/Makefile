@@ -26,6 +26,7 @@ app = ${appdir}/base.js \
       ${appdir}/main/collections/public_events.js \
       ${appdir}/main/views/loading_screen.js \
       ${appdir}/main/views/base_item_view.js \
+      ${appdir}/main/views/basic_event_view.js \
       ${appdir}/main/views/head_tail_auto_refresh.js \
       ${appdir}/main/views/notification.js \
       ${appdir}/main/views/notifications.js \
@@ -43,6 +44,8 @@ libs.js: ${libs}
 
 app.js: ${app}
 	cat $^ | yuicompressor --type js -o js/$@
+
+all: libs.js app.js
 
 clean:
 	rm js/app.js

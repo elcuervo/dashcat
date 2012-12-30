@@ -1,19 +1,20 @@
-var NotificationView = BaseItemView.extend({
-  tagName: "li",
-
-  initialize: function() {
+var NotificationView = BasicEventView.extend({
+  type: function() {
     var type = this.model.get("subject").type;
-    this.template = "#" + type.toLowerCase() + "-notification-template";
-    if(!$(this.template).length) this.template = "#not-implemented-event-template";
+    if(type == "PullRequest") type = "PullRequestEvent";
+    if(type == "Issue") type = "IssueCommentEvent";
+
+    return type;
   },
 
-  helpers: function() {
-    var eventName = this.model.get("subject").type.match(/[A-Z][a-z]+/g);
-    var eventClass = eventName.slice(0, -1).join("-").toLowerCase();
-
-    return {
-      eventClass: eventClass
+  viewHelpers: function() {
+    var helpers = {
+      user: this.model.get("payload").user,
+      actor: this.model.get("payload").user,
+      created_at: this.model.get("updated_at"),
+      repo: this.model.get("repository")
     }
-  }
 
+    return helpers;
+  }
 });

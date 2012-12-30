@@ -358,6 +358,7 @@
     </script>
 
     <script id="issue-event-template" type="text/html">
+      <% console.log("Issue", arguments) %>
       <div class="event issue-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -558,16 +559,16 @@
           </h2>
           <p class="info">
             <%= payload.action %> pull request
-            <a href="<%= payload.pull_request.html_url %>">
-              <span class="issue"><%= repo.name %>#<%= payload.pull_request.number %></span>
+            <a href="<%= payload.html_url || payload.pull_request.html_url %>">
+              <span class="issue"><%= repo.name %>#<%= payload.number || payload.pull_request.number %></span>
             </a>
             <p class="info">
-              <%= payload.pull_request.title %>
+              <%= payload.title || payload.pull_request.title %>
             </p>
             <code>
-              Commits: <%= payload.pull_request.commits %>
-              Additions: <%= payload.pull_request.additions %>
-              Deletions: <%= payload.pull_request.deletions %>
+              Commits: <%= payload.commits || payload.pull_request.commits %>
+              Additions: <%= payload.additions || payload.pull_request.additions %>
+              Deletions: <%= payload.deletions + "" || payload.pull_request.deletions %>
             </code>
           </p>
         </div>
@@ -575,6 +576,7 @@
     </script>
 
     <script id="issue-comment-event-template" type="text/html">
+      <% console.log("Issue Comment", arguments) %>
       <div class="event issue-comment-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -588,12 +590,12 @@
           </h2>
           <p class="info">
             commented on
-            <a href="<%= cleanUrl(payload.issue.url) %>">
-              <span class="issue"><%= repo.name %>#<%= payload.issue.number %></span>
+            <a href="<%= cleanUrl(payload.url || payload.issue.url) %>">
+              <span class="issue"><%= repo.name %>#<%= payload.number || payload.issue.number %></span>
             </a>
             <blockquote>
               <span class="quote quote-left">&#8220;</span>
-              <p class="quote-body"> <%= payload.comment.body %> </p>
+              <p class="quote-body"> <%= payload.body || payload.comment.body %> </p>
               <span class="quote quote-right">&#8221;</span>
             </blockquote>
           </p>
