@@ -39,7 +39,6 @@ var MenuView = Backbone.Marionette.ItemView.extend({
 
     this.select("#privateEvents");
 
-    console.log(this.app);
     if(this.app.eventsCollection.isEmpty()) {
       this.app.showLoadingScreen()
     }
@@ -57,8 +56,6 @@ var MenuView = Backbone.Marionette.ItemView.extend({
     }
 
     this.select("#pullRequests");
-
-    console.log(this);
 
     if(this.app.pullRequestsCollection.isEmpty()) {
       this.app.showLoadingScreen()

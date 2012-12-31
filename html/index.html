@@ -36,7 +36,6 @@
 
     <script id="not-implemented-event-template" type="text/html">
       <h1 style="color:red">
-        <% console.log(arguments) %>
        <%= typeof type != "undefined" ? type : "unknown" %> not implemented
       </h1>
     </script>
@@ -67,7 +66,6 @@
     </script>
 
     <script id="pull-request-template" type="text/html">
-      <% console.log("PRT", arguments); %>
       <div class="event pull-request-box <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -148,7 +146,6 @@
     </script>
 
     <script id="fork-event-template" type="text/html">
-      <% console.log("fork", arguments) %>
       <div class="event fork-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -172,7 +169,6 @@
     </script>
 
     <script id="download-event-template" type="text/html">
-      <% console.log("Download", arguments) %>
       <div class="event download-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -195,7 +191,6 @@
     </script>
 
     <script id="member-event-template" type="text/html">
-      <% console.log("Member", arguments) %>
       <div class="event member-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -215,7 +210,6 @@
     </script>
 
     <script id="team-add-event-template" type="text/html">
-      <% console.log("Team add", arguments) %>
       <div class="event team-add-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -243,7 +237,6 @@
     </script>
 
     <script id="gist-event-template" type="text/html">
-      <% console.log("gist", arguments) %>
       <div class="event gist-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -263,7 +256,6 @@
     </script>
 
     <script id="public-event-template" type="text/html">
-      <% console.log("public", arguments) %>
       <div class="event public-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -302,7 +294,6 @@
     </script>
 
     <script id="issue-event-template" type="text/html">
-      <% console.log("Issue", arguments) %>
       <div class="event issue-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -322,7 +313,6 @@
     </script>
 
     <script id="delete-event-template" type="text/html">
-      <% console.log("Delete", arguments) %>
       <div class="event delete-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -388,7 +378,6 @@
     </script>
 
     <script id="pull-request-review-comment-event-template" type="text/html">
-      <% console.log("PR comment", arguments) %>
       <div class="event pull-request-review-comment-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -414,7 +403,6 @@
     </script>
 
     <script id="gollum-event-template" type="text/html">
-      <% console.log("Gollu", arguments) %>
       <div class="event gollum-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -446,7 +434,6 @@
     </script>
 
     <script id="create-event-template" type="text/html">
-      <% console.log("Create", arguments) %>
       <div class="event create-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -485,7 +472,6 @@
     </script>
 
     <script id="pull-request-event-template" type="text/html">
-      <% console.log("PR", arguments) %>
       <div class="event pull-request-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -518,7 +504,6 @@
     </script>
 
     <script id="issue-comment-event-template" type="text/html">
-      <% console.log("Issue Comment", arguments) %>
       <div class="event issue-comment-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">

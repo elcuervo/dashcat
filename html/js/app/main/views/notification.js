@@ -1,7 +1,6 @@
 var NotificationView = BasicEventView.extend({
   type: function() {
     var type = this.model.get("subject").type;
-    if(type == "PullRequest") type = "PullRequest";
     if(type == "Issue") type = "IssueCommentEvent";
 
     return type;
@@ -26,9 +25,4 @@ var NotificationView = BasicEventView.extend({
 });
 
 var ExtraHelpers = {
-  PullRequest: {
-    mergeState: function() {
-      return this.payload.mergeable_state;
-    }
-  }
 }

@@ -1,6 +1,5 @@
 var EventView = BasicEventView.extend({
   type: function() {
-          console.warn(this.model)
     return this.model.get("type");
   },
 
@@ -14,6 +13,6 @@ var EventView = BasicEventView.extend({
     }
 
     return helpers;
-  },
+  }
 
 });

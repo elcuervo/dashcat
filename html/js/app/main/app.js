@@ -52,6 +52,12 @@ var Main = DashCat.module("Main", {
             Main.app.pullRequestsCollection   = new PullRequestsCollection();
             Main.app.publicEventsCollection   = new PublicEventsCollection();
 
+            Main.app.notificationsCollection.loading.done(_.bind(function() {
+              if(typeof macgap != 'undefined') {
+                macgap.dock.badge = "" + this.length;
+              }
+            }, Main.app.notificationsCollection));
+
             Main.app.notificationsView = new NotificationsView({
               collection: Main.app.notificationsCollection
             });
