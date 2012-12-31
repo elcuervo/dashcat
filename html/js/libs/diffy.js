@@ -3,8 +3,8 @@ var Diffy = function Diffy(diffString) {
   var linesData = /^@@/;
   var diff = "^diff --git a/*(.*) b";
   var pointers = /^index ([0-9a-zA-z]+)..([0-9a-zA-z]+)/;
-  var added = /^\+(\w|\s|$)/;
-  var deleted = /^\-(\w|\s|$)/;
+  var added = /^\+(.|$)/;
+  var deleted = /^\-(.|$)/;
 
   console.log(diffString);
   var data = diffString.split("\n");
