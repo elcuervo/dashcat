@@ -4,15 +4,15 @@ var PullRequestView = BaseItemView.extend({
   template: "#pull-request-template",
 
   ui: {
-    mergeable: ".mergeable",
-    commit: ".commit_merge",
-    message: ".commit_message"
+    mergeable:  ".mergeable",
+    commit:     ".commit_merge",
+    message:    ".commit_message"
   },
 
   events: {
-    "click .diff_it":      "loadDiff",
-    "click .merge_it":     "loadCommitBox",
-    "click .cancel_merge": "cancelMerge",
+    "click .diff_it":       "loadDiff",
+    "click .merge_it":      "loadCommitBox",
+    "click .cancel_merge":  "cancelMerge",
     "submit #merge_commit": "mergeCommit"
   },
 

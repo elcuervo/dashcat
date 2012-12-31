@@ -30,6 +30,7 @@ var MenuView = Backbone.Marionette.ItemView.extend({
     notificationsCollection.loading.done(function() {
       DashCat.Main.app.content.show(notificationsView);
       DashCat.Main.app.notificationsView = notificationsView;
+      DashCat.Main.app.previousView = notificationsView;
     });
   },
 
@@ -56,6 +57,7 @@ var MenuView = Backbone.Marionette.ItemView.extend({
     eventsCollection.fetcher.done(function() {
       DashCat.Main.app.content.show(eventsView);
       DashCat.Main.app.eventsView = eventsView;
+      DashCat.Main.app.previousView = eventsView;
     });
   },
 
@@ -79,6 +81,7 @@ var MenuView = Backbone.Marionette.ItemView.extend({
     pullRequestsCollection.loading.done(function() {
       DashCat.Main.app.content.show(pullRequestsView);
       DashCat.Main.app.pullRequestsView = pullRequestsView;
+      DashCat.Main.app.previousView = pullRequestsView;
     });
   },
 
@@ -102,6 +105,7 @@ var MenuView = Backbone.Marionette.ItemView.extend({
     publicEventsCollection.fetcher.done(function() {
       DashCat.Main.app.content.show(publicEventsView);
       DashCat.Main.app.publicEventsView = publicEventsView;
+      DashCat.Main.app.previousView = publicEventsView;
     });
   },
 
