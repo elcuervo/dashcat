@@ -554,7 +554,7 @@
             <%= creationTag(created_at) %>
           </h2>
           <p class="info">
-            <%= payload.action %> pull request
+            <%= payload.action || "send" %> a pull request
             <a href="<%= payload.html_url || payload.pull_request.html_url %>">
               <span class="issue"><%= repo.name %>#<%= payload.number || payload.pull_request.number %></span>
             </a>
