@@ -1,5 +1,32 @@
+.diff {
+  padding: 20px 0;
+}
+
 .diff span {
   display: block;
+}
+
+.diff pre {
+  margin: 0;
+  padding: 0
+}
+
+.diff table {
+  border: 1px solid gray;
+  display: table;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.diff tr {
+}
+
+.diff caption {
+  text-align: left
+}
+
+.diff .unchanged:hover, .diff .added:hover, .diff .deleted:hover {
+  background-color: yellow;
 }
 
 .diff .unchanged {
