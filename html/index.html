@@ -8,61 +8,6 @@
     <script type="text/javascript" src="js/libs.js"></script>
   </head>
   <body>
-    <script id="pullrequest-notification-template" type="text/html">
-      <div class="event pull-request-box <%= visibilityClass %> box">
-        <a name="<%= id %>"></a>
-        <div class="user">
-          <img width=50 height=50 class="avatar" src="<%= payload.user.avatar_url %>" alt="" />
-          <span class="icon <%= eventClass %>"></span>
-        </div>
-        <div class="body">
-          <h2>
-            <%= payload.user.login %>
-            <%= creationTag(payload.updated_at) %>
-          </h2>
-          <span class="info">
-            Sent a pull request to
-            <a href="<%= payload._links.html.href %>">
-              <%= repository.full_name %>#<%= payload.number %>
-            </a>
-            <h3> <%= subject.title %> </h3>
-            <%= marked(payload.body) %>
-          </span>
-        </div>
-      </div>
-      <% console.log(arguments) %>
-    </script>
-
-    <script id="issue-notification-template" type="text/html">
-      <% console.log(arguments) %>
-      <div class="event pull-request-box <%= visibilityClass %> box">
-        <a name="<%= id %>"></a>
-        <div class="user">
-          <img width=50 height=50 class="avatar" src="<%= payload.user.avatar_url %>" alt="" />
-          <span class="icon <%= eventClass %>"></span>
-        </div>
-        <div class="body">
-          <h2>
-            <%= payload.user.login %>
-            <%= creationTag(payload.updated_at) %>
-          </h2>
-          <span class="info">
-            Sent a pull request to
-            <a href="<%= payload.html_url %>">
-              <%= repository.full_name %>#<%= payload.number %>
-            </a>
-            <h3> <%= subject.title %> </h3>
-            <%= marked(payload.body) %>
-          </span>
-        </div>
-      </div>
-    </script>
-
-    <script id="commit-notification-template" type="text/html">
-      <% console.log(arguments) %>
-      <h2> <%= subject.title %> </h2>
-    </script>
-
     <script id="loader-template" type="text/html">
       <li id="placeholder">
         <div class="box">
@@ -124,6 +69,7 @@
     </script>
 
     <script id="pull-request-template" type="text/html">
+      <% console.log("PRT", arguments); %>
       <div class="event pull-request-box <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -137,18 +83,18 @@
           </h2>
           <span class="info">
             Sent a pull request to
-            <a href="<%= pull_info.html_url %>">
-              <%= repository.full_name %>#<%= number %>
+            <a href="<%= payload.html_url || pull_info.html_url %>">
+              <%= repository.full_name %>#<%= payload.number || number %>
             </a>
-            <h3> <%= pull_info.title %> </h3>
-            <%= marked(body) %>
+            <h3> <%= payload.title || pull_info.title %> </h3>
+            <%= marked(payload.body || typeof body != 'undefined' && body ||  "") %>
 
             <div class="mergeable">
               <button class="diff_it">
                 <span class="diff action"></span>
                 Diff files
               </button>
-              <% if(pull_info.mergeable) { %>
+              <% if(payload.mergeable || typeof pull_info != 'undefined' && pull_info.mergeable || false) { %>
                 <button class="merge_it">
                   <span class="merge action"> </span>
                     Merge pull request
@@ -554,7 +500,7 @@
             <%= creationTag(created_at) %>
           </h2>
           <p class="info">
-            <%= payload.action || "send" %> a pull request
+            <%= payload.action || "sent" %> a pull request
             <a href="<%= payload.html_url || payload.pull_request.html_url %>">
               <span class="issue"><%= repo.name %>#<%= payload.number || payload.pull_request.number %></span>
             </a>

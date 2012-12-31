@@ -17,13 +17,17 @@ var PullRequestView = BaseItemView.extend({
   },
 
   helpers: function() {
+    var info = this.info = this.model.get("pull_info") || this.model.get("payload");
+    var user = this.model.get("user") || info.user;
+
     return {
-      mergeState: "state-" + this.model.get("pull_info").mergeable_state
+      user: user,
+      mergeState: "state-" + info.mergeable_state
     }
   },
 
   loadDiff: function() {
-    var diffUrl = this.model.get("pull_info").url;
+    var diffUrl = this.info.url;
     var getDiff = $.ajax({
       url: diffUrl,
       cache: false,
@@ -57,7 +61,7 @@ var PullRequestView = BaseItemView.extend({
   mergeCommit: function(event) {
     event.preventDefault();
 
-    var mergeUrl = this.model.get("pull_info").url + "/merge";
+    var mergeUrl = this.info.url + "/merge";
     var message = this.ui.message.val();
 
     var merge = $.ajax({
