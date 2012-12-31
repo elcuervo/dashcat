@@ -35,7 +35,10 @@ var Main = DashCat.module("Main", {
           $(document).ajaxStop(function()  { $("#loader").hide() });
 
           $.ajaxSetup({
-            headers: { "Authorization": "token " + DashCat.token }
+            headers: {
+              "Authorization": "token " + DashCat.token,
+              "Accept": "application/vnd.github.v3.full+json"
+            }
           });
         }
 

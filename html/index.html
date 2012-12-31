@@ -417,9 +417,7 @@
             on
             <%= repo.name %>
             <blockquote>
-              <span class="quote quote-left">&#8220;</span>
-              <p class="quote-body"> <%= payload.comment.body %> </p>
-              <span class="quote quote-right">&#8221;</span>
+              <%= marked(payload.comment.body) %>
             </blockquote>
           </p>
         </div>
@@ -464,9 +462,7 @@
               <span class="issue"><%= repo.name %>#<%= payload.comment._links.pull_request.href.split("/")[-1] %></span>
             </a>
             <blockquote>
-              <span class="quote quote-left">&#8220;</span>
-              <p class="quote-body"> <%= payload.comment.body %> </p>
-              <span class="quote quote-right">&#8221;</span>
+              <%= payload.comment.body %>
             </blockquote>
           </p>
         </div>
@@ -568,7 +564,9 @@
             <code>
               Commits: <%= payload.commits || payload.pull_request.commits %>
               Additions: <%= payload.additions || payload.pull_request.additions %>
-              Deletions: <%= payload.deletions + "" || payload.pull_request.deletions %>
+              <% if(payload.deletions || payload.pull_request && payload.pull_request.deletions) { %>
+                Deletions: <%= payload.deletions || payload.pull_request.deletions %>
+              <% } %>
             </code>
           </p>
         </div>
@@ -594,9 +592,7 @@
               <span class="issue"><%= repo.name %>#<%= payload.number || payload.issue.number %></span>
             </a>
             <blockquote>
-              <span class="quote quote-left">&#8220;</span>
-              <p class="quote-body"> <%= payload.body || payload.comment.body %> </p>
-              <span class="quote quote-right">&#8221;</span>
+              <%= marked(payload.body || payload.comment.body) %>
             </blockquote>
           </p>
         </div>
