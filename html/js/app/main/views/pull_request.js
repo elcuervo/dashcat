@@ -82,5 +82,16 @@ var PullRequestView = BaseItemView.extend({
     merge.done(_.bind(function(response) {
       this.close()
     }, this));
+  },
+
+  notificationContent: function() {
+    var info = this.info = this.model.get("pull_info") || this.model.get("payload");
+    var title = this.model.get("title") || info.title;
+    var body = this.model.get("body") || info.body;
+
+    return {
+      title: title,
+      content: body
+    }
   }
 });

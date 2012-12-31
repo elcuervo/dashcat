@@ -13,6 +13,7 @@ var Main = DashCat.module("Main", {
 
       Main.app.addInitializer(function() {
         DashCat.user = new User();
+
         var menuView = new MenuView({ model: DashCat.user });
 
         this.loadingScreen = new LoadingScreen;
@@ -44,9 +45,34 @@ var Main = DashCat.module("Main", {
 
         DashCat.user.fetch({
           success: function() {
+            Main.app.notificationsCollection  = new NotificationsCollection();
+            Main.app.eventsCollection         = new EventsCollection({
+              user: DashCat.user.get("login")
+            });
+            Main.app.pullRequestsCollection   = new PullRequestsCollection();
+            Main.app.publicEventsCollection   = new PublicEventsCollection();
+
+            Main.app.notificationsView = new NotificationsView({
+              collection: Main.app.notificationsCollection
+            });
+
+            Main.app.eventsView = new EventsView({
+              collection: Main.app.eventsCollection
+            });
+
+            Main.app.pullRequestsView = new PullRequestsView({
+              collection: Main.app.pullRequestsCollection
+            });
+
+            Main.app.publicEventsView = new EventsView({
+              collection: Main.app.publicEventsCollection
+            });
+
+
             Main.app.menu.show(menuView);
           }
         });
+
       });
 
       Main.app.start();

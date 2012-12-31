@@ -9,6 +9,10 @@ var MenuView = Backbone.Marionette.ItemView.extend({
     "click #quit":                "exit"
   },
 
+  initialize: function() {
+    this.app = DashCat.Main.app;
+  },
+
   notificationsEvents: function() {
     if(this.isSelected("#notificationsEvents")) {
       $(window).scrollTop(0);
@@ -17,21 +21,14 @@ var MenuView = Backbone.Marionette.ItemView.extend({
 
     this.select("#notificationsEvents");
 
-    var notificationsCollection = new NotificationsCollection();
-
-    var notificationsView = new NotificationsView({
-      collection: notificationsCollection
-    });
-
-    if(notificationsCollection.isEmpty()) {
-      DashCat.Main.app.showLoadingScreen()
+    if(this.app.notificationsCollection.isEmpty()) {
+      this.app.showLoadingScreen()
     }
 
-    notificationsCollection.loading.done(function() {
-      DashCat.Main.app.content.show(notificationsView);
-      DashCat.Main.app.notificationsView = notificationsView;
-      DashCat.Main.app.previousView = notificationsView;
-    });
+    this.app.notificationsCollection.loading.done(_.bind(function() {
+      this.app.content.show(this.app.notificationsView);
+      this.app.previousView = this.app.notificationsView;
+    }, this));
   },
 
   privateEvents: function() {
@@ -42,23 +39,15 @@ var MenuView = Backbone.Marionette.ItemView.extend({
 
     this.select("#privateEvents");
 
-    var eventsCollection = new EventsCollection({
-      user: DashCat.user.get("login")
-    });
-
-    var eventsView = new EventsView({
-      collection: eventsCollection
-    });
-
-    if(eventsCollection.isEmpty()) {
-      DashCat.Main.app.showLoadingScreen()
+    console.log(this.app);
+    if(this.app.eventsCollection.isEmpty()) {
+      this.app.showLoadingScreen()
     }
 
-    eventsCollection.fetcher.done(function() {
-      DashCat.Main.app.content.show(eventsView);
-      DashCat.Main.app.eventsView = eventsView;
-      DashCat.Main.app.previousView = eventsView;
-    });
+    this.app.eventsCollection.fetcher.done(_.bind(function() {
+      this.app.content.show(this.app.eventsView);
+      this.app.previousView = this.app.eventsView;
+    }, this));
   },
 
   pullRequests: function() {
@@ -69,20 +58,16 @@ var MenuView = Backbone.Marionette.ItemView.extend({
 
     this.select("#pullRequests");
 
-    var pullRequestsCollection = new PullRequestsCollection();
-    var pullRequestsView = new PullRequestsView({
-      collection: pullRequestsCollection
-    });
+    console.log(this);
 
-    if(pullRequestsCollection.isEmpty()) {
-      DashCat.Main.app.showLoadingScreen()
+    if(this.app.pullRequestsCollection.isEmpty()) {
+      this.app.showLoadingScreen()
     }
 
-    pullRequestsCollection.loading.done(function() {
-      DashCat.Main.app.content.show(pullRequestsView);
-      DashCat.Main.app.pullRequestsView = pullRequestsView;
-      DashCat.Main.app.previousView = pullRequestsView;
-    });
+    this.app.pullRequestsCollection.loading.done(_.bind(function() {
+      this.app.content.show(this.app.pullRequestsView);
+      this.app.previousView = this.app.pullRequestsView;
+    }, this));
   },
 
   publicEvents: function() {
@@ -93,20 +78,14 @@ var MenuView = Backbone.Marionette.ItemView.extend({
 
     this.select("#publicEvents");
 
-    var publicEventsCollection = new PublicEventsCollection();
-    var publicEventsView = new EventsView({
-      collection: publicEventsCollection
-    });
-
-    if(publicEventsCollection.isEmpty()) {
-      DashCat.Main.app.showLoadingScreen()
+    if(this.app.publicEventsCollection.isEmpty()) {
+      this.app.showLoadingScreen()
     }
 
-    publicEventsCollection.fetcher.done(function() {
-      DashCat.Main.app.content.show(publicEventsView);
-      DashCat.Main.app.publicEventsView = publicEventsView;
-      DashCat.Main.app.previousView = publicEventsView;
-    });
+    this.app.publicEventsCollection.fetcher.done(_.bind(function() {
+      this.app.content.show(this.app.publicEventsView);
+      this.app.previousView = this.app.publicEventsView;
+    }, this));
   },
 
   onRender: function() {
