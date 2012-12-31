@@ -83,18 +83,18 @@
           </h2>
           <span class="info">
             Sent a pull request to
-            <a href="<%= payload.html_url || pull_info.html_url %>">
-              <%= repository.full_name %>#<%= payload.number || number %>
+            <a href="<%= html_url %>">
+              <%= repository.full_name %>#<%= number %>
             </a>
-            <h3> <%= payload.title || pull_info.title %> </h3>
-            <%= marked(payload.body || typeof body != 'undefined' && body ||  "") %>
+            <h3> <%= title %> </h3>
+            <%= marked(body) %>
 
             <div class="mergeable">
               <button class="diff_it">
                 <span class="diff action"></span>
                 Diff files
               </button>
-              <% if(payload.mergeable || typeof pull_info != 'undefined' && pull_info.mergeable || false) { %>
+              <% if(mergeable) { %>
                 <button class="merge_it">
                   <span class="merge action"> </span>
                     Merge pull request

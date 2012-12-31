@@ -19,9 +19,18 @@ var PullRequestView = BaseItemView.extend({
   helpers: function() {
     var info = this.info = this.model.get("pull_info") || this.model.get("payload");
     var user = this.model.get("user") || info.user;
+    var number = this.model.get("number") || info.number;
+    var title = this.model.get("title") || info.title;
+    var body = this.model.get("body") || info.body;
+    var mergeable = this.model.get("mergeable") || info.mergeable;
 
     return {
       user: user,
+      html_url: info.html_url,
+      number: number,
+      body: body,
+      mergeable: mergeable,
+      title: title,
       mergeState: "state-" + info.mergeable_state
     }
   },
