@@ -153,7 +153,7 @@ blockquote:after {
   width: 70px;
   max-width: 70px;
   min-width: 70px;
-  border-right: 1px solid black;
+  border-right: 1px solid grey;
   border-top: 1px solid black;
   height: auto;
   background: #212121;
