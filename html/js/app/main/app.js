@@ -86,8 +86,14 @@ var Main = DashCat.module("Main", {
 
     this.addFinalizer(function() {
       $("#container").hide();
+      DashCat.user = null;
+
       Main.app.menu.close();
       Main.app.content.close();
+
+      if(typeof macgap != 'undefined') {
+        macgap.dock.badge = "";
+      }
     });
   }
 });
