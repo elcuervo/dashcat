@@ -173,7 +173,7 @@ blockquote:after {
 }
 
 #content {
-  border-right: 1px solid rgba(255, 255, 255, .3);
+  border-left: 1px solid rgba(255, 255, 255, .3);
   min-width: 100px;
   background: #f9f9f9;
   height: auto;
@@ -490,4 +490,9 @@ a {
 
 .commit_merge button {
   padding: 5px
+}
+
+.nothing {
+  height: 100%;
+  text-align: center
 }
