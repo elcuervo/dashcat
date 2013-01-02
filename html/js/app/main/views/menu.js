@@ -14,79 +14,69 @@ var MenuView = Backbone.Marionette.ItemView.extend({
   },
 
   notificationsEvents: function() {
-    if(this.isSelected("#notificationsEvents")) {
-      $(window).scrollTop(0);
-      return;
-    }
-
-    this.select("#notificationsEvents");
-
-    if(this.app.notificationsCollection.isEmpty()) {
-      this.app.showLoadingScreen()
-    }
-
-    this.app.notificationsCollection.loading.done(_.bind(function() {
-      this.app.content.show(this.app.notificationsView);
-      this.app.previousView = this.app.notificationsView;
-    }, this));
+    this.activate(
+      "#notificationsEvents",
+      this.app.notificationsCollection,
+      this.app.notificationsCollection.loading,
+      this.app.notificationsView
+    );
   },
 
   privateEvents: function() {
-    if(this.isSelected("#privateEvents")) {
-      $(window).scrollTop(0);
-      return;
-    }
-
-    this.select("#privateEvents");
-
-    if(this.app.eventsCollection.isEmpty()) {
-      this.app.showLoadingScreen()
-    }
-
-    this.app.eventsCollection.fetcher.done(_.bind(function() {
-      this.app.content.show(this.app.eventsView);
-      this.app.previousView = this.app.eventsView;
-    }, this));
+    this.activate(
+      "#privateEvents",
+      this.app.eventsCollection,
+      this.app.eventsCollection.fetcher,
+      this.app.eventsView
+    );
   },
 
   pullRequests: function() {
-    if(this.isSelected("#pullRequests")) {
-      $(window).scrollTop(0);
-      return;
-    }
+    this.activate(
+      "#pullRequests",
+      this.app.pullRequestsCollection,
+      this.app.pullRequestsCollection.loading,
+      this.app.pullRequestsView
+    );
 
-    this.select("#pullRequests");
-
-    if(this.app.pullRequestsCollection.isEmpty()) {
-      this.app.showLoadingScreen()
-    }
-
-    this.app.pullRequestsCollection.loading.done(_.bind(function() {
-      this.app.content.show(this.app.pullRequestsView);
-      this.app.previousView = this.app.pullRequestsView;
-    }, this));
+    this.app.pullRequestsCollection.on("add", function(model, collection) {
+    })
   },
 
   publicEvents: function() {
-    if(this.isSelected("#publicEvents")) {
-      $(window).scrollTop(0);
-      return;
-    }
+    this.activate(
+      "#publicEvents",
+      this.app.publicEventsCollection,
+      this.app.publicEventsCollection.fetcher,
+      this.app.publicEventsView
+    );
 
-    this.select("#publicEvents");
-
-    if(this.app.publicEventsCollection.isEmpty()) {
-      this.app.showLoadingScreen()
-    }
-
-    this.app.publicEventsCollection.fetcher.done(_.bind(function() {
-      this.app.content.show(this.app.publicEventsView);
-      this.app.previousView = this.app.publicEventsView;
-    }, this));
   },
 
   onRender: function() {
     this.privateEvents();
+  },
+
+  activate: function(id, collection, promise, view) {
+    if(this.isSelected(id)) {
+      $(window).scrollTop(0);
+      return;
+    }
+
+    this.select(id);
+
+    if(collection.isEmpty()) {
+      this.app.showLoadingScreen()
+    }
+
+    promise.done(_.bind(function() {
+      this.makeVisible(view);
+    }, this));
+  },
+
+  makeVisible: function(view) {
+    this.app.content.show(view);
+    this.app.previousView = view;
   },
 
   isSelected: function(id) {
