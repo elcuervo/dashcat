@@ -1,7 +1,7 @@
-var SettingsView = Backbone.Marionette.ItemView.extend({
+var SettingsView = BaseItemView.extend({
   template: "#settings-template",
 
-  events: {
+  viewEvents: {
     "change #notifications": "toggleNotifications"
   },
 

@@ -1,12 +1,14 @@
 var BaseItemView = Backbone.Marionette.ItemView.extend({
   emptyView: NothingToSeeView,
 
-  events: {
-    "click a": "openBrowser"
+  events: function() {
+    return _.extend({
+      "click a": "openBrowser"
+    }, this.viewEvents || {})
   },
 
   openBrowser: function(event) {
-    if(macgap) {
+    if(typeof macgap != "undefined") {
       event.preventDefault();
       macgap.app.open(event.currentTarget.href);
     }
