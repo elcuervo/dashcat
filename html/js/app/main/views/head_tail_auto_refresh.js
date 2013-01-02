@@ -49,7 +49,7 @@ var HeadTailAutoRefresh = Backbone.Marionette.CollectionView.extend({
   },
 
   notify: function(message) {
-    if(typeof macgap != 'undefined') {
+    if(DashCat.settings("notificate") && typeof macgap != 'undefined') {
       macgap.growl.notify({
         title:   message.title,
         content: message.content

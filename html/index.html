@@ -8,6 +8,30 @@
     <script type="text/javascript" src="js/libs.js"></script>
   </head>
   <body>
+    <script id="settings-template" type="text/html">
+      <div id="settings-content">
+        <h2>Settings</h2>
+        Show notifications?: <input type="checkbox" id="notifications" <%= notificate && "checked" || "" %>/>
+
+        <h2>About</h2>
+        <div class="about">
+          Hi there! This is brought to you by <a
+          href="http://github.com/elcuervo">elcuervo</a>:
+          <p>
+            Bruno (aka Cuervo) was raised by a Telecommunication's tribe of savages
+            where he was taught the ways of Distributed Computing and Async
+            Protocols. The urbanisation of the tribe's lands and Emperor penguin
+            migration cycle led Cuervo to the HTTP way, and now he seeks to unite
+            both ways.
+          </p>
+          <p>
+            Being Open Source dependent, he leads several Open Source Projects, is
+            also a Gemini and enjoys long walks on the beach.
+          </p>
+        </div>
+      </div>
+    </script>
+
     <script id="loader-template" type="text/html">
       <li id="placeholder">
         <div class="box">

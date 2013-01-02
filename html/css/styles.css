@@ -27,7 +27,9 @@ body {
 
 blockquote {
   color: #999;
+  font-size: .9em;
   margin: 5px;
+  max-width: 400px;
   position: relative;
 }
 
@@ -39,6 +41,10 @@ blockquote:after {
 
 blockquote:after {
   clear: both;
+}
+
+blockquote p {
+  margin: 0
 }
 
 @font-face {
@@ -203,8 +209,12 @@ blockquote:after {
 
 .info {
   font-size: 0.9em;
-  padding: 0;
+  padding-top: 3px;
   margin: 0
+}
+
+.info:first-letter {
+  text-transform: uppercase;
 }
 
 ol.commits {
@@ -284,6 +294,15 @@ a {
 }
 
 .watch-event .body,
+.follow-event .body,
+.fork-event .body,
+.issues-event .body,
+.create-event .body,
+.delete-event .body,
+.member-event .body,
+.public-event .body,
+.download-event .body,
+.gist-event .body,
 .issues-event .body {
   padding-top: 5px
 }
@@ -495,4 +514,13 @@ a {
 .nothing {
   height: 100%;
   text-align: center
+}
+
+#settings-content {
+  height: 100%;
+  margin-left: 10px
+}
+
+.about {
+  font-size: .8em;
 }

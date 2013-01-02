@@ -19,6 +19,23 @@ DashCat.__defineSetter__("token", function(token) {
   return localStorage.setItem("oauth_token", token);
 });
 
+DashCat.settings = function(configuration) {
+  switch(true) {
+    case typeof configuration == 'object':
+      _.extend(DashCat.configuration, configuration)
+      break;
+
+    case typeof configuration == 'string':
+      return DashCat.configuration[configuration];
+      break;
+  }
+
+  localStorage.setItem("configuration", JSON.stringify(DashCat.configuration));
+};
+
+var settings = localStorage.getItem("settings");
+DashCat.configuration = settings && JSON.parse(settings) || { notificate: true };
+
 marked.setOptions({
   gfm: true,
   pedantic: false,

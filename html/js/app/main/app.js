@@ -74,6 +74,7 @@ var Main = DashCat.module("Main", {
               collection: Main.app.publicEventsCollection
             });
 
+            Main.app.settingsView = new SettingsView();
 
             Main.app.menu.show(menuView);
           }

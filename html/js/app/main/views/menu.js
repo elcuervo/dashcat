@@ -6,6 +6,7 @@ var MenuView = Backbone.Marionette.ItemView.extend({
     "click #publicEvents":        "publicEvents",
     "click #notificationsEvents": "notificationsEvents",
     "click #pullRequests":        "pullRequests",
+    "click #settings":            "settings",
     "click #quit":                "exit"
   },
 
@@ -50,7 +51,19 @@ var MenuView = Backbone.Marionette.ItemView.extend({
       this.app.publicEventsCollection.fetcher,
       this.app.publicEventsView
     );
+  },
 
+  settings: function() {
+    var id = "#settings";
+
+    if(this.isSelected(id)) {
+      $(window).scrollTop(0);
+      return;
+    }
+
+    this.select(id);
+
+    this.app.content.show(Main.app.settingsView);
   },
 
   onRender: function() {
