@@ -60,12 +60,20 @@ blockquote p {
 
 @font-face {
   font-family: "Entypo";
-  src: url("../fonts/entypo.ttf") format("truetype");
+  src: url('../fonts/entypo.eot');
+  src: url('../fonts/entypo.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/entypo.woff') format('woff'),
+       url('../fonts/entypo.ttf') format('truetype'),
+       url('../fonts/entypo.svg#entypo') format('svg');
 }
 
 @font-face {
   font-family: "Entypo social";
-  src: url("../fonts/entypo-social.ttf") format("truetype");
+  src: url('../fonts/entypo-social.eot');
+  src: url('../fonts/entypo-social.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/entypo-social.woff') format('woff'),
+       url('../fonts/entypo-social.ttf') format('truetype'),
+       url('../fonts/entypo-social.svg#entypo') format('svg');
 }
 
 .selected {
