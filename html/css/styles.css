@@ -22,7 +22,12 @@ a, a:visited {
 }
 
 .pull-request-event code {
-  display: block
+  display: inline-block;
+  background: #e8f1f6;
+  border-radius: 3px;
+  margin-top: 5px;
+  padding: 3px 7px;
+  color: rgba(0, 0, 0, .8);
 }
 
 body {
@@ -32,7 +37,7 @@ body {
 }
 
 blockquote {
-  color: #999;
+  color: #646464;
   font-size: .9em;
   margin: 5px;
   max-width: 400px;
@@ -529,4 +534,15 @@ a {
 
 .about {
   font-size: .8em;
+}
+
+.back {
+  font-family: 'Entypo';
+  font-size: 3em;
+  line-height: 20px;
+  border-radius: 3px;
+}
+
+.back:before {
+  content: "\2B05";
 }

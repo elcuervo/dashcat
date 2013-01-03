@@ -43,8 +43,8 @@
     </script>
 
     <script id="diff-viewer-template" type="text/html">
-      <div class="event">
-        <button class="back">Back</button>
+      <div class="event diff-viewer">
+        <button class="back"></button>
         <% _.each(diffy, function(file) { %>
           <div class="diff">
             <table cellpadding="0" cellspacing="0">
@@ -516,9 +516,9 @@
             <a href="<%= payload.html_url || payload.pull_request.html_url %>">
               <span class="issue"><%= repo.name %>#<%= payload.number || payload.pull_request.number %></span>
             </a>
-            <p class="info">
+            <h3 class="info">
               <%= payload.title || payload.pull_request.title %>
-            </p>
+            </h3>
             <code>
               Commits: <%= payload.commits || payload.pull_request.commits %>
               Additions: <%= payload.additions || payload.pull_request.additions %>
