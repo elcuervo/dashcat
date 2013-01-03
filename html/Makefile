@@ -12,6 +12,7 @@ libs = js/libs/moment.min.js \
 
 app = ${appdir}/base.js \
       ${appdir}/i18n.js \
+      ${appdir}/main/views/base_item_view.js \
       ${appdir}/login/app.js \
       ${appdir}/login/views/login.js \
       ${appdir}/main/collections/dashcat_collection.js \
@@ -25,7 +26,6 @@ app = ${appdir}/base.js \
       ${appdir}/main/collections/notifications.js \
       ${appdir}/main/collections/public_events.js \
       ${appdir}/main/views/loading_screen.js \
-      ${appdir}/main/views/base_item_view.js \
       ${appdir}/main/views/nothing_to_see.js \
       ${appdir}/main/views/basic_event_view.js \
       ${appdir}/main/views/head_tail_auto_refresh.js \

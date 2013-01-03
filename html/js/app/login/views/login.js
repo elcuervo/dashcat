@@ -1,4 +1,4 @@
-var LoginView = Backbone.Marionette.ItemView.extend({
+var LoginView = BaseItemView.extend({
   template: "#login-template",
 
   id: "login_menu",
