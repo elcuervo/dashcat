@@ -16,8 +16,11 @@ var BaseItemView = Backbone.Marionette.ItemView.extend({
 
   templateHelpers: function() {
     var model = this.model;
+    var currentLanguage = DashCat.settings("language") || "en";
+    var currentTemplate = this.template;
 
     var defineVisibility = function() {
+      if(!model) return;
       var privateRepo = model.get("repository") && model.get("repository")["private"];
 
       if(!!model.get("public") || !privateRepo) {
@@ -31,6 +34,8 @@ var BaseItemView = Backbone.Marionette.ItemView.extend({
       time: function(createdAt) {
         return moment(createdAt).fromNow();
       },
+
+      t: i18n[currentLanguage][currentTemplate],
 
       creationTag: function(value) {
         return '<span class="created_at" data-time="' + value + '">' + this.time(value) + '</span>'

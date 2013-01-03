@@ -11,6 +11,7 @@ libs = js/libs/moment.min.js \
        js/libs/backbone.infiniscroll.js
 
 app = ${appdir}/base.js \
+      ${appdir}/i18n.js \
       ${appdir}/login/app.js \
       ${appdir}/login/views/login.js \
       ${appdir}/main/collections/dashcat_collection.js \
@@ -18,7 +19,6 @@ app = ${appdir}/base.js \
       ${appdir}/main/models/user.js \
       ${appdir}/main/models/pull_request.js \
       ${appdir}/main/models/event.js \
-      ${appdir}/main/views/nothing_to_see.js \
       ${appdir}/main/collections/pull_requests.js \
       ${appdir}/main/collections/dashcat_events_collection.js \
       ${appdir}/main/collections/events.js \
@@ -26,6 +26,7 @@ app = ${appdir}/base.js \
       ${appdir}/main/collections/public_events.js \
       ${appdir}/main/views/loading_screen.js \
       ${appdir}/main/views/base_item_view.js \
+      ${appdir}/main/views/nothing_to_see.js \
       ${appdir}/main/views/basic_event_view.js \
       ${appdir}/main/views/head_tail_auto_refresh.js \
       ${appdir}/main/views/notification.js \

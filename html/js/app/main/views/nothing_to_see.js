@@ -1,3 +1,3 @@
-var NothingToSeeView = Backbone.Marionette.ItemView.extend({
+var NothingToSeeView = BaseItemView.extend({
   template: "#nothing-to-see-template"
 });

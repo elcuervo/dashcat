@@ -10,8 +10,8 @@
   <body>
     <script id="settings-template" type="text/html">
       <div id="settings-content">
-        <h2>Settings</h2>
-        Show notifications?: <input type="checkbox" id="notifications" <%= notificate && "checked" || "" %>/>
+        <h2><%= t.title %></h2>
+        <%= t.show_notifications %> <input type="checkbox" id="notifications" <%= notificate && "checked" || "" %>/>
 
         <h2>About</h2>
         <div class="about">
@@ -66,7 +66,7 @@
 
     <script id="nothing-to-see-template" type="text/html">
       <div class="nothing">
-        <h2>There is nothing to see</h2>
+        <h2><%= t.title %></h2>
         <h3>It's dangerous to go alone!, take this:</h3>
         <img src="http://random-octocat.herokuapp.com/" width="200" height="200"/>
       </div>
@@ -106,7 +106,7 @@
             <%= creationTag(updated_at) %>
           </h2>
           <span class="info">
-            Sent a pull request to
+            <%= t.sent_a_pull_request %>
             <a href="<%= html_url %>">
               <%= repository.full_name %>#<%= number %>
             </a>
@@ -116,12 +116,12 @@
             <div class="mergeable">
               <button class="diff_it">
                 <span class="diff action"></span>
-                Diff files
+                <%= t.diff_files %>
               </button>
               <% if(mergeable) { %>
                 <button class="merge_it">
                   <span class="merge action"> </span>
-                    Merge pull request
+                  <%= t.merge %>
                 </button>
               <% } %>
             </div>
@@ -129,8 +129,8 @@
             <div class="commit_merge">
               <form id="merge_commit">
                 <textarea class="commit_message" rows="10"></textarea>
-                <button class="cancel_merge">Cancel</button>
-                <button type="submit">Confirm Merge</button>
+                <button class="cancel_merge"><%= t.cancel %></button>
+                <button type="submit"><%= t.confirm %></button>
               </form>
             </div>
           </span>
@@ -147,7 +147,7 @@
         <form action="">
           <input type="text" id="username" placeholder="username"/>
           <input type="password" id="password" placeholder="password" />
-          <button type="submit"> get token </button>
+          <button type="submit"><%= t.get_token %></button>
         </form>
       </div>
     </script>
@@ -156,19 +156,19 @@
       <div id="menu_icons">
         <ol>
           <li class="menu avatar"> <img width=50 height=50 src="<%= avatar_url %>" alt="" /> </li>
-          <li class="menu" id="privateEvents" title="Watching"><span class="menu-icon watching"></span></li>
-          <li class="menu" id="notificationsEvents" title="Notifications">
+          <li class="menu" id="privateEvents" title="<%= t.watching %>"><span class="menu-icon watching"></span></li>
+          <li class="menu" id="notificationsEvents" title="<%= t.notifications %>">
             <span class="menu-icon notifications"></span>
           </li>
-          <li class="menu" id="pullRequests" title="Pull Requests">
+          <li class="menu" id="pullRequests" title="<%= t.pull_requests %>">
             <span class="menu-icon pull-request"></span>
           </li>
-          <li class="menu" id="publicEvents" title="Public"><span class="menu-icon general"></span></li>
-          <li class="menu" id="settings"><span class="menu-icon settings"></span></li>
+          <li class="menu" id="publicEvents" title="<%= t.public_events %>"><span class="menu-icon general"></span></li>
+          <li class="menu" id="settings" title="<%= t.settings %>"><span class="menu-icon settings"></span></li>
           <li class="menu full-bottom bottom-two">
             <img id="loader" class="menu-icon" src="img/loading.gif" alt="" />
           </li>
-          <li class="menu full-bottom bottom-one" title="Quit" id="quit"><span class="menu-icon exit"></span></li>
+          <li class="menu full-bottom bottom-one" title="<%= t.quit %>" id="quit"><span class="menu-icon exit"></span></li>
         </ol>
       </div>
     </script>
@@ -182,11 +182,11 @@
         <div class="body">
           <h2><%= actor.login %></h2>
           <span class="info">
-            &#160;forked
+            &#160;<%= t.forked %>
             <a href="https://github.com/<%= repo.name %>">
               <span class="repo_name"><%= repo.name %></span>
             </a>
-            to
+            <%= t.to %>
             <a href="<%= payload.forkee.html_url %>">
               <span class="repo_name"><%= payload.forkee.full_name %></span>
             </a>
@@ -205,11 +205,11 @@
         <div class="body">
           <h2><%= actor.login %></h2>
           <span class="info">
-            &#160;created download
+            &#160;<%= t.created_download %>
             <a href="<%= payload.download.html_url%>">
               <%= payload.download.name %>
             </a>
-            from
+            <%= t.from %>
             <a href="<%= cleanUrl(repo.url) %>">
               <span class="repo_name"><%= repo.name %></span>
             </a>
@@ -238,6 +238,7 @@
     </script>
 
     <script id="team-add-event-template" type="text/html">
+      <% console.log(arguments) %>
       <div class="event team-add-event <%= visibilityClass %> box">
         <a name="<%= id %>"></a>
         <div class="user">
@@ -246,18 +247,7 @@
         <div class="body">
           <h2><%= actor.login %></h2>
           <span class="info">
-            &#160;added
-            <% if !!payload.user { %>
-              user <%= payload.user.login %>
-            <% } %>
-
-            <% if !!payload.repo { %>
-              repository <%= payload.repo.name %>
-            <% } %>
-            to team
-            <a href="<%= payload.team.url %>">
-              <span class="repo_name"><%= payload.team.name %></span>
-            </a>
+            <%= t.added(payload.user, payload.repo, payload.team) %>
           </span>
           <%= creationTag(created_at) %>
         </div>
@@ -292,7 +282,7 @@
         <div class="body">
           <h2><%= actor.login %></h2>
           <span class="info">
-            &#160;open sourced
+            &#160;<%= t.open_sourced %>
             <a href="<%= cleanUrl(repo.url) %>">
               <span class="repo_name"><%= repo.name %></span>
             </a>
@@ -311,7 +301,7 @@
         <div class="body">
           <h2><%= actor.login %></h2>
           <span class="info">
-            &#160;starred
+            &#160;<%= t.starred %>
             <a href="https://github.com/<%= repo.name %>">
               <span class="repo_name"><%= repo.name %></span>
             </a>
@@ -349,10 +339,7 @@
         <div class="body">
           <h2><%= actor.login %></h2>
           <span class="info">
-            &#160;deleted <%= payload.ref_type %> <%= payload.ref %> from
-            <a href="<%= cleanUrl(repo.url) %>">
-              <span class="issue"><%= repo.name %></span>
-            </a>
+            <%= t.deleted(payload.ref_type, payload.ref, cleanUrl(repo.url), repo) %>
           </span>
           <%= creationTag(created_at) %>
         </div>

@@ -5,7 +5,7 @@ var SettingsView = BaseItemView.extend({
     "change #notifications": "toggleNotifications"
   },
 
-  templateHelpers: function() {
+  helpers: function() {
     return {
       notificate: !!DashCat.settings("notificate")
     }

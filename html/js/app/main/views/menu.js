@@ -1,4 +1,4 @@
-var MenuView = Backbone.Marionette.ItemView.extend({
+var MenuView = BaseItemView.extend({
   template: "#menu-template",
 
   events: {
