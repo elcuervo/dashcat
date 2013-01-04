@@ -1,5 +1,6 @@
-# DashCat
 ![DashCat](http://www.dash.cat/img/logo.png)
+# DashCat
+![DashCat](http://www.dash.cat/img/snap.png)
 
 ## Origin
 
