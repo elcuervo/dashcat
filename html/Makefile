@@ -11,6 +11,7 @@ libs = js/libs/moment.min.js \
        js/libs/backbone.infiniscroll.js
 
 app = ${appdir}/base.js \
+      ${appdir}/auth_tokens.js \
       ${appdir}/i18n.js \
       ${appdir}/i18n/en.js \
       ${appdir}/main/views/base_item_view.js \

@@ -1,0 +1,2 @@
+DashCat.clientId = "GITHUB_APP_CLIENT_ID";
+DashCat.secret   = "GITHUB_APP_SECRET";
