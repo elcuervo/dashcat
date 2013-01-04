@@ -11,7 +11,18 @@
     <script id="settings-template" type="text/html">
       <div id="settings-content">
         <h2><%= t.title %></h2>
-        <%= t.show_notifications %> <input type="checkbox" id="notifications" <%= notificate && "checked" || "" %>/>
+        <p>
+          <%= t.show_notifications %>:
+          <input type="checkbox" id="notifications" <%= notificate && "checked" || "" %>/>
+        </p>
+        <p>
+          <%= t.choose_language %>:
+          <select id="languages" name="">
+          <% _.each(_.keys(i18n), function(lang) { %>
+            <option value="<%= lang %>>"><%= i18n[lang].name %></option>
+          <% }); %>
+          </select>
+        </p>
 
         <h2>About</h2>
         <div class="about">
@@ -359,15 +370,12 @@
             <%= creationTag(created_at) %>
           </h2>
           <p class="info">
-            commented commit
-            <a href="<%= payload.comment.html_url %>">
-              <span class="commit"><%= sha(payload.comment.commit_id) %></span>
-            </a>
-            on
-            <%= repo.name %>
-            <blockquote>
-              <%= marked(payload.comment.body) %>
-            </blockquote>
+            <%= t.commented(
+                  payload.comment,
+                  repo, marked(payload.comment.body),
+                  sha(payload.comment.commit_id)
+               )
+            %>
           </p>
         </div>
       </div>
@@ -405,13 +413,7 @@
             <%= creationTag(created_at) %>
           </h2>
           <p class="info">
-            commented on pull request
-            <a href="<%= payload.comment._links.html.href %>">
-              <span class="issue"><%= repo.name %>#<%= payload.comment._links.pull_request.href.split("/")[-1] %></span>
-            </a>
-            <blockquote>
-              <%= payload.comment.body %>
-            </blockquote>
+            <%= t.commented(repo, payload.comment) %>
           </p>
         </div>
       </div>
@@ -430,7 +432,7 @@
             <%= creationTag(created_at) %>
           </h2>
           <p class="info">
-            Edited wiki
+            <%= t.edited %>
             <a href="<%= cleanUrl(repo.url) %>"><span class="repo_name"><%= repo.name %></span></a>
             <ol class="pages">
               <% _.each(payload.pages, function(page) { %>
@@ -457,7 +459,7 @@
         <div class="body">
           <h2><%= actor.login %></h2>
           <span class="info">
-            &#160;created <%= payload.ref_type %> <%= payload.ref %>
+            &#160;<%= t.created %><%= payload.ref_type %> <%= payload.ref %>
             <a href="<%= cleanUrl(repo.url) %>">
               <span class="repo_name"><%= repo.name %></span>
             </a>
@@ -476,7 +478,7 @@
         <div class="body">
           <h2><%= actor.login %></h2>
           <span class="info">
-            &#160;started following
+            &#160;<%= t.started_following %>
             <a href="<%= payload.target.html_url %>">
               <span class="repo_name"><%= payload.target.login %></span>
             </a>
@@ -499,7 +501,7 @@
             <%= creationTag(created_at) %>
           </h2>
           <p class="info">
-            <%= payload.action || "sent" %> a pull request
+            <%= t.action_title(payload.action) %>
             <a href="<%= payload.html_url || payload.pull_request.html_url %>">
               <span class="issue"><%= repo.name %>#<%= payload.number || payload.pull_request.number %></span>
             </a>
@@ -507,10 +509,10 @@
               <%= payload.title || payload.pull_request.title %>
             </h3>
             <code>
-              Commits: <%= payload.commits || payload.pull_request.commits %>
-              Additions: <%= payload.additions || payload.pull_request.additions %>
+              <%= t.commits %>: <%= payload.commits || payload.pull_request.commits %>
+              <%= t.additions %>: <%= payload.additions || payload.pull_request.additions %>
               <% if(payload.deletions || payload.pull_request && payload.pull_request.deletions) { %>
-                Deletions: <%= payload.deletions || payload.pull_request.deletions %>
+                <%= t.deletions %>: <%= payload.deletions || payload.pull_request.deletions %>
               <% } %>
             </code>
           </p>
@@ -531,7 +533,7 @@
             <%= creationTag(created_at) %>
           </h2>
           <p class="info">
-            commented on
+            <%= t.commented %>
             <a href="<%= cleanUrl(payload.url || payload.issue.url) %>">
               <span class="issue"><%= repo.name %>#<%= payload.number || payload.issue.number %></span>
             </a>
@@ -556,10 +558,7 @@
             <%= creationTag(created_at) %>
           </h2>
           <p class="info">
-            pushed to
-            <span class="ref"><%= branch() %></span>
-            at
-            <a href="<%= cleanUrl(repo.url) %>"><span class="repo_name"><%= repo.name %></span></a>
+            <%= t.pushed(branch(), cleanUrl(repo.url), repo) %>
             <ol class="commits">
               <% _.each(payload.commits, function(commit) { %>
                 <li class="commit">

@@ -12,6 +12,7 @@ libs = js/libs/moment.min.js \
 
 app = ${appdir}/base.js \
       ${appdir}/i18n.js \
+      ${appdir}/i18n/en.js \
       ${appdir}/main/views/base_item_view.js \
       ${appdir}/login/app.js \
       ${appdir}/login/views/login.js \
