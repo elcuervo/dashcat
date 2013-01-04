@@ -220,9 +220,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FAE451B914BA79C600190544 /* Dashcat */ = {
+		FAE451B914BA79C600190544 /* DashCat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FAE451D814BA79C600190544 /* Build configuration list for PBXNativeTarget "Dashcat" */;
+			buildConfigurationList = FAE451D814BA79C600190544 /* Build configuration list for PBXNativeTarget "DashCat" */;
 			buildPhases = (
 				FAE451B814BA79C600190544 /* Resources */,
 				FAE451B614BA79C600190544 /* Sources */,
@@ -233,7 +233,7 @@
 			);
 			dependencies = (
 			);
-			name = Dashcat;
+			name = DashCat;
 			productName = MacGap;
 			productReference = FAE451BA14BA79C600190544 /* Dashcat.app */;
 			productType = "com.apple.product-type.application";
@@ -259,7 +259,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FAE451B914BA79C600190544 /* Dashcat */,
+				FAE451B914BA79C600190544 /* DashCat */,
 			);
 		};
 /* End PBXProject section */
@@ -436,7 +436,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FAE451D814BA79C600190544 /* Build configuration list for PBXNativeTarget "Dashcat" */ = {
+		FAE451D814BA79C600190544 /* Build configuration list for PBXNativeTarget "DashCat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAE451D914BA79C600190544 /* Debug */,
