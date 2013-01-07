@@ -372,6 +372,7 @@ a {
   color: white;
   width: 210px;
   margin: 0 auto;
+  text-align: center
 }
 
 .form label {
@@ -394,9 +395,6 @@ a {
 }
 
 .logo {
-  margin: 0 auto;
-  padding: 40px 40px 0;
-  width: 120px;
   text-shadow: 0 0 10px rgba(255, 255, 255, 1);
 }
 
@@ -565,4 +563,10 @@ a {
 
 .octoloading {
   font-size: 15px
+}
+
+a.about {
+  margin-top: 20px;
+  display: block;
+  font-size: 12px
 }

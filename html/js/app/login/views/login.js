@@ -3,7 +3,7 @@ var LoginView = BaseItemView.extend({
 
   id: "login_menu",
 
-  events: {
+  viewEvents: {
     "submit form": "getAuthorizations"
   },
 
