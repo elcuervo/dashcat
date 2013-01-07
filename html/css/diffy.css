@@ -19,10 +19,12 @@
 }
 
 .diff tr {
+  font-size: 12px
 }
 
 .diff caption {
-  text-align: left
+  text-align: left;
+  font-size: 12px
 }
 
 .diff .unchanged:hover, .diff .added:hover, .diff .deleted:hover {

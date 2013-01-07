@@ -259,7 +259,7 @@ a {
 }
 
 .commit .message {
-  font-size: 10px !important;
+  font-size: 12px;
 }
 
 .watch-event,
@@ -560,4 +560,8 @@ a {
 
 .back:before {
   content: "\2B05";
+}
+
+.octoloading {
+  font-size: 15px
 }

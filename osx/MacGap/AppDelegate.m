@@ -36,7 +36,6 @@
     [[self.windowController.contentView.webView preferences] setDefaultFontSize: 8];
     [[self.windowController.contentView.webView preferences] setMinimumFontSize: 1];
 
-    
     self.windowController.contentView.webView.alphaValue = 1.0;
     self.windowController.contentView.alphaValue = 1.0;
     [self.windowController showWindow:self];
