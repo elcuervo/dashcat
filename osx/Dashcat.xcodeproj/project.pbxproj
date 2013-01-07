@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1495814F15C15CCC00E1CFE5 /* Notice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1495814E15C15CCC00E1CFE5 /* Notice.m */; };
+		3075991A169AE59F007E985C /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30759919169AE59F007E985C /* Sparkle.framework */; };
+		3075991C169AE5B6007E985C /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 30759919169AE59F007E985C /* Sparkle.framework */; };
+		3075991F169AE66A007E985C /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 3075991E169AE66A007E985C /* dsa_pub.pem */; };
 		30A30AC8168095F60044182F /* dashcat.icns in Resources */ = {isa = PBXBuildFile; fileRef = 30A30AC7168095F60044182F /* dashcat.icns */; };
 		30B026B4167542C100C79B2D /* html in Resources */ = {isa = PBXBuildFile; fileRef = 30B026B3167542C100C79B2D /* html */; };
 		88746BEE14CCA435001E160E /* JSEventHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 88746BED14CCA435001E160E /* JSEventHelper.m */; };
@@ -35,6 +38,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		3075991B169AE5B0007E985C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3075991C169AE5B6007E985C /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA3250DD14BA876F00BF0781 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -50,6 +63,8 @@
 /* Begin PBXFileReference section */
 		1495814D15C15CCC00E1CFE5 /* Notice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notice.h; path = Classes/Commands/Notice.h; sourceTree = "<group>"; };
 		1495814E15C15CCC00E1CFE5 /* Notice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notice.m; path = Classes/Commands/Notice.m; sourceTree = "<group>"; };
+		30759919169AE59F007E985C /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		3075991E169AE66A007E985C /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		30A30AC7168095F60044182F /* dashcat.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = dashcat.icns; sourceTree = "<group>"; };
 		30B026B3167542C100C79B2D /* html */ = {isa = PBXFileReference; lastKnownFileType = folder; name = html; path = ../html; sourceTree = "<group>"; };
 		88746BEC14CCA435001E160E /* JSEventHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSEventHelper.h; path = Classes/JSEventHelper.h; sourceTree = "<group>"; };
@@ -103,12 +118,21 @@
 				FA3250DC14BA875600BF0781 /* Growl.framework in Frameworks */,
 				FA32509D14BA813600BF0781 /* WebKit.framework in Frameworks */,
 				FAE451BF14BA79C600190544 /* Cocoa.framework in Frameworks */,
+				3075991A169AE59F007E985C /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3075991D169AE659007E985C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3075991E169AE66A007E985C /* dsa_pub.pem */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		FA3250E014BA87B800BF0781 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +176,7 @@
 		FAE451AF14BA79C600190544 = {
 			isa = PBXGroup;
 			children = (
+				3075991D169AE659007E985C /* Resources */,
 				30A30AC7168095F60044182F /* dashcat.icns */,
 				FAE451C414BA79C600190544 /* Dashcat */,
 				FAE451BD14BA79C600190544 /* Frameworks */,
@@ -171,6 +196,7 @@
 		FAE451BD14BA79C600190544 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				30759919169AE59F007E985C /* Sparkle.framework */,
 				FA3250DE14BA878D00BF0781 /* Growl.framework */,
 				FA32509E14BA816E00BF0781 /* Growl.framework */,
 				FA32509C14BA813600BF0781 /* WebKit.framework */,
@@ -228,6 +254,7 @@
 				FAE451B614BA79C600190544 /* Sources */,
 				FAE451B714BA79C600190544 /* Frameworks */,
 				FA3250DD14BA876F00BF0781 /* CopyFiles */,
+				3075991B169AE5B0007E985C /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -276,6 +303,7 @@
 				88C0646614BDEC5800E4BCE2 /* Window.xib in Resources */,
 				30B026B4167542C100C79B2D /* html in Resources */,
 				30A30AC8168095F60044182F /* dashcat.icns in Resources */,
+				3075991F169AE66A007E985C /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +423,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/MacGap\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MacGap/Dashcat-Prefix.pch";
@@ -413,6 +442,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/MacGap\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MacGap/Dashcat-Prefix.pch";
