@@ -28,3 +28,8 @@ An official app. It's just my side project so don't blame GitHub for my mistakes
 
 Please contribute. The app aims to have several languages so translators are
 needed.
+
+## BUGS
+
+The app *will* have bugs, it's a work in progress. Feel free to add issues or
+send pull requests!.
