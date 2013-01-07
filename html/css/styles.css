@@ -1,5 +1,6 @@
 html {
   font-family: sans-serif;
+  font-size: 2px;
   height: 100%;
   background: #212121;
   -webkit-touch-callout: none;
@@ -18,7 +19,7 @@ ol {
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: 0.9em
+  font-size: 12px
 }
 
 a, a:visited {
@@ -27,6 +28,7 @@ a, a:visited {
 
 .pull-request-event code {
   display: inline-block;
+  font-size: 10px;
   background: #e8f1f6;
   border-radius: 3px;
   margin-top: 5px;
@@ -42,7 +44,7 @@ body {
 
 blockquote {
   color: #646464;
-  font-size: .9em;
+  font-size: 12px;
   margin: 5px;
   max-width: 400px;
   position: relative;
@@ -86,15 +88,15 @@ blockquote p {
 }
 
 .quote {
-  font-size: 2.5em;
+  font-size: 34px;
   font-family: georgia, sans-serif;
-  line-height: 1em;
+  line-height: 11px;
   float: left;
   width: 3%;
 }
 
 .quote-body {
-  font-size: .9em;
+  font-size: 12px;
   width: 94%;
   float: left;
   margin: 0;
@@ -133,12 +135,12 @@ blockquote p {
   font-style: normal;
   display: inline-block;
   text-decoration: inherit;
-  line-height: .65em;
+  line-height: 20px;
   -webkit-font-smoothing: antialiased;
   text-decoration: none;
   min-width: 18px;
   border-radius: 2px;
-  font-size: 2.5em;
+  font-size: 34px;
   text-align: center;
 }
 
@@ -225,13 +227,13 @@ blockquote p {
 }
 
 .event .body h2 {
-  font-size: 0.9em;
+  font-size: 12px;
   padding: 0;
   margin: 0
 }
 
 .info {
-  font-size: 0.9em;
+  font-size: 12px;
   padding-top: 3px;
   margin: 0
 }
@@ -257,6 +259,7 @@ a {
 }
 
 .commit .message {
+  font-size: 10px !important;
 }
 
 .watch-event,
@@ -342,7 +345,7 @@ a {
 
 .menu-icon {
   font-family: 'Entypo';
-  font-size: 4em;
+  font-size: 55px;
   position: relative;
   left: 10px
 }
@@ -361,7 +364,7 @@ a {
 
 .created_at {
   font-weight: normal;
-  font-size: 0.9em;
+  font-size: 12px;
   color: grey
 }
 
@@ -376,7 +379,7 @@ a {
 }
 
 .form input {
-  font-size: 1.2em
+  font-size: 16px
 }
 
 .form label span {
@@ -386,7 +389,7 @@ a {
 
 .form button {
   margin: 0 auto;
-  font-size: 1.2em;
+  font-size: 16px;
   display: block
 }
 
@@ -465,7 +468,7 @@ a {
   position: absolute;
   display: none;
   min-width: 300px;
-  font-size: 0.9em;
+  font-size: 12px;
   text-align: center;
 }
 
@@ -545,12 +548,12 @@ a {
 }
 
 .about {
-  font-size: .8em;
+  font-size: 11px;
 }
 
 .back {
   font-family: 'Entypo';
-  font-size: 3em;
+  font-size: 41px;
   line-height: 20px;
   border-radius: 3px;
 }

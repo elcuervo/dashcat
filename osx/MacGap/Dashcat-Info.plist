@@ -7,7 +7,7 @@
 	<key>CFBundleVersion</key>
 	<string>0.1</string>
 	<key>SUFeedURL</key>
-	<string>http://localhost:9292/appcast.xml</string>
+	<string>http://localhost:9393/appcast.xml</string>
 	<key>Build display name</key>
 	<string>DashCat</string>
 	<key>CFBundleDevelopmentRegion</key>
