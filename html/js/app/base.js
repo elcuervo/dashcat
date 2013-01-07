@@ -31,10 +31,32 @@ DashCat.settings = function(configuration) {
 };
 
 DashCat.system = {
-  badge: function(size) {
+  withMacGap: function(fn) {
     if(typeof macgap != 'undefined') {
-      macgap.dock.badge = "" + size;
+      fn.call();
     }
+  },
+
+  badge: function(size) {
+    this.withMacGap(function() {
+      macgap.dock.badge = "" + size;
+    });
+  },
+
+  openBrowser: function(event) {
+    this.withMacGap(function() {
+      event.preventDefault();
+      macgap.app.open(event.currentTarget.href);
+    });
+  },
+
+  notify: function(message) {
+    this.withMacGap(function() {
+      macgap.growl.notify({
+        title:   message.title,
+        content: message.content
+      });
+    });
   }
 }
 

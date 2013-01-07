@@ -8,10 +8,7 @@ var BaseItemView = Backbone.Marionette.ItemView.extend({
   },
 
   openBrowser: function(event) {
-    if(typeof macgap != "undefined") {
-      event.preventDefault();
-      macgap.app.open(event.currentTarget.href);
-    }
+    DashCat.system.openBrowser(event);
   },
 
   templateHelpers: function() {
