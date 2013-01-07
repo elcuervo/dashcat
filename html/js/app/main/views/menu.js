@@ -90,6 +90,10 @@ var MenuView = BaseItemView.extend({
   makeVisible: function(view) {
     this.app.content.show(view);
     this.app.previousView = view;
+    // TODO: There is a bug somewhere, this is not suppose to be needed
+    view.collection.on("all", function() {
+      view.render();
+    })
   },
 
   isSelected: function(id) {
