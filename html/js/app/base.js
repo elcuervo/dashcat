@@ -30,6 +30,14 @@ DashCat.settings = function(configuration) {
   localStorage.setItem("configuration", JSON.stringify(DashCat.configuration));
 };
 
+DashCat.system = {
+  badge: function(size) {
+    if(typeof macgap != 'undefined') {
+      macgap.dock.badge = "" + size;
+    }
+  }
+}
+
 var settings = localStorage.getItem("settings");
 DashCat.configuration = settings && JSON.parse(settings) || { notificate: true };
 

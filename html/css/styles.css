@@ -544,7 +544,8 @@ a {
 
 #settings-content {
   height: 100%;
-  margin-left: 10px
+  margin-left: 10px;
+  font-size: 12px
 }
 
 .about {
