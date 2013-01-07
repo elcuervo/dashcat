@@ -6,7 +6,7 @@ var HeadTailAutoRefresh = Backbone.Marionette.CollectionView.extend({
   initialize: function() {
     // TODO: Not sure why I have to explicity re-render the view.. Marionette
     // Bug?
-    this.collection.on("change, add, remove", _.bind(function() {
+    this.collection.on("all", _.bind(function() {
       this.render();
     }, this));
     setInterval(_.bind(this.refreshAndAppendCollection, this), 5000);
