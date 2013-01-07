@@ -39,7 +39,8 @@ DashCat.system = {
 
   badge: function(size) {
     this.withMacGap(function() {
-      macgap.dock.badge = "" + size;
+      if(parseInt(size) > 0) macgap.dock.badge = "" + size;
+      else macgap.dock.badge = "";
     });
   },
 
